@@ -1,0 +1,78 @@
+#!/usr/bin/env sh
+
+# variables
+gaps_bar="40"
+gaps_normal="20"
+gaps_inner="10"
+
+# other app needs float
+otherApp='^(IINA|Finder|Calendar|System\ Preferences|Preview|Mail|WeChat|WeCom|PicGo|qv2ray|Corplink|Plash|Karabiner-Elements)$'
+yabai -m rule --add app="${otherApp}" manage=off
+
+# Tiling settings
+
+yabai -m config layout              bsp
+
+# bar settings
+
+yabai -m config top_padding         "${gaps_bar}"
+yabai -m config bottom_padding      "${gaps_normal}"
+yabai -m config right_padding       "${gaps_normal}"
+yabai -m config left_padding        "${gaps_normal}"
+yabai -m config window_gap          "${gaps_inner}"
+
+yabai -m config mouse_follows_focus on
+yabai -m config focus_follows_mouse off
+
+yabai -m config mouse_modifier              fn
+yabai -m config mouse_action1               move
+yabai -m config mouse_action2               resize
+
+yabai -m config window_topmost              off
+yabai -m config window_opacity              off
+yabai -m config window_shadow               float
+
+yabai -m config active_window_opacity       1.0
+yabai -m config normal_window_opacity       0.9
+yabai -m config split_ratio                 0.5
+yabai -m config auto_balance                off
+
+# label spaces
+yabai -m space 1 --label development
+yabai -m space 2 --label browser
+yabai -m space 3 --label notes
+yabai -m space 4 --label media
+
+# list of rules
+# development space
+yabai -m rule --add app="^Visual\ Studio\ Code$" space=^"development"
+
+# browser space
+# yabai -m rule --add app="^Google\ Chrome$" space=^"browser"
+# yabai -m rule --add app="^Wechat\ Devtools$" space=^"browser"
+yabai -m rule --add app="^Microsoft\ Edge$" space=^"browser"
+yabai -m rule --add app="^Safari$" space=^"browser"
+
+# notes space
+yabai -m rule --add app="^Obsidian$" space=^"notes"
+yabai -m rule --add app="^wolai$" space=^"notes"
+yabai -m rule --add app="^Notion$" space=^"notes"
+yabai -m rule --add app="^GoodNotes$" space=^"notes"
+yabai -m rule --add app="^Notes$" space=^"notes"
+yabai -m rule --add app="^Xmind$" space=^"notes"
+yabai -m rule --add app="^WPS\ Office$" space=^"notes"
+yabai -m rule --add app="^Reminders$" space=^"notes"
+
+# media sapce
+yabai -m rule --add app="^IINA$" space=^"media"
+yabai -m rule --add app="^Music$" space=^"media"
+yabai -m rule --add app="^NeteaseMusic$" space=^"media"
+yabai -m rule --add app="^Spotify$" space=^"media"
+yabai -m rule --add app="^Podcasts$" space=^"media"
+yabai -m rule --add app="^Books$" space=^"media"
+yabai -m rule --add app="^腾讯视频$" space=^"media"
+
+sudo yabai --load-sa
+yabai -m signal --add event=dock_did_restart action="sudo yabai --load-sa"
+
+skhd -c $HOME/.skhdrc

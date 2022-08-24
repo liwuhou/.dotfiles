@@ -1,0 +1,147 @@
+
+# restart yabai
+shift + cmd + alt - r:
+	/usr/bin/env osascript <<< \
+		"display notification \"Restarting Yabai\" with title \"Yabai\""; \
+	launchctl kickstart -k "gui/${UID}/homebrew.mxcl.yabai"
+
+# toggle layout mode
+ctrl + alt + shift - w : yabai -m window --toggle float
+ctrl + alt + shift - b : yabai -m space --layout bsp
+ctrl + alt + shift - f : yabai -m space --layout float
+
+# focus window
+lalt - k : yabai -m window --focus north
+lalt - l : yabai -m window --focus east
+lalt - j : yabai -m window --focus south
+lalt - h : yabai -m window --focus west
+
+# swap managed window
+shift + alt - k : yabai -m window --swap north
+shift + alt - l : yabai -m window --swap east
+shift + alt - j : yabai -m window --swap south
+shift + alt - h : yabai -m window --swap west
+
+# move managed window
+shift + cmd - h : yabai -m window --warp west
+shift + cmd - j : yabai -m window --warp south
+shift + cmd - k : yabai -m window --warp north
+shift + cmd - l : yabai -m window --warp east
+
+# balance size of windows
+lctrl + alt - 0 : yabai -m space --balance
+
+# resize windows
+ralt - a : \
+    yabai -m window --resize left:-20:0 ; \
+    yabai -m window --resize right:-20:0
+
+ralt - s : \
+    yabai -m window --resize bottom:0:20 ; \
+    yabai -m window --resize top:0:20
+
+ralt - w : \
+    yabai -m window --resize top:0:-20 ; \
+    yabai -m window --resize bottom:0:-20
+
+ralt - d : \
+    yabai -m window --resize right:20:0 ; \
+    yabai -m window --resize left:20:0
+
+# large step resize windows
+ralt + rcmd - a : \
+    yabai -m window --resize left:-200:0 ; \
+    yabai -m window --resize right:-200:0
+
+ralt + rcmd - s : \
+    yabai -m window --resize bottom:0:200 ; \
+    yabai -m window --resize top:0:200
+
+ralt  + rcmd - w : \
+    yabai -m window --resize top:0:-200 ; \
+    yabai -m window --resize bottom:0:-200
+
+ralt  + rcmd - d : \
+    yabai -m window --resize right:200:0 ; \
+    yabai -m window --resize left:200:0
+
+# float and center window
+shift + alt - c : yabai -m window --toggle float;\
+								 yabai -m window --grid 10:10:3:3:5:5
+
+# enable / disable gaps in current workspace
+lctrl + alt - g : yabai -m space --toggle padding;\
+									yabai -m space --toggle gap
+
+# rotate tree
+alt - r : yabai -m space --rotate 90
+shift + alt -r : yabai -m space --rotate 270
+
+# mirror tree y-axis
+alt - y : yabai -m space --mirror y-axis
+
+# mirror tree x-axis
+alt - x : yabai -m space --mirror x-axis
+
+# toggle window fullscreen zoom
+alt - f : yabai -m window --toggle zoom-fullscreen
+
+# toggle window native fullscreen zoom
+shift + alt - f : yabai -m window --toggle native-fullscreen
+
+# toggle window border
+alt - b : yabai -m window --toggle border
+
+# make window split type
+alt - e : yabai -m window --toggle split
+
+# fast focus desktop
+alt - 1 : yabai -m space --focus 1
+alt - 2 : yabai -m space --focus 2
+alt - 3 : yabai -m space --focus 3
+alt - 4 : yabai -m space --focus 4
+alt - 5 : yabai -m space --focus 5
+alt - 6 : yabai -m space --focus 6
+alt - 7 : yabai -m space --focus 7
+alt - 8 : yabai -m space --focus 8
+alt - 9 : yabai -m space --focus 9
+alt - 0 : yabai -m space --focus 10
+alt - u : yabai -m space --focus prev
+alt - i : yabai -m space --focus next
+alt - o : yabai -m space --focus recent
+
+# slient send window to space
+lcmd + lalt - 1 : yabai -m window --space 1
+lcmd + lalt - 2 : yabai -m window --space 2
+lcmd + lalt - 3 : yabai -m window --space 3
+lcmd + lalt - 4 : yabai -m window --space 4
+lcmd + lalt - 5 : yabai -m window --space 5
+lcmd + lalt - 6 : yabai -m window --space 6
+lcmd + lalt - 7 : yabai -m window --space 7
+lcmd + lalt - 8 : yabai -m window --space 8
+lcmd + lalt - 9 : yabai -m window --space 9
+lcmd + lalt - 0 : yabai -m window --space 10
+
+# send window to space and focus it
+rcmd + ralt - 1 : yabai -m window --space 1 && yabai -m space --focus 1
+rcmd + ralt - 2 : yabai -m window --space 2 && yabai -m space --focus 2
+rcmd + ralt - 3 : yabai -m window --space 3 && yabai -m space --focus 3
+rcmd + ralt - 4 : yabai -m window --space 4 && yabai -m space --focus 4
+rcmd + ralt - 5 : yabai -m window --space 5 && yabai -m space --focus 5
+rcmd + ralt - 6 : yabai -m window --space 6 && yabai -m space --focus 6
+rcmd + ralt - 7 : yabai -m window --space 7 && yabai -m space --focus 7
+rcmd + ralt - 8 : yabai -m window --space 8 && yabai -m space --focus 8
+rcmd + ralt - 9 : yabai -m window --space 9 && yabai -m space --focus 9
+rcmd + ralt - 0 : yabai -m window --space 10 && yabai -m space --focus 10
+
+# create new space
+ctrl - n : yabai -m space --create
+ctrl - m : yabai -m space --destroy
+
+# destroy empty spaces
+rcmd + ralt - m : /usr/bin/env osascript <<< \
+		"display notification \"destroy empty spaces\" with title \"Yabai\""; \
+  yabai -m query --spaces \
+  | jq 'reverse | .[] | select((.windows | length) == 0) | .index' \
+  | xargs -I{} yabai -m space {} --destroy;
+
