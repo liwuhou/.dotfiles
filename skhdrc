@@ -11,10 +11,10 @@ ctrl + alt + shift - b : yabai -m space --layout bsp
 ctrl + alt + shift - f : yabai -m space --layout float
 
 # focus window
-lalt - k : yabai -m window --focus north
-lalt - l : yabai -m window --focus east
-lalt - j : yabai -m window --focus south
-lalt - h : yabai -m window --focus west
+alt - k : yabai -m window --focus north
+alt - l : yabai -m window --focus east
+alt - j : yabai -m window --focus south
+alt - h : yabai -m window --focus west
 
 # swap managed window
 shift + alt - k : yabai -m window --swap north

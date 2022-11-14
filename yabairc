@@ -1,12 +1,13 @@
 #!/usr/bin/env sh
 
 # variables
-gaps_bar="15"
-gaps_normal="15"
-gaps_inner="10"
+gaps_bar="10"
+gaps_normal="11"
+gaps_inner="8"
+gaps_bottom="5"
 
 # other app needs float
-otherApp='^(提醒事项|备忘录|哔哩哔哩|IINA|Finder|访达|Calendar|System\ Preferences|系统偏好设置|Preview|预览|Mail|WeChat|微信|WeCom|企业微信|PicGo|qv2ray|Corplink|飞连|Plash|Karabiner-Elements|TG\ Pro|Maccy|App\ Store|小鹅通助手)$'
+otherApp='^(Arc|V2exOS|Charles|Music|音乐|NeteaseMusic|网易云音乐|Reminders|提醒事项|备忘录|哔哩哔哩|IINA|Finder|访达|Calendar|System\ Settings|系统设置|Preview|预览|Mail|WeChat|微信|WeCom|企业微信|PicGo|qv2ray|Corplink|飞连|Plash|Karabiner-Elements|TG\ Pro|Maccy|App\ Store|小鹅通助手)$'
 yabai -m rule --add app="${otherApp}" manage=off
 
 # Tiling settings
@@ -16,7 +17,7 @@ yabai -m config layout              bsp
 # bar settings
 
 yabai -m config top_padding         "${gaps_bar}"
-yabai -m config bottom_padding      "${gaps_bar}"
+yabai -m config bottom_padding      "${gaps_bottom}"
 yabai -m config right_padding       "${gaps_normal}"
 yabai -m config left_padding        "${gaps_normal}"
 yabai -m config window_gap          "${gaps_inner}"
