@@ -3,7 +3,7 @@ set fileencodings=utf-8,ucs-bom,gb18030,gbk,gb2312,cp936
 set termencoding=utf-8
 set encoding=utf-8
 
-colorscheme onedark
+"colorscheme onedark"
 syntax enable
 
 "显示相对行号"

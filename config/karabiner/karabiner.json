@@ -4908,26 +4908,6 @@
                                 "type": "basic"
                             },
                             {
-                                "description": "r = Reminders",
-                                "from": {
-                                    "key_code": "r",
-                                    "modifiers": {
-                                        "mandatory": [
-                                            "right_command",
-                                            "right_control",
-                                            "right_shift",
-                                            "right_option"
-                                        ]
-                                    }
-                                },
-                                "to": [
-                                    {
-                                        "shell_command": "open -a Reminders"
-                                    }
-                                ],
-                                "type": "basic"
-                            },
-                            {
                                 "description": "c = Alacritty",
                                 "from": {
                                     "key_code": "c",

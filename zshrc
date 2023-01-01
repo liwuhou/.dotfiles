@@ -8,7 +8,7 @@ export ZSH="/Users/awu/.oh-my-zsh"
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-# ZSH_THEME="spaceship"
+ZSH_THEME="candy"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -75,6 +75,7 @@ plugins=(
 	zsh-syntax-highlighting
 	zsh-autosuggestions
 	autojump
+	vi-mode
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -117,8 +118,8 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion 
 
 # Set Spaceship ZSH as a prompt
-autoload -U promptinit; promptinit
-prompt pure
+#autoload -U promptinit; promptinit
+#prompt pure
 
 # pnpm
 export PNPM_HOME="/Users/awu/Library/pnpm"
