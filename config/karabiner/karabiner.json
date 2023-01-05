@@ -17,6 +17,374 @@
                 },
                 "rules": [
                     {
+                        "description": "Spaces mapping right",
+                        "manipulators": [
+                            {
+                                "description": "Space = MappingKey | Space",
+                                "from": {
+                                    "key_code": "spacebar",
+                                    "modifiers": {
+                                        "optional": [
+                                            "any"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "fn",
+                                        "modifiers": [
+                                            "left_shift",
+                                            "left_control",
+                                            "left_option"
+                                        ]
+                                    }
+                                ],
+                                "to_if_alone": [
+                                    {
+                                        "key_code": "spacebar"
+                                    }
+                                ],
+                                "type": "basic"
+                            },
+                            {
+                                "description": "tab = delete",
+                                "from": {
+                                    "key_code": "tab",
+                                    "modifiers": [
+                                        "fn",
+                                        "left_shift",
+                                        "left_control",
+                                        "left_option"
+                                    ]
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "delete_or_backspace"
+                                    }
+                                ],
+                                "type": "basic"
+                            },
+                            {
+                                "description": "capslock = enter",
+                                "from": {
+                                    "key_code": "caps_lock",
+                                    "modifiers": [
+                                        "fn",
+                                        "left_shift",
+                                        "left_control",
+                                        "left_option"
+                                    ]
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "return_or_enter"
+                                    }
+                                ],
+                                "type": "basic"
+                            },
+                            {
+                                "description": "q = p",
+                                "from": {
+                                    "key_code": "q",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "fn",
+                                            "left_shift",
+                                            "left_control",
+                                            "left_option"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "p"
+                                    }
+                                ],
+                                "type": "basic"
+                            },
+                            {
+                                "description": "w = o",
+                                "from": {
+                                    "key_code": "w",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "fn",
+                                            "left_shift",
+                                            "left_control",
+                                            "left_option"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "o"
+                                    }
+                                ],
+                                "type": "basic"
+                            },
+                            {
+                                "description": "e = i",
+                                "from": {
+                                    "key_code": "e",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "fn",
+                                            "left_shift",
+                                            "left_control",
+                                            "left_option"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "i"
+                                    }
+                                ],
+                                "type": "basic"
+                            },
+                            {
+                                "description": "r = u",
+                                "from": {
+                                    "key_code": "r",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "fn",
+                                            "left_shift",
+                                            "left_control",
+                                            "left_option"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "u"
+                                    }
+                                ],
+                                "type": "basic"
+                            },
+                            {
+                                "description": "t = y",
+                                "from": {
+                                    "key_code": "t",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "fn",
+                                            "left_shift",
+                                            "left_control",
+                                            "left_option"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "y"
+                                    }
+                                ],
+                                "type": "basic"
+                            },
+                            {
+                                "description": "a = ;",
+                                "from": {
+                                    "key_code": "a",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "fn",
+                                            "left_shift",
+                                            "left_control",
+                                            "left_option"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "semicolon"
+                                    }
+                                ],
+                                "type": "basic"
+                            },
+                            {
+                                "description": "s = l",
+                                "from": {
+                                    "key_code": "s",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "fn",
+                                            "left_shift",
+                                            "left_control",
+                                            "left_option"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "l"
+                                    }
+                                ],
+                                "type": "basic"
+                            },
+                            {
+                                "description": "d = k",
+                                "from": {
+                                    "key_code": "d",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "fn",
+                                            "left_shift",
+                                            "left_control",
+                                            "left_option"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "k"
+                                    }
+                                ],
+                                "type": "basic"
+                            },
+                            {
+                                "description": "f = j",
+                                "from": {
+                                    "key_code": "f",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "fn",
+                                            "left_shift",
+                                            "left_control",
+                                            "left_option"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "j"
+                                    }
+                                ],
+                                "type": "basic"
+                            },
+                            {
+                                "description": "g = h",
+                                "from": {
+                                    "key_code": "g",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "fn",
+                                            "left_shift",
+                                            "left_control",
+                                            "left_option"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "h"
+                                    }
+                                ],
+                                "type": "basic"
+                            },
+                            {
+                                "description": "z = /",
+                                "from": {
+                                    "key_code": "z",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "fn",
+                                            "left_shift",
+                                            "left_control",
+                                            "left_option"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "slash"
+                                    }
+                                ],
+                                "type": "basic"
+                            },
+                            {
+                                "description": "x = .",
+                                "from": {
+                                    "key_code": "x",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "fn",
+                                            "left_shift",
+                                            "left_control",
+                                            "left_option"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "period"
+                                    }
+                                ],
+                                "type": "basic"
+                            },
+                            {
+                                "description": "c = ,",
+                                "from": {
+                                    "key_code": "c",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "fn",
+                                            "left_shift",
+                                            "left_control",
+                                            "left_option"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "comma"
+                                    }
+                                ],
+                                "type": "basic"
+                            },
+                            {
+                                "description": "v = m",
+                                "from": {
+                                    "key_code": "v",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "fn",
+                                            "left_shift",
+                                            "left_control",
+                                            "left_option"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "m"
+                                    }
+                                ],
+                                "type": "basic"
+                            },
+                            {
+                                "description": "b = n",
+                                "from": {
+                                    "key_code": "b",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "fn",
+                                            "left_shift",
+                                            "left_control",
+                                            "left_option"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "n"
+                                    }
+                                ],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
                         "description": "CapsLock to Hyper",
                         "manipulators": [
                             {
@@ -6919,7 +7287,7 @@
                             },
                             "to": [
                                 {
-                                    "key_code": "right_option"
+                                    "key_code": "right_command"
                                 }
                             ]
                         },
@@ -6930,36 +7298,6 @@
                             "to": [
                                 {
                                     "key_code": "grave_accent_and_tilde"
-                                }
-                            ]
-                        },
-                        {
-                            "from": {
-                                "key_code": "left_command"
-                            },
-                            "to": [
-                                {
-                                    "key_code": "left_option"
-                                }
-                            ]
-                        },
-                        {
-                            "from": {
-                                "key_code": "left_option"
-                            },
-                            "to": [
-                                {
-                                    "key_code": "left_command"
-                                }
-                            ]
-                        },
-                        {
-                            "from": {
-                                "key_code": "right_option"
-                            },
-                            "to": [
-                                {
-                                    "key_code": "right_command"
                                 }
                             ]
                         }
