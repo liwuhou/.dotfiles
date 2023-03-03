@@ -10,8 +10,8 @@
             "complex_modifications": {
                 "parameters": {
                     "basic.simultaneous_threshold_milliseconds": 50,
-                    "basic.to_delayed_action_delay_milliseconds": 500,
-                    "basic.to_if_alone_timeout_milliseconds": 1000,
+                    "basic.to_delayed_action_delay_milliseconds": 250,
+                    "basic.to_if_alone_timeout_milliseconds": 500,
                     "basic.to_if_held_down_threshold_milliseconds": 500,
                     "mouse_motion_to_scroll.speed": 100
                 },
@@ -4502,6 +4502,26 @@
                                         "modifiers": [
                                             "left_command"
                                         ]
+                                    }
+                                ],
+                                "type": "basic"
+                            },
+                            {
+                                "description": "s = open Notes",
+                                "from": {
+                                    "key_code": "s",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "right_command",
+                                            "right_control",
+                                            "right_shift",
+                                            "right_option"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "shell_command": "open -a Notes"
                                     }
                                 ],
                                 "type": "basic"
