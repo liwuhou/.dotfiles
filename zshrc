@@ -7,7 +7,7 @@ export ZSH="/Users/awu/.oh-my-zsh"
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="candy"
+ZSH_THEME="funky"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -71,10 +71,11 @@ ZSH_THEME="candy"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
 	git
+	zsh-nvm
+	vi-mode
 	zsh-syntax-highlighting
 	zsh-autosuggestions
 	autojump
-	vi-mode
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -112,6 +113,7 @@ alias proxy_off="export http_proxy=''; export https_proxy=''; export all_prosy='
 # export https_proxy=http://127.0.0.1:1087
 # export ALL_PROXY=socks5://127.0.0.1:1089
 
+export NVM_LAZY_LOAD=true
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion 
