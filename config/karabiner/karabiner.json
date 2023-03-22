@@ -4547,26 +4547,6 @@
                                 "type": "basic"
                             },
                             {
-                                "description": "w = open Telegram",
-                                "from": {
-                                    "key_code": "w",
-                                    "modifiers": {
-                                        "mandatory": [
-                                            "right_command",
-                                            "right_control",
-                                            "right_shift",
-                                            "right_option"
-                                        ]
-                                    }
-                                },
-                                "to": [
-                                    {
-                                        "shell_command": "open -a Telegram"
-                                    }
-                                ],
-                                "type": "basic"
-                            },
-                            {
                                 "description": "shift + w = sleep",
                                 "from": {
                                     "key_code": "w",
@@ -4838,6 +4818,26 @@
                                 "to": [
                                     {
                                         "shell_command": "open -a mail"
+                                    }
+                                ],
+                                "type": "basic"
+                            },
+                            {
+                                "description": "s = Notes",
+                                "from": {
+                                    "key_code": "s",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "right_command",
+                                            "right_control",
+                                            "right_shift",
+                                            "right_option"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "shell_command": "open -a 'Note'"
                                     }
                                 ],
                                 "type": "basic"
