@@ -127,3 +127,7 @@ export PNPM_HOME="/Users/awu/Library/pnpm"
 export PATH="$PNPM_HOME:$PATH"
 # export HOMEBREW_NO_INSTALL_CLEANUP=TRUE
 # pnpm end
+
+# proxy 
+proxy_on
+# proxy end
