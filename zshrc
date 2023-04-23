@@ -109,9 +109,7 @@ alias v=nvim
 alias vi=nvim
 alias proxy_on="export https_proxy=http://127.0.0.1:7891 http_proxy=http://127.0.0.1:7891 all_proxy=socks5://127.0.0.1:7891"
 alias proxy_off="export http_proxy=''; export https_proxy=''; export all_prosy=''"
-# export http_proxy=http://127.0.0.1:1087
-# export https_proxy=http://127.0.0.1:1087
-# export ALL_PROXY=socks5://127.0.0.1:1089
+alias signme="git config --local user.name '阿五' && git config --local user.email 'hugewilliam@foxmail.com'"
 
 export NVM_LAZY_LOAD=true
 export NVM_DIR="$HOME/.nvm"
