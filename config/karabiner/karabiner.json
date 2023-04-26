@@ -47,9 +47,9 @@
                                 "type": "basic"
                             },
                             {
-                                "description": "a = capslock switch",
+                                "description": "esc = capslock switch",
                                 "from": {
-                                    "key_code": "a",
+                                    "key_code": "escape",
                                     "modifiers": {
                                         "mandatory": [
                                             "right_command",
