@@ -4905,7 +4905,7 @@
                                 "type": "basic"
                             },
                             {
-                                "description": "c = Alacritty",
+                                "description": "c = warp",
                                 "from": {
                                     "key_code": "c",
                                     "modifiers": {
@@ -4919,7 +4919,7 @@
                                 },
                                 "to": [
                                     {
-                                        "shell_command": "open -a Alacritty"
+                                        "shell_command": "open -a Warp"
                                     }
                                 ],
                                 "type": "basic"
