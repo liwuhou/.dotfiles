@@ -107,7 +107,7 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias v=nvim
 alias vi=nvim
-alias proxy_on="export https_proxy=http://127.0.0.1:1087 http_proxy=http://127.0.0.1:1087 all_proxy=socks5://127.0.0.1:1087"
+alias proxy_on="export https_proxy=http://127.0.0.1:7891 http_proxy=http://127.0.0.1:7891 all_proxy=socks5://127.0.0.1:7891"
 alias proxy_off="export http_proxy=''; export https_proxy=''; export all_prosy=''"
 alias signme="git config --local user.name '阿五' && git config --local user.email 'hugewilliam@foxmail.com'"
 
