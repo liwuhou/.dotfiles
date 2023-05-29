@@ -7,7 +7,7 @@ export ZSH="/Users/awu/.oh-my-zsh"
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="funky"
+ZSH_THEME="dracula"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -107,7 +107,7 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias v=nvim
 alias vi=nvim
-alias proxy_on="export https_proxy=http://127.0.0.1:1087 http_proxy=http://127.0.0.1:1087 all_proxy=socks5://127.0.0.1:1087"
+alias proxy_on="export https_proxy=http://127.0.0.1:7891 http_proxy=http://127.0.0.1:7891 all_proxy=socks5://127.0.0.1:7891"
 alias proxy_off="export http_proxy=''; export https_proxy=''; export all_prosy=''"
 alias signme="git config --local user.name '阿五' && git config --local user.email 'hugewilliam@foxmail.com'"
 
@@ -149,6 +149,6 @@ proxy_on
 # proxy end
 
 # auto load node version config, and use that version
-load-nvmrc
-load-engines-node
+#load-nvmrc
+#load-engines-node
 # auto use node version end
