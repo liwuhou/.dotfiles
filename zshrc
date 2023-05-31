@@ -138,8 +138,10 @@ load-engines-node() {
 
 # pnpm
 export PNPM_HOME="/Users/awu/Library/pnpm"
-export PATH="$PNPM_HOME:$PATH"
-# export HOMEBREW_NO_INSTALL_CLEANUP=TRUE
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
 # pnpm end
 
 # proxy 
