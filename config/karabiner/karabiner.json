@@ -4507,7 +4507,7 @@
                                 "type": "basic"
                             },
                             {
-                                "description": "s = open Notes",
+                                "description": "s = open Safari",
                                 "from": {
                                     "key_code": "s",
                                     "modifiers": {
@@ -4521,7 +4521,7 @@
                                 },
                                 "to": [
                                     {
-                                        "shell_command": "open -a Notes"
+                                        "shell_command": "open -a Safari"
                                     }
                                 ],
                                 "type": "basic"
@@ -4843,7 +4843,7 @@
                                 "type": "basic"
                             },
                             {
-                                "description": "e = Edge",
+                                "description": "e = Notes",
                                 "from": {
                                     "key_code": "e",
                                     "modifiers": {
@@ -4857,7 +4857,7 @@
                                 },
                                 "to": [
                                     {
-                                        "shell_command": "open -a 'Microsoft Edge'"
+                                        "shell_command": "open -a Notes"
                                     }
                                 ],
                                 "type": "basic"
