@@ -1,0 +1,310 @@
+[2023-05-18][10:26:33][chatgpt::app::setup][INFO] stepup
+[2023-05-18][10:26:33][chatgpt::app::setup][INFO] global_shortcut_unregister
+[2023-05-18][10:26:33][chatgpt::app::setup][INFO] run_check_update
+[2023-05-18][10:26:33][chatgpt::utils][INFO] run_check_update: silent=false has_msg=None
+[2023-05-18][10:26:33][chatgpt::app::setup][INFO] stepup_tray
+[2023-05-18][10:26:33][chatgpt::app::setup][INFO] main_window: https://chat.openai.com
+[2023-05-18][10:26:33][attohttpc][DEBUG] trying to connect to lencx.github.io:443
+[2023-05-18][10:26:33][attohttpc][DEBUG] trying to connect to 185.199.109.153:443
+[2023-05-18][10:26:33][attohttpc][DEBUG] successfully connected to 185.199.109.153:443, took 183ms
+[2023-05-18][10:26:33][attohttpc][DEBUG] GET /ChatGPT/install.json HTTP/1.1
+[2023-05-18][10:26:34][attohttpc][DEBUG] creating a length body reader
+[2023-05-18][10:26:34][attohttpc][DEBUG] creating gzip decoder
+[2023-05-18][10:26:34][attohttpc][DEBUG] status code 200
+[2023-05-18][10:28:17][chatgpt::app::gpt][INFO] download_list: chat.download.json
+[2023-05-18][10:28:17][chatgpt::app::gpt][INFO] get_download_list: chat.download.json
+[2023-05-19][01:25:11][chatgpt::app::gpt][INFO] download_list: chat.download.json
+[2023-05-19][01:25:11][chatgpt::app::gpt][INFO] get_download_list: chat.download.json
+[2023-05-19][04:32:51][chatgpt::app::setup][INFO] stepup
+[2023-05-19][04:32:51][chatgpt::app::setup][INFO] global_shortcut_unregister
+[2023-05-19][04:32:51][chatgpt::app::setup][INFO] stepup_tray
+[2023-05-19][04:32:51][chatgpt::app::setup][INFO] run_check_update
+[2023-05-19][04:32:51][chatgpt::app::setup][INFO] main_window: https://chat.openai.com
+[2023-05-19][04:32:51][chatgpt::utils][INFO] run_check_update: silent=false has_msg=None
+[2023-05-19][04:32:51][attohttpc][DEBUG] trying to connect to lencx.github.io:443
+[2023-05-19][04:32:51][attohttpc][DEBUG] trying to connect to 185.199.108.153:443
+[2023-05-19][04:32:51][attohttpc][DEBUG] successfully connected to 185.199.108.153:443, took 72ms
+[2023-05-19][04:32:51][attohttpc][DEBUG] GET /ChatGPT/install.json HTTP/1.1
+[2023-05-19][04:32:51][attohttpc][DEBUG] creating a length body reader
+[2023-05-19][04:32:51][attohttpc][DEBUG] creating gzip decoder
+[2023-05-19][04:32:51][attohttpc][DEBUG] status code 200
+[2023-05-23][06:56:58][chatgpt::app::setup][INFO] stepup
+[2023-05-23][06:56:58][chatgpt::app::setup][INFO] global_shortcut_unregister
+[2023-05-23][06:56:58][chatgpt::app::setup][INFO] run_check_update
+[2023-05-23][06:56:58][chatgpt::utils][INFO] run_check_update: silent=false has_msg=None
+[2023-05-23][06:56:58][chatgpt::app::setup][INFO] main_window: https://chat.openai.com
+[2023-05-23][06:56:58][chatgpt::app::setup][INFO] stepup_tray
+[2023-05-23][06:56:58][attohttpc][DEBUG] trying to connect to lencx.github.io:443
+[2023-05-23][06:56:58][attohttpc][DEBUG] trying to connect to 185.199.111.153:443
+[2023-05-23][06:56:58][attohttpc][DEBUG] successfully connected to 185.199.111.153:443, took 93ms
+[2023-05-23][06:56:59][attohttpc][DEBUG] GET /ChatGPT/install.json HTTP/1.1
+[2023-05-23][06:56:59][attohttpc][DEBUG] creating a length body reader
+[2023-05-23][06:56:59][attohttpc][DEBUG] creating gzip decoder
+[2023-05-23][06:56:59][attohttpc][DEBUG] status code 200
+[2023-05-23][09:48:10][chatgpt::app::setup][INFO] stepup
+[2023-05-23][09:48:10][chatgpt::app::setup][INFO] global_shortcut_unregister
+[2023-05-23][09:48:10][chatgpt::app::setup][INFO] run_check_update
+[2023-05-23][09:48:10][chatgpt::utils][INFO] run_check_update: silent=false has_msg=None
+[2023-05-23][09:48:10][chatgpt::app::setup][INFO] main_window: https://chat.openai.com
+[2023-05-23][09:48:10][chatgpt::app::setup][INFO] stepup_tray
+[2023-05-23][09:48:10][attohttpc][DEBUG] trying to connect to lencx.github.io:443
+[2023-05-23][09:49:29][chatgpt::app::setup][INFO] stepup
+[2023-05-23][09:49:29][chatgpt::app::setup][INFO] global_shortcut_unregister
+[2023-05-23][09:49:29][chatgpt::app::setup][INFO] run_check_update
+[2023-05-23][09:49:29][chatgpt::app::setup][INFO] main_window: https://chat.openai.com
+[2023-05-23][09:49:29][chatgpt::app::setup][INFO] stepup_tray
+[2023-05-23][09:49:29][chatgpt::utils][INFO] run_check_update: silent=false has_msg=None
+[2023-05-23][09:49:29][attohttpc][DEBUG] trying to connect to lencx.github.io:443
+[2023-05-23][09:49:29][attohttpc][DEBUG] trying to connect to 185.199.110.153:443
+[2023-05-23][09:49:29][attohttpc][DEBUG] successfully connected to 185.199.110.153:443, took 74ms
+[2023-05-23][09:49:29][attohttpc][DEBUG] GET /ChatGPT/install.json HTTP/1.1
+[2023-05-23][09:49:29][attohttpc][DEBUG] creating a length body reader
+[2023-05-23][09:49:29][attohttpc][DEBUG] creating gzip decoder
+[2023-05-23][09:49:29][attohttpc][DEBUG] status code 200
+[2023-05-23][10:24:54][chatgpt::app::setup][INFO] stepup
+[2023-05-23][10:24:54][chatgpt::app::setup][INFO] global_shortcut_unregister
+[2023-05-23][10:24:54][chatgpt::app::setup][INFO] stepup_tray
+[2023-05-23][10:24:54][chatgpt::app::setup][INFO] run_check_update
+[2023-05-23][10:24:54][chatgpt::utils][INFO] run_check_update: silent=false has_msg=None
+[2023-05-23][10:24:54][chatgpt::app::setup][INFO] main_window: https://chat.openai.com
+[2023-05-23][10:24:54][attohttpc][DEBUG] trying to connect to lencx.github.io:443
+[2023-05-23][10:24:54][attohttpc][DEBUG] trying to connect to 185.199.111.153:443
+[2023-05-23][10:24:54][attohttpc][DEBUG] successfully connected to 185.199.111.153:443, took 71ms
+[2023-05-23][10:24:54][attohttpc][DEBUG] GET /ChatGPT/install.json HTTP/1.1
+[2023-05-23][10:24:55][attohttpc][DEBUG] creating a length body reader
+[2023-05-23][10:24:55][attohttpc][DEBUG] creating gzip decoder
+[2023-05-23][10:24:55][attohttpc][DEBUG] status code 200
+[2023-05-23][10:25:04][chatgpt::app::setup][INFO] stepup
+[2023-05-23][10:25:04][chatgpt::app::setup][INFO] global_shortcut_unregister
+[2023-05-23][10:25:04][chatgpt::app::setup][INFO] stepup_tray
+[2023-05-23][10:25:04][chatgpt::app::setup][INFO] main_window: https://chat.openai.com
+[2023-05-23][10:25:04][chatgpt::app::setup][INFO] run_check_update
+[2023-05-23][10:25:04][chatgpt::utils][INFO] run_check_update: silent=false has_msg=None
+[2023-05-23][10:25:04][attohttpc][DEBUG] trying to connect to lencx.github.io:443
+[2023-05-23][10:25:04][attohttpc][DEBUG] trying to connect to 185.199.108.153:443
+[2023-05-23][10:25:04][attohttpc][DEBUG] successfully connected to 185.199.108.153:443, took 70ms
+[2023-05-23][10:25:04][attohttpc][DEBUG] GET /ChatGPT/install.json HTTP/1.1
+[2023-05-23][10:25:04][attohttpc][DEBUG] creating a length body reader
+[2023-05-23][10:25:04][attohttpc][DEBUG] creating gzip decoder
+[2023-05-23][10:25:04][attohttpc][DEBUG] status code 200
+[2023-05-26][08:54:49][chatgpt::app::setup][INFO] stepup
+[2023-05-26][08:54:49][chatgpt::app::setup][INFO] global_shortcut_unregister
+[2023-05-26][08:54:49][chatgpt::app::setup][INFO] stepup_tray
+[2023-05-26][08:54:49][chatgpt::app::setup][INFO] run_check_update
+[2023-05-26][08:54:49][chatgpt::utils][INFO] run_check_update: silent=false has_msg=None
+[2023-05-26][08:54:49][chatgpt::app::setup][INFO] main_window: https://chat.openai.com
+[2023-05-26][08:54:49][attohttpc][DEBUG] trying to connect to lencx.github.io:443
+[2023-05-26][08:54:49][attohttpc][DEBUG] trying to connect to 185.199.109.153:443
+[2023-05-26][08:54:49][attohttpc][DEBUG] successfully connected to 185.199.109.153:443, took 69ms
+[2023-05-26][08:54:50][attohttpc][DEBUG] GET /ChatGPT/install.json HTTP/1.1
+[2023-05-26][08:54:50][attohttpc][DEBUG] creating a length body reader
+[2023-05-26][08:54:50][attohttpc][DEBUG] creating gzip decoder
+[2023-05-26][08:54:50][attohttpc][DEBUG] status code 200
+[2023-05-26][08:54:50][chatgpt::utils][INFO] prompt_for_install
+[2023-05-26][08:54:57][attohttpc][DEBUG] trying to connect to github.com:443
+[2023-05-26][08:54:57][attohttpc][DEBUG] DNS returned only one address, using fast path
+[2023-05-26][08:54:57][attohttpc][DEBUG] GET /lencx/ChatGPT/releases/download/v1.0.0/ChatGPT_1.0.0_macos_aarch64.app.tar.gz HTTP/1.1
+[2023-05-26][08:54:57][attohttpc][DEBUG] creating a length body reader
+[2023-05-26][08:54:57][attohttpc][DEBUG] creating plain reader
+[2023-05-26][08:54:57][attohttpc][DEBUG] status code 302
+[2023-05-26][08:54:57][attohttpc][DEBUG] redirected to https://objects.githubusercontent.com/github-production-release-asset-2e65be/575340621/53568c44-bcd0-4642-957a-1b4d55bb5fc4?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAIWNJYAX4CSVEH53A%2F20230526%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20230526T085457Z&X-Amz-Expires=300&X-Amz-Signature=24f7881c3dc9dd63516582a03dc5f3bde5ec872b4a9dc5dc55b32d068d6d7b46&X-Amz-SignedHeaders=host&actor_id=0&key_id=0&repo_id=575340621&response-content-disposition=attachment%3B%20filename%3DChatGPT_1.0.0_macos_aarch64.app.tar.gz&response-content-type=application%2Foctet-stream giving url https://objects.githubusercontent.com/github-production-release-asset-2e65be/575340621/53568c44-bcd0-4642-957a-1b4d55bb5fc4?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAIWNJYAX4CSVEH53A%2F20230526%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20230526T085457Z&X-Amz-Expires=300&X-Amz-Signature=24f7881c3dc9dd63516582a03dc5f3bde5ec872b4a9dc5dc55b32d068d6d7b46&X-Amz-SignedHeaders=host&actor_id=0&key_id=0&repo_id=575340621&response-content-disposition=attachment%3B%20filename%3DChatGPT_1.0.0_macos_aarch64.app.tar.gz&response-content-type=application%2Foctet-stream
+[2023-05-26][08:54:57][attohttpc][DEBUG] trying to connect to objects.githubusercontent.com:443
+[2023-05-26][08:54:57][attohttpc][DEBUG] trying to connect to 185.199.108.133:443
+[2023-05-26][08:54:57][attohttpc][DEBUG] successfully connected to 185.199.108.133:443, took 71ms
+[2023-05-26][08:54:57][attohttpc][DEBUG] GET /github-production-release-asset-2e65be/575340621/53568c44-bcd0-4642-957a-1b4d55bb5fc4?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAIWNJYAX4CSVEH53A%2F20230526%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20230526T085457Z&X-Amz-Expires=300&X-Amz-Signature=24f7881c3dc9dd63516582a03dc5f3bde5ec872b4a9dc5dc55b32d068d6d7b46&X-Amz-SignedHeaders=host&actor_id=0&key_id=0&repo_id=575340621&response-content-disposition=attachment%3B%20filename%3DChatGPT_1.0.0_macos_aarch64.app.tar.gz&response-content-type=application%2Foctet-stream HTTP/1.1
+[2023-05-26][08:54:58][attohttpc][DEBUG] creating a length body reader
+[2023-05-26][08:54:58][attohttpc][DEBUG] creating plain reader
+[2023-05-26][08:54:58][attohttpc][DEBUG] status code 200
+[2023-05-29][02:08:42][chatgpt::app::setup][INFO] stepup
+[2023-05-29][02:08:42][chatgpt::app::setup][INFO] global_shortcut_unregister
+[2023-05-29][02:08:42][chatgpt::app::setup][INFO] run_check_update
+[2023-05-29][02:08:42][chatgpt::utils][INFO] run_check_update: silent=false has_msg=None
+[2023-05-29][02:08:42][chatgpt::app::setup][INFO] stepup_tray
+[2023-05-29][02:08:42][chatgpt::app::setup][INFO] main_window: https://chat.openai.com
+[2023-05-29][02:08:42][attohttpc][DEBUG] trying to connect to lencx.github.io:443
+[2023-05-29][02:08:42][attohttpc][DEBUG] trying to connect to 185.199.108.153:443
+[2023-05-29][02:08:42][attohttpc][DEBUG] successfully connected to 185.199.108.153:443, took 71ms
+[2023-05-29][02:08:42][attohttpc][DEBUG] GET /ChatGPT/install.json HTTP/1.1
+[2023-05-29][02:08:43][attohttpc][DEBUG] creating a length body reader
+[2023-05-29][02:08:43][attohttpc][DEBUG] creating gzip decoder
+[2023-05-29][02:08:43][attohttpc][DEBUG] status code 200
+[2023-05-29][02:08:43][chatgpt::utils][INFO] prompt_for_install
+[2023-05-29][02:08:45][attohttpc][DEBUG] trying to connect to github.com:443
+[2023-05-29][02:08:45][attohttpc][DEBUG] DNS returned only one address, using fast path
+[2023-05-29][02:08:45][attohttpc][DEBUG] GET /lencx/ChatGPT/releases/download/v1.0.0/ChatGPT_1.0.0_macos_aarch64.app.tar.gz HTTP/1.1
+[2023-05-29][02:08:45][attohttpc][DEBUG] creating a length body reader
+[2023-05-29][02:08:45][attohttpc][DEBUG] creating plain reader
+[2023-05-29][02:08:45][attohttpc][DEBUG] status code 302
+[2023-05-29][02:08:45][attohttpc][DEBUG] redirected to https://objects.githubusercontent.com/github-production-release-asset-2e65be/575340621/53568c44-bcd0-4642-957a-1b4d55bb5fc4?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAIWNJYAX4CSVEH53A%2F20230529%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20230529T020729Z&X-Amz-Expires=300&X-Amz-Signature=68fe36571b1dcb7a212df008be398182311cda6d7e7e342fbc87576da4f9e169&X-Amz-SignedHeaders=host&actor_id=0&key_id=0&repo_id=575340621&response-content-disposition=attachment%3B%20filename%3DChatGPT_1.0.0_macos_aarch64.app.tar.gz&response-content-type=application%2Foctet-stream giving url https://objects.githubusercontent.com/github-production-release-asset-2e65be/575340621/53568c44-bcd0-4642-957a-1b4d55bb5fc4?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAIWNJYAX4CSVEH53A%2F20230529%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20230529T020729Z&X-Amz-Expires=300&X-Amz-Signature=68fe36571b1dcb7a212df008be398182311cda6d7e7e342fbc87576da4f9e169&X-Amz-SignedHeaders=host&actor_id=0&key_id=0&repo_id=575340621&response-content-disposition=attachment%3B%20filename%3DChatGPT_1.0.0_macos_aarch64.app.tar.gz&response-content-type=application%2Foctet-stream
+[2023-05-29][02:08:45][attohttpc][DEBUG] trying to connect to objects.githubusercontent.com:443
+[2023-05-29][02:08:45][attohttpc][DEBUG] trying to connect to 185.199.111.133:443
+[2023-05-29][02:08:45][attohttpc][DEBUG] successfully connected to 185.199.111.133:443, took 74ms
+[2023-05-29][02:08:46][attohttpc][DEBUG] GET /github-production-release-asset-2e65be/575340621/53568c44-bcd0-4642-957a-1b4d55bb5fc4?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAIWNJYAX4CSVEH53A%2F20230529%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20230529T020729Z&X-Amz-Expires=300&X-Amz-Signature=68fe36571b1dcb7a212df008be398182311cda6d7e7e342fbc87576da4f9e169&X-Amz-SignedHeaders=host&actor_id=0&key_id=0&repo_id=575340621&response-content-disposition=attachment%3B%20filename%3DChatGPT_1.0.0_macos_aarch64.app.tar.gz&response-content-type=application%2Foctet-stream HTTP/1.1
+[2023-05-29][02:08:46][attohttpc][DEBUG] creating a length body reader
+[2023-05-29][02:08:46][attohttpc][DEBUG] creating plain reader
+[2023-05-29][02:08:46][attohttpc][DEBUG] status code 200
+[2023-06-01][01:50:39][chatgpt::app::setup][INFO] stepup
+[2023-06-01][01:50:39][chatgpt::app::setup][INFO] global_shortcut_unregister
+[2023-06-01][01:50:39][chatgpt::app::setup][INFO] run_check_update
+[2023-06-01][01:50:39][chatgpt::utils][INFO] run_check_update: silent=false has_msg=None
+[2023-06-01][01:50:39][chatgpt::app::setup][INFO] stepup_tray
+[2023-06-01][01:50:39][chatgpt::app::setup][INFO] main_window: https://chat.openai.com
+[2023-06-01][01:50:39][attohttpc][DEBUG] trying to connect to lencx.github.io:443
+[2023-06-01][01:50:39][attohttpc][DEBUG] trying to connect to 185.199.111.153:443
+[2023-06-01][01:50:39][attohttpc][DEBUG] successfully connected to 185.199.111.153:443, took 138ms
+[2023-06-01][01:50:39][attohttpc][DEBUG] GET /ChatGPT/install.json HTTP/1.1
+[2023-06-01][01:50:40][attohttpc][DEBUG] creating a length body reader
+[2023-06-01][01:50:40][attohttpc][DEBUG] creating gzip decoder
+[2023-06-01][01:50:40][attohttpc][DEBUG] status code 200
+[2023-06-01][01:50:40][chatgpt::utils][INFO] prompt_for_install
+[2023-06-01][01:50:56][attohttpc][DEBUG] trying to connect to github.com:443
+[2023-06-01][01:50:56][attohttpc][DEBUG] DNS returned only one address, using fast path
+[2023-06-01][01:50:56][attohttpc][DEBUG] GET /lencx/ChatGPT/releases/download/v1.0.0/ChatGPT_1.0.0_macos_aarch64.app.tar.gz HTTP/1.1
+[2023-06-01][01:50:57][attohttpc][DEBUG] creating a length body reader
+[2023-06-01][01:50:57][attohttpc][DEBUG] creating plain reader
+[2023-06-01][01:50:57][attohttpc][DEBUG] status code 302
+[2023-06-01][01:50:57][attohttpc][DEBUG] redirected to https://objects.githubusercontent.com/github-production-release-asset-2e65be/575340621/53568c44-bcd0-4642-957a-1b4d55bb5fc4?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAIWNJYAX4CSVEH53A%2F20230601%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20230601T015057Z&X-Amz-Expires=300&X-Amz-Signature=241c0143c3cada0fd82a9f39385f86f9d5c18a3422ed7f4255aab4d6048fcef1&X-Amz-SignedHeaders=host&actor_id=0&key_id=0&repo_id=575340621&response-content-disposition=attachment%3B%20filename%3DChatGPT_1.0.0_macos_aarch64.app.tar.gz&response-content-type=application%2Foctet-stream giving url https://objects.githubusercontent.com/github-production-release-asset-2e65be/575340621/53568c44-bcd0-4642-957a-1b4d55bb5fc4?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAIWNJYAX4CSVEH53A%2F20230601%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20230601T015057Z&X-Amz-Expires=300&X-Amz-Signature=241c0143c3cada0fd82a9f39385f86f9d5c18a3422ed7f4255aab4d6048fcef1&X-Amz-SignedHeaders=host&actor_id=0&key_id=0&repo_id=575340621&response-content-disposition=attachment%3B%20filename%3DChatGPT_1.0.0_macos_aarch64.app.tar.gz&response-content-type=application%2Foctet-stream
+[2023-06-01][01:50:57][attohttpc][DEBUG] trying to connect to objects.githubusercontent.com:443
+[2023-06-01][01:50:57][attohttpc][DEBUG] trying to connect to 185.199.110.133:443
+[2023-06-01][01:50:57][attohttpc][DEBUG] successfully connected to 185.199.110.133:443, took 73ms
+[2023-06-01][01:50:57][attohttpc][DEBUG] GET /github-production-release-asset-2e65be/575340621/53568c44-bcd0-4642-957a-1b4d55bb5fc4?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAIWNJYAX4CSVEH53A%2F20230601%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20230601T015057Z&X-Amz-Expires=300&X-Amz-Signature=241c0143c3cada0fd82a9f39385f86f9d5c18a3422ed7f4255aab4d6048fcef1&X-Amz-SignedHeaders=host&actor_id=0&key_id=0&repo_id=575340621&response-content-disposition=attachment%3B%20filename%3DChatGPT_1.0.0_macos_aarch64.app.tar.gz&response-content-type=application%2Foctet-stream HTTP/1.1
+[2023-06-01][01:50:57][attohttpc][DEBUG] creating a length body reader
+[2023-06-01][01:50:57][attohttpc][DEBUG] creating plain reader
+[2023-06-01][01:50:57][attohttpc][DEBUG] status code 200
+[2023-06-02][02:34:51][chatgpt::app::setup][INFO] stepup
+[2023-06-02][02:34:51][chatgpt::app::setup][INFO] global_shortcut_unregister
+[2023-06-02][02:34:51][chatgpt::app::setup][INFO] stepup_tray
+[2023-06-02][02:34:51][chatgpt::app::setup][INFO] run_check_update
+[2023-06-02][02:34:51][chatgpt::utils][INFO] run_check_update: silent=false has_msg=None
+[2023-06-02][02:34:51][chatgpt::app::setup][INFO] main_window: https://chat.openai.com
+[2023-06-02][02:34:51][attohttpc][DEBUG] trying to connect to lencx.github.io:443
+[2023-06-02][02:34:51][attohttpc][DEBUG] trying to connect to 185.199.109.153:443
+[2023-06-02][02:34:51][attohttpc][DEBUG] successfully connected to 185.199.109.153:443, took 70ms
+[2023-06-02][02:34:52][attohttpc][DEBUG] GET /ChatGPT/install.json HTTP/1.1
+[2023-06-02][02:34:52][attohttpc][DEBUG] creating a length body reader
+[2023-06-02][02:34:52][attohttpc][DEBUG] creating gzip decoder
+[2023-06-02][02:34:52][attohttpc][DEBUG] status code 200
+[2023-06-02][02:34:52][chatgpt::utils][INFO] prompt_for_install
+[2023-06-02][02:34:53][attohttpc][DEBUG] trying to connect to github.com:443
+[2023-06-02][02:34:53][attohttpc][DEBUG] DNS returned only one address, using fast path
+[2023-06-02][02:34:54][attohttpc][DEBUG] GET /lencx/ChatGPT/releases/download/v1.0.0/ChatGPT_1.0.0_macos_aarch64.app.tar.gz HTTP/1.1
+[2023-06-02][02:34:55][attohttpc][DEBUG] creating a length body reader
+[2023-06-02][02:34:55][attohttpc][DEBUG] creating plain reader
+[2023-06-02][02:34:55][attohttpc][DEBUG] status code 302
+[2023-06-02][02:34:55][attohttpc][DEBUG] redirected to https://objects.githubusercontent.com/github-production-release-asset-2e65be/575340621/53568c44-bcd0-4642-957a-1b4d55bb5fc4?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAIWNJYAX4CSVEH53A%2F20230602%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20230602T023454Z&X-Amz-Expires=300&X-Amz-Signature=975c3da3a4d170c310a29972fe84b385345b90fb5ca12fd816c8026e244cf524&X-Amz-SignedHeaders=host&actor_id=0&key_id=0&repo_id=575340621&response-content-disposition=attachment%3B%20filename%3DChatGPT_1.0.0_macos_aarch64.app.tar.gz&response-content-type=application%2Foctet-stream giving url https://objects.githubusercontent.com/github-production-release-asset-2e65be/575340621/53568c44-bcd0-4642-957a-1b4d55bb5fc4?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAIWNJYAX4CSVEH53A%2F20230602%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20230602T023454Z&X-Amz-Expires=300&X-Amz-Signature=975c3da3a4d170c310a29972fe84b385345b90fb5ca12fd816c8026e244cf524&X-Amz-SignedHeaders=host&actor_id=0&key_id=0&repo_id=575340621&response-content-disposition=attachment%3B%20filename%3DChatGPT_1.0.0_macos_aarch64.app.tar.gz&response-content-type=application%2Foctet-stream
+[2023-06-02][02:34:55][attohttpc][DEBUG] trying to connect to objects.githubusercontent.com:443
+[2023-06-02][02:34:55][attohttpc][DEBUG] trying to connect to 185.199.109.133:443
+[2023-06-02][02:34:55][attohttpc][DEBUG] successfully connected to 185.199.109.133:443, took 71ms
+[2023-06-02][02:34:55][attohttpc][DEBUG] GET /github-production-release-asset-2e65be/575340621/53568c44-bcd0-4642-957a-1b4d55bb5fc4?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAIWNJYAX4CSVEH53A%2F20230602%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20230602T023454Z&X-Amz-Expires=300&X-Amz-Signature=975c3da3a4d170c310a29972fe84b385345b90fb5ca12fd816c8026e244cf524&X-Amz-SignedHeaders=host&actor_id=0&key_id=0&repo_id=575340621&response-content-disposition=attachment%3B%20filename%3DChatGPT_1.0.0_macos_aarch64.app.tar.gz&response-content-type=application%2Foctet-stream HTTP/1.1
+[2023-06-02][02:34:55][attohttpc][DEBUG] creating a length body reader
+[2023-06-02][02:34:55][attohttpc][DEBUG] creating plain reader
+[2023-06-02][02:34:55][attohttpc][DEBUG] status code 200
+[2023-06-02][02:36:50][chatgpt::app::setup][INFO] stepup
+[2023-06-02][02:36:50][chatgpt::app::setup][INFO] global_shortcut_unregister
+[2023-06-02][02:36:50][chatgpt::app::setup][INFO] stepup_tray
+[2023-06-02][02:36:50][chatgpt::app::setup][INFO] run_check_update
+[2023-06-02][02:36:50][chatgpt::utils][INFO] run_check_update: silent=true has_msg=None
+[2023-06-02][02:36:50][attohttpc][DEBUG] trying to connect to lencx.github.io:443
+[2023-06-02][02:36:50][attohttpc][DEBUG] trying to connect to 185.199.109.153:443
+[2023-06-02][02:36:50][attohttpc][DEBUG] successfully connected to 185.199.109.153:443, took 73ms
+[2023-06-02][02:36:50][attohttpc][DEBUG] GET /ChatGPT/install.json HTTP/1.1
+[2023-06-02][02:36:50][attohttpc][DEBUG] creating a length body reader
+[2023-06-02][02:36:50][attohttpc][DEBUG] creating gzip decoder
+[2023-06-02][02:36:50][attohttpc][DEBUG] status code 200
+[2023-06-02][02:36:50][chatgpt::utils][INFO] silent_install
+[2023-06-02][02:36:50][attohttpc][DEBUG] trying to connect to github.com:443
+[2023-06-02][02:36:50][attohttpc][DEBUG] DNS returned only one address, using fast path
+[2023-06-02][02:36:51][attohttpc][DEBUG] GET /lencx/ChatGPT/releases/download/v1.0.0/ChatGPT_1.0.0_macos_aarch64.app.tar.gz HTTP/1.1
+[2023-06-02][02:36:51][attohttpc][DEBUG] creating a length body reader
+[2023-06-02][02:36:51][attohttpc][DEBUG] creating plain reader
+[2023-06-02][02:36:51][attohttpc][DEBUG] status code 302
+[2023-06-02][02:36:51][attohttpc][DEBUG] redirected to https://objects.githubusercontent.com/github-production-release-asset-2e65be/575340621/53568c44-bcd0-4642-957a-1b4d55bb5fc4?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAIWNJYAX4CSVEH53A%2F20230602%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20230602T023454Z&X-Amz-Expires=300&X-Amz-Signature=975c3da3a4d170c310a29972fe84b385345b90fb5ca12fd816c8026e244cf524&X-Amz-SignedHeaders=host&actor_id=0&key_id=0&repo_id=575340621&response-content-disposition=attachment%3B%20filename%3DChatGPT_1.0.0_macos_aarch64.app.tar.gz&response-content-type=application%2Foctet-stream giving url https://objects.githubusercontent.com/github-production-release-asset-2e65be/575340621/53568c44-bcd0-4642-957a-1b4d55bb5fc4?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAIWNJYAX4CSVEH53A%2F20230602%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20230602T023454Z&X-Amz-Expires=300&X-Amz-Signature=975c3da3a4d170c310a29972fe84b385345b90fb5ca12fd816c8026e244cf524&X-Amz-SignedHeaders=host&actor_id=0&key_id=0&repo_id=575340621&response-content-disposition=attachment%3B%20filename%3DChatGPT_1.0.0_macos_aarch64.app.tar.gz&response-content-type=application%2Foctet-stream
+[2023-06-02][02:36:51][attohttpc][DEBUG] trying to connect to objects.githubusercontent.com:443
+[2023-06-02][02:36:51][attohttpc][DEBUG] trying to connect to 185.199.109.133:443
+[2023-06-02][02:36:51][attohttpc][DEBUG] successfully connected to 185.199.109.133:443, took 69ms
+[2023-06-02][02:36:51][attohttpc][DEBUG] GET /github-production-release-asset-2e65be/575340621/53568c44-bcd0-4642-957a-1b4d55bb5fc4?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAIWNJYAX4CSVEH53A%2F20230602%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20230602T023454Z&X-Amz-Expires=300&X-Amz-Signature=975c3da3a4d170c310a29972fe84b385345b90fb5ca12fd816c8026e244cf524&X-Amz-SignedHeaders=host&actor_id=0&key_id=0&repo_id=575340621&response-content-disposition=attachment%3B%20filename%3DChatGPT_1.0.0_macos_aarch64.app.tar.gz&response-content-type=application%2Foctet-stream HTTP/1.1
+[2023-06-02][02:36:51][attohttpc][DEBUG] creating a length body reader
+[2023-06-02][02:36:51][attohttpc][DEBUG] creating plain reader
+[2023-06-02][02:36:51][attohttpc][DEBUG] status code 200
+[2023-06-02][02:40:27][chatgpt::app::setup][INFO] stepup
+[2023-06-02][02:40:27][chatgpt::app::template][INFO] write_script: /Users/awu/.chatgpt/scripts/main.js
+[2023-06-02][02:40:27][chatgpt::app::template][INFO] write_script: /Users/awu/.chatgpt/scripts/core.js
+[2023-06-02][02:40:27][chatgpt::app::template][INFO] write_script: /Users/awu/.chatgpt/scripts/chat.js
+[2023-06-02][02:40:27][chatgpt::app::template][INFO] write_script: /Users/awu/.chatgpt/scripts/cmd.js
+[2023-06-02][02:40:27][chatgpt::app::template][INFO] write_script: /Users/awu/.chatgpt/scripts/dalle2.js
+[2023-06-02][02:40:27][chatgpt::app::template][INFO] write_script: /Users/awu/.chatgpt/scripts/export.js
+[2023-06-02][02:40:27][chatgpt::app::template][INFO] write_script: /Users/awu/.chatgpt/scripts/markdown.export.js
+[2023-06-02][02:40:27][chatgpt::app::template][INFO] write_script: /Users/awu/.chatgpt/scripts/popup.core.js
+[2023-06-02][02:40:27][chatgpt::app::template][INFO] write_script: /Users/awu/.chatgpt/scripts/README.md
+[2023-06-02][02:40:27][chatgpt::app::template][INFO] write_script: /Users/awu/.chatgpt/scripts/manifest.json
+[2023-06-02][02:40:27][chatgpt::app::setup][INFO] global_shortcut_unregister
+[2023-06-02][02:40:27][chatgpt::app::setup][INFO] run_check_update
+[2023-06-02][02:40:27][chatgpt::utils][INFO] run_check_update: silent=true has_msg=None
+[2023-06-02][02:40:27][chatgpt::app::setup][INFO] stepup_tray
+[2023-06-02][02:40:27][reqwest::connect][DEBUG] starting new connection: https://raw.githubusercontent.com/
+[2023-06-02][02:40:27][attohttpc][DEBUG] trying to connect to lencx.github.io:443
+[2023-06-02][02:40:27][attohttpc][DEBUG] trying to connect to 185.199.109.153:443
+[2023-06-02][02:40:27][attohttpc][DEBUG] successfully connected to 185.199.109.153:443, took 72ms
+[2023-06-02][02:40:27][attohttpc][DEBUG] GET /ChatGPT/install.json HTTP/1.1
+[2023-06-02][02:40:27][attohttpc][DEBUG] creating a length body reader
+[2023-06-02][02:40:27][attohttpc][DEBUG] creating gzip decoder
+[2023-06-02][02:40:27][attohttpc][DEBUG] status code 200
+[2023-06-02][02:41:42][chatgpt::app::script][INFO] update_scripts_manifest
+[2023-06-02][02:41:42][chatgpt::app::script][INFO] script_file: "/Users/awu/.chatgpt/scripts/manifest.json"
+[2023-06-02][02:47:58][tauri_plugin_autostart][INFO] auto_start path /Applications/ChatGPT.app
+[2023-06-02][02:47:58][chatgpt::app::setup][INFO] stepup
+[2023-06-02][02:47:58][chatgpt::app::setup][INFO] global_shortcut_unregister
+[2023-06-02][02:47:58][chatgpt::app::setup][INFO] run_check_update
+[2023-06-02][02:47:58][chatgpt::app::setup][INFO] stepup_tray
+[2023-06-02][02:47:58][chatgpt::utils][INFO] run_check_update: silent=true has_msg=None
+[2023-06-02][02:47:58][attohttpc][DEBUG] trying to connect to lencx.github.io:443
+[2023-06-02][02:47:58][reqwest::connect][DEBUG] starting new connection: https://raw.githubusercontent.com/
+[2023-06-02][02:47:58][attohttpc][DEBUG] trying to connect to 185.199.109.153:443
+[2023-06-02][02:47:58][attohttpc][DEBUG] successfully connected to 185.199.109.153:443, took 72ms
+[2023-06-02][02:47:58][attohttpc][DEBUG] GET /ChatGPT/install.json HTTP/1.1
+[2023-06-02][02:47:58][attohttpc][DEBUG] creating a length body reader
+[2023-06-02][02:47:58][attohttpc][DEBUG] creating gzip decoder
+[2023-06-02][02:47:58][attohttpc][DEBUG] status code 200
+[2023-06-02][02:50:49][tauri_plugin_autostart][INFO] auto_start path /Applications/ChatGPT.app
+[2023-06-02][02:50:49][chatgpt::app::setup][INFO] stepup
+[2023-06-02][02:50:49][chatgpt::app::setup][INFO] global_shortcut_unregister
+[2023-06-02][02:50:49][chatgpt::app::setup][INFO] run_check_update
+[2023-06-02][02:50:49][chatgpt::app::setup][INFO] stepup_tray
+[2023-06-02][02:50:49][chatgpt::utils][INFO] run_check_update: silent=true has_msg=None
+[2023-06-02][02:50:49][reqwest::connect][DEBUG] starting new connection: https://raw.githubusercontent.com/
+[2023-06-02][02:50:49][attohttpc][DEBUG] trying to connect to lencx.github.io:443
+[2023-06-02][02:50:49][attohttpc][DEBUG] trying to connect to 185.199.109.153:443
+[2023-06-02][02:50:49][attohttpc][DEBUG] successfully connected to 185.199.109.153:443, took 69ms
+[2023-06-02][02:50:49][attohttpc][DEBUG] GET /ChatGPT/install.json HTTP/1.1
+[2023-06-02][02:50:49][attohttpc][DEBUG] creating a length body reader
+[2023-06-02][02:50:49][attohttpc][DEBUG] creating gzip decoder
+[2023-06-02][02:50:49][attohttpc][DEBUG] status code 200
+[2023-06-02][02:53:34][tauri_plugin_autostart][INFO] auto_start path /Applications/ChatGPT.app
+[2023-06-02][02:53:34][chatgpt::app::setup][INFO] stepup
+[2023-06-02][02:53:34][chatgpt::app::setup][INFO] global_shortcut_unregister
+[2023-06-02][02:53:34][chatgpt::app::setup][INFO] stepup_tray
+[2023-06-02][02:53:34][chatgpt::app::setup][INFO] run_check_update
+[2023-06-02][02:53:34][chatgpt::utils][INFO] run_check_update: silent=true has_msg=None
+[2023-06-02][02:53:34][reqwest::connect][DEBUG] starting new connection: https://raw.githubusercontent.com/
+[2023-06-02][02:53:34][attohttpc][DEBUG] trying to connect to lencx.github.io:443
+[2023-06-02][02:53:34][attohttpc][DEBUG] trying to connect to 185.199.109.153:443
+[2023-06-02][02:53:34][attohttpc][DEBUG] successfully connected to 185.199.109.153:443, took 75ms
+[2023-06-02][02:53:34][attohttpc][DEBUG] GET /ChatGPT/install.json HTTP/1.1
+[2023-06-02][02:53:34][attohttpc][DEBUG] creating a length body reader
+[2023-06-02][02:53:34][attohttpc][DEBUG] creating gzip decoder
+[2023-06-02][02:53:34][attohttpc][DEBUG] status code 200
+[2023-06-02][02:53:37][chatgpt::app::setup][INFO] stepup
+[2023-06-02][02:53:37][chatgpt::app::setup][INFO] global_shortcut_unregister
+[2023-06-02][02:53:37][chatgpt::app::setup][INFO] run_check_update
+[2023-06-02][02:53:37][chatgpt::utils][INFO] run_check_update: silent=true has_msg=None
+[2023-06-02][02:53:37][reqwest::connect][DEBUG] starting new connection: https://raw.githubusercontent.com/
+[2023-06-02][02:53:37][chatgpt::app::setup][INFO] stepup_tray
+[2023-06-02][02:53:37][attohttpc][DEBUG] trying to connect to lencx.github.io:443
+[2023-06-02][02:53:37][attohttpc][DEBUG] trying to connect to 185.199.110.153:443
+[2023-06-02][02:53:37][attohttpc][DEBUG] successfully connected to 185.199.110.153:443, took 70ms
+[2023-06-02][02:53:37][attohttpc][DEBUG] GET /ChatGPT/install.json HTTP/1.1
+[2023-06-02][02:53:37][attohttpc][DEBUG] creating a length body reader
+[2023-06-02][02:53:37][attohttpc][DEBUG] creating gzip decoder
+[2023-06-02][02:53:37][attohttpc][DEBUG] status code 200
+[2023-06-02][02:54:10][chatgpt::utils][INFO] open_file: /Users/awu/.chatgpt
+[2023-06-02][02:55:45][chatgpt::app::setup][ERROR] script_init_error: error sending request for url (https://raw.githubusercontent.com/lencx/ChatGPT/main/scripts/manifest.json): connection closed before message completed
