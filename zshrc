@@ -152,3 +152,6 @@ proxy_on
 #load-nvmrc
 #load-engines-node
 # auto use node version end
+
+
+neofetch
