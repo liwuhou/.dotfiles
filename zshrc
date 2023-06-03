@@ -153,5 +153,3 @@ proxy_on
 #load-engines-node
 # auto use node version end
 
-
-neofetch
