@@ -148,6 +148,10 @@ esac
 proxy_on
 # proxy end
 
+#rs proxy
+export RUSTUP_DIST_SERVER="https://rsproxy.cn" 
+export RUSTUP_UPDATE_ROOT="https://rsproxy.cn/rustup"
+
 # auto load node version config, and use that version
 #load-nvmrc
 #load-engines-node
