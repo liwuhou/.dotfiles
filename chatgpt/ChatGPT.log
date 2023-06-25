@@ -308,3 +308,17 @@
 [2023-06-02][02:53:37][attohttpc][DEBUG] status code 200
 [2023-06-02][02:54:10][chatgpt::utils][INFO] open_file: /Users/awu/.chatgpt
 [2023-06-02][02:55:45][chatgpt::app::setup][ERROR] script_init_error: error sending request for url (https://raw.githubusercontent.com/lencx/ChatGPT/main/scripts/manifest.json): connection closed before message completed
+[2023-06-25][02:29:48][chatgpt::app::setup][INFO] stepup
+[2023-06-25][02:29:48][chatgpt::app::setup][INFO] global_shortcut_unregister
+[2023-06-25][02:29:48][chatgpt::app::setup][INFO] run_check_update
+[2023-06-25][02:29:48][chatgpt::app::setup][INFO] stepup_tray
+[2023-06-25][02:29:48][chatgpt::utils][INFO] run_check_update: silent=true has_msg=None
+[2023-06-25][02:29:48][reqwest::connect][DEBUG] starting new connection: https://raw.githubusercontent.com/
+[2023-06-25][02:29:48][attohttpc][DEBUG] trying to connect to lencx.github.io:443
+[2023-06-25][02:29:48][attohttpc][DEBUG] trying to connect to 185.199.111.153:443
+[2023-06-25][02:29:48][attohttpc][DEBUG] successfully connected to 185.199.111.153:443, took 75ms
+[2023-06-25][02:29:48][attohttpc][DEBUG] GET /ChatGPT/install.json HTTP/1.1
+[2023-06-25][02:29:48][attohttpc][DEBUG] creating a length body reader
+[2023-06-25][02:29:48][attohttpc][DEBUG] creating gzip decoder
+[2023-06-25][02:29:48][attohttpc][DEBUG] status code 200
+[2023-06-25][02:30:48][chatgpt::app::setup][ERROR] script_init_error: error sending request for url (https://raw.githubusercontent.com/lencx/ChatGPT/main/scripts/manifest.json): error trying to connect: connection closed via error
