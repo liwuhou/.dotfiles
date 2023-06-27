@@ -3,7 +3,7 @@
   "hide_dock_icon": false,
   "theme": "System",
   "auto_update": "silent",
-  "stay_on_top": true,
+  "stay_on_top": false,
   "save_window_state": true,
   "global_shortcut": null,
   "default_origin": "https://chat.openai.com",
