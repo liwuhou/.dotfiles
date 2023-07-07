@@ -116,22 +116,6 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion 
 
-load-nvmrc() {
-	local nvmrc_path="$(nvm_find_nvmrc)"
-	if [ -n "$nvmrc_path" ]; then
-		echo "Find .nvmrc, and use this node version"
-		nvm use #
-	fi
-}
-load-engines-node() {
-  local node_version=$(sed -n '/engines/,/}/p' package.json | grep -o "\"node\":\s*\"[^\"]*\"" | cut -d ':' -f 2 | tr -d '"')
-  local version_number=$(echo "$node_version" | grep -o '[0-9]*\.[0-9]*\.[0-9]*' | tail -n1 | grep -o '[0-9]*' | head -n1)
-  if [ -n "$version_number" ]; then
-    echo "🤓 package's engines的node version: ($version_number), and use this node version"
-    nvm use "$version_number"
-  fi
-}
-
 # Set Spaceship ZSH as a prompt
 #autoload -U promptinit; promptinit
 #prompt pure
@@ -146,14 +130,8 @@ esac
 
 # proxy 
 proxy_on
-# proxy end
 
 #rs proxy
 export RUSTUP_DIST_SERVER="https://rsproxy.cn" 
 export RUSTUP_UPDATE_ROOT="https://rsproxy.cn/rustup"
-
-# auto load node version config, and use that version
-#load-nvmrc
-#load-engines-node
-# auto use node version end
 
