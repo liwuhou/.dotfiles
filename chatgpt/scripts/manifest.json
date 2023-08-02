@@ -6,7 +6,7 @@
   "scripts": [
     {
       "name": "chat.js",
-      "version": "0.1.1"
+      "version": "0.1.4"
     },
     {
       "name": "cmd.js",
@@ -22,7 +22,7 @@
     },
     {
       "name": "export.js",
-      "version": "0.1.2"
+      "version": "0.1.4"
     },
     {
       "name": "markdown.export.js",
