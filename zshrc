@@ -128,6 +128,10 @@ case ":$PATH:" in
 esac
 # pnpm end
 
+# mongodb
+export PATH="$HOME/Opt/mongodb/bin:$HOME/Opt/mongosh/bin:$PATH"
+# mongodb end
+
 # proxy 
 proxy_on
 
