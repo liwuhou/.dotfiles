@@ -1,7 +1,7 @@
 export ZSH="/Users/awu/.oh-my-zsh"
 
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="dracula"
+ZSH_THEME="spaceship"
 
 # load plugins
 plugins=(
@@ -18,6 +18,7 @@ source $ZSH/oh-my-zsh.sh
 # User configuration
 alias v=nvim
 alias vi=nvim
+alias nvm=fnm
 alias proxy_on="export https_proxy=http://127.0.0.1:7891 http_proxy=http://127.0.0.1:7891 all_proxy=socks5://127.0.0.1:7891"
 alias proxy_off="export http_proxy=''; export https_proxy=''; export all_prosy=''"
 alias signme="git config --local user.name 'awu' && git config --local user.email 'hugewilliam@foxmail.com'"
@@ -29,9 +30,6 @@ case ":$PATH:" in
   *) export PATH="$PNPM_HOME:$PATH" ;;
 esac
 # pnpm end
-
-# fnm init
-eval "$(fnm env --use-on-cd)"
 
 # mongodb
 export PATH="$HOME/Opt/mongodb/bin:$HOME/Opt/mongosh/bin:$PATH"
@@ -46,4 +44,4 @@ export RUSTUP_UPDATE_ROOT="https://rsproxy.cn/rustup"
 
 # fnm
 export PATH="/Users/awu/Library/Application Support/fnm:$PATH"
-eval "`fnm env`"
+eval "`fnm env --use-on-cd`"

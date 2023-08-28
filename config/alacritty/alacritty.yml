@@ -9,7 +9,7 @@
 # All imports must either be absolute paths starting with `/`, or paths relative
 # to the user's home directory starting with `~/`.
 import:
-  - ~/.config/alacritty/themes/themes/darcula.yaml
+  - ~/.config/alacritty/themes/themes/one_dark.yaml
 
 # Any items in the `env` entry below will be added as
 # environment variables. Some entries may override variables
@@ -67,7 +67,7 @@ window:
   #
   # Window opacity as a floating point number from `0.0` to `1.0`.
   # The value `0.0` is completely transparent and `1.0` is opaque.
-  opacity: 0.9
+  #opacity: 0.9
 
   # Startup Mode (changes require restart)
   # Values for `startup_mode`:
@@ -116,8 +116,7 @@ font:
     #   - (macOS) Menlo
     #   - (Linux/BSD) monospace
     #   - (Windows) Consolas
-    # family: JetBrainsMono Nerd Font
-    family: Maple Mono
+    family: JetBrainsMono Nerd Font
 
     # The `style` can be specified to pick a specific face.
     #style: Regular
