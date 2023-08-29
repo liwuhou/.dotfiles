@@ -6,7 +6,6 @@ ZSH_THEME="spaceship"
 # load plugins
 plugins=(
 	git
-	zsh-nvm
 	vi-mode
 	zsh-syntax-highlighting
 	zsh-autosuggestions
@@ -18,10 +17,11 @@ source $ZSH/oh-my-zsh.sh
 # User configuration
 alias v=nvim
 alias vi=nvim
-alias nvm=fnm
 alias proxy_on="export https_proxy=http://127.0.0.1:7891 http_proxy=http://127.0.0.1:7891 all_proxy=socks5://127.0.0.1:7891"
 alias proxy_off="export http_proxy=''; export https_proxy=''; export all_prosy=''"
 alias signme="git config --local user.name 'awu' && git config --local user.email 'hugewilliam@foxmail.com'"
+
+export XIAOE_REGISTRY="http://111.230.199.61:6888/"
 
 # pnpm
 export PNPM_HOME="/Users/awu/Library/pnpm"
