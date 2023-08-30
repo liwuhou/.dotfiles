@@ -6,7 +6,6 @@ ZSH_THEME="spaceship"
 # load plugins
 plugins=(
 	git
-	zsh-nvm
 	vi-mode
 	zsh-syntax-highlighting
 	zsh-autosuggestions
@@ -45,3 +44,6 @@ export RUSTUP_UPDATE_ROOT="https://rsproxy.cn/rustup"
 # fnm init
 export PATH="/Users/awu/Library/Application Support/fnm:$PATH"
 eval "`fnm env --use-on-cd`"
+
+# welcome
+echo Life is short, play more!
