@@ -34,10 +34,10 @@ map("<leader>k", "<C-w>k")
 map("<leader>l", "<C-w>l")
 
 -- Adjust editor group sizes
-map("<C-h>", ":vertical resize -2<CR>")
-map("<C-l>", ":vertical resize +2<CR>")
-map("<C-j>", ":resize +2<CR>")
-map("<C-k>", ":resize -2<CR>")
+map("<C-A-h>", ":vertical resize -2<CR>")
+map("<C-A-l>", ":vertical resize +2<CR>")
+map("<C-A-j>", ":resize +2<CR>")
+map("<C-A-k>", ":resize -2<CR>")
 -- make a balance sizes of group
 map("<C-=>", "<C-w>=")
 
@@ -49,3 +49,20 @@ map("<leader>h", "[[ <C-\\><C-N><C-w>h ]]", "t")
 map("<leader>j", "[[ <C-\\><C-N><C-w>j ]]", "t")
 map("<leader>k", "[[ <C-\\><C-N><C-w>k ]]", "t")
 map("<leader>l", "[[ <C-\\><C-N><C-w>l ]]", "t")
+
+-- # Visule keybindings
+
+-- Quick indent selected block
+map("<", "<gv", "v")
+map(">", ">gv", "v")
+
+map("J", ":move '>+1<CR>gv-gv", "v")
+map("K", ":move '<-2<CR>gv-gv", "v")
+
+-- # Move cursor
+
+-- super j/k
+map("<C-j>", "4j")
+map("<C-k>", "4k")
+map("<C-j>", "<Esc>4ji", "i")
+map("<C-k>", "<Esc>4ki", "i")
