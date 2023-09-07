@@ -105,5 +105,22 @@ map("<leader>bl", ":BufferLineCloseRight<CR>")
 map("<leader>bh", ":BufferLineCloseLeft<CR>")
 map("<leader>bc", ":BufferLinePickClose<CR>")
 
+-- Telescope
+map("<leader>p", ":Telescope find_files<CR>")
+map("<C-p>", ":Telescope find_files<CR>")
+map("<leader>f", ":Telescope live_grep<CR>")
+
+pluginKeys.telescopeList = {
+  i = {
+    -- Move search result selection item any mode
+    ["<C-j>"] = "move_selection_next",
+    ["<C-k>"] = "move_selection_previous",
+    ["<C-u>"] = "preview_scrolling_up",
+    ["<C-d>"] = "preview_scrolling_down",
+    -- Close the fuzzy search window
+    ["<C-c>"] = "close",
+  }
+}
+
 return pluginKeys
 
