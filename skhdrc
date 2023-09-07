@@ -89,9 +89,6 @@ alt - f : yabai -m window --toggle zoom-fullscreen
 # toggle window native fullscreen zoom
 shift + alt - f : yabai -m window --toggle native-fullscreen
 
-# toggle window border
-alt - b : yabai -m window --toggle border
-
 # make window split type
 alt - e : yabai -m window --toggle split
 

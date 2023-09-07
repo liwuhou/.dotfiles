@@ -3,7 +3,7 @@ vim.g.maplocalleader = " "
 vim.api.nvim_feedkeys('', 't', true)
 
 -- Abstract map key binding method
-function map(key, mapping, mode, _opt)
+local map = function(key, mapping, mode, _opt)
 	if mode == nil then
 		mode = "n"
 	end
@@ -61,8 +61,49 @@ map("K", ":move '<-2<CR>gv-gv", "v")
 
 -- # Move cursor
 
--- super j/k
+-- Super j/k
 map("<C-j>", "4j")
 map("<C-k>", "4k")
 map("<C-j>", "<Esc>4ji", "i")
 map("<C-k>", "<Esc>4ki", "i")
+
+-- # Plugins mapping
+local pluginKeys = {}
+
+-- Nvim-tree
+-- Open the tree sider
+map("<A-b>", ":NvimTreeToggle<CR>")
+map("<leader>b", ":NvimTreeToggle<CR>")
+
+pluginKeys.nvimTreeList = {
+  -- Open the folder or file
+  { key = { "<CR>", "o", "<2-LeftMouse>" }, action = "edit" },
+  -- Split editor group
+  { key = "v", action = "vsplit" },
+  { key = "h", action = "split" },
+  -- show the hidden files
+  { key = ".", action = "toggle_dotfiles" },
+  { key = "i", action = "toggle_custom" },
+  -- File's actions
+  { key = "<C-r>", action = "refresh" },
+  { key = "a", action = "create" },
+  { key = "d", action = "remove" },
+  { key = "r", action = "rename" },
+  { key = "x", action = "cut" },
+  { key = "c", action = "copy" },
+  { key = "p", action = "paste" },
+  { key = "s", action = "system_open" },
+}
+
+-- Bufferline
+map("<A-[>", ":BufferLineCyclePrev<CR>")
+map("<A-]>", ":BufferLineCycleNext<CR>")
+-- Bufferline tab manager
+map("<C-w>", ":Bdelete!<CR>")
+map("<leader>w", ":Bdelete!<CR>")
+map("<leader>bl", ":BufferLineCloseRight<CR>")
+map("<leader>bh", ":BufferLineCloseLeft<CR>")
+map("<leader>bc", ":BufferLinePickClose<CR>")
+
+return pluginKeys
+
