@@ -2,16 +2,18 @@ vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 vim.api.nvim_feedkeys('', 't', true)
 
+local default_opt = { noremap = true, silent = true }
+
 -- Abstract map key binding method
 local map = function(key, mapping, mode, _opt)
-	if mode == nil then
-		mode = "n"
-	end
-	if _opt == nil then
-		_opt = { noremap = true, silent = true }
-	end
+  if mode == nil then
+    mode = "n"
+  end
+  if _opt == nil then
+    _opt = default_opt
+  end
 
-	vim.api.nvim_set_keymap(mode, key, mapping, _opt)
+  vim.api.nvim_set_keymap(mode, key, mapping, _opt)
 
 end
 
@@ -63,9 +65,14 @@ map("K", ":move '<-2<CR>gv-gv", "v")
 
 -- Super j/k
 map("<C-j>", "4j")
+map("<C-j>", "4j", "v")
 map("<C-k>", "4k")
+map("<C-k>", "4k", "v")
 map("<C-j>", "<Esc>4ji", "i")
 map("<C-k>", "<Esc>4ki", "i")
+
+-- # Other
+-- map("<leader>fm", "gg=G<C-o>")
 
 -- # Plugins mapping
 local pluginKeys = {}
@@ -96,8 +103,8 @@ pluginKeys.nvimTreeList = {
 }
 
 -- Bufferline
-map("<A-[>", ":BufferLineCyclePrev<CR>")
-map("<A-]>", ":BufferLineCycleNext<CR>")
+map("<C-[>", ":BufferLineCyclePrev<CR>")
+map("<C-]>", ":BufferLineCycleNext<CR>")
 -- Bufferline tab manager
 map("<C-w>", ":Bdelete!<CR>")
 map("<leader>w", ":Bdelete!<CR>")
@@ -108,7 +115,7 @@ map("<leader>bc", ":BufferLinePickClose<CR>")
 -- Telescope
 map("<leader>p", ":Telescope find_files<CR>")
 map("<C-p>", ":Telescope find_files<CR>")
-map("<leader>f", ":Telescope live_grep<CR>")
+map("<leader><leader>f", ":Telescope live_grep<CR>")
 
 pluginKeys.telescopeList = {
   i = {
@@ -121,6 +128,38 @@ pluginKeys.telescopeList = {
     ["<C-c>"] = "close",
   }
 }
+
+-- Dashboard
+map("<leader><leader>h", ":Dashboard<CR>")
+
+-- Lsp
+vim.keymap.set('n', '<space>e', vim.diagnostic.open_float)
+vim.keymap.set('n', 'gk', vim.diagnostic.goto_prev)
+vim.keymap.set('n', 'gj', vim.diagnostic.goto_next)
+vim.keymap.set('n', '<space>q', vim.diagnostic.setloclist)
+
+vim.api.nvim_create_autocmd('LspAttach', {
+  group = vim.api.nvim_create_augroup('UserLspConfig', {}),
+  callback = function(ev)
+    -- Enable completion triggered by <c-x><c-o>
+    vim.bo[ev.buf].omnifunc = 'v:lua.vim.lsp.omnifunc'
+
+    -- Buffer local mappings.
+    -- See `:help vim.lsp.*` for documentation on any of the below functions
+    local opts = { buffer = ev.buf }
+    vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
+    vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, opts)
+    vim.keymap.set('n', 'gh', vim.lsp.buf.hover, opts)
+    vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, opts)
+    vim.keymap.set('n', '<space>D', vim.lsp.buf.type_definition, opts)
+    vim.keymap.set('n', '<space>rn', vim.lsp.buf.rename, opts)
+    vim.keymap.set({ 'n', 'v' }, '<space>ca', vim.lsp.buf.code_action, opts)
+    vim.keymap.set('n', 'gr', vim.lsp.buf.references, opts)
+    vim.keymap.set('n', '<space>fm', function()
+      vim.lsp.buf.format { async = true }
+    end, opts)
+  end,
+})
 
 return pluginKeys
 

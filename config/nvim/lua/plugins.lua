@@ -34,6 +34,10 @@ packer.startup({
     -- Treesitter
     use({ "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" })
 
+    -- Lsp
+    -- use({ "williamboman/nvim-lsp-installer", "neovim/nvim-lspconfig" })
+    use({ "williamboman/mason.nvim", "williamboman/mason-lspconfig.nvim", "neovim/nvim-lspconfig" })
+
     
   end,
   config = {
