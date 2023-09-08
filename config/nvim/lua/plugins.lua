@@ -6,7 +6,7 @@ packer.startup({
     use("wbthomason/packer.nvim")
 
     -- Use nvim's plugins with `use(name/repo)`
-    -- tokyonight theme
+    -- theme
     use("folke/tokyonight.nvim")
     use("Mofiqul/dracula.nvim")
 
@@ -35,10 +35,13 @@ packer.startup({
     use({ "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" })
 
     -- Lsp
-    -- use({ "williamboman/nvim-lsp-installer", "neovim/nvim-lspconfig" })
-    use({ "williamboman/mason.nvim", "williamboman/mason-lspconfig.nvim", "neovim/nvim-lspconfig" })
+    use({
+      "williamboman/mason.nvim",
+      "williamboman/mason-lspconfig.nvim",
+      "neovim/nvim-lspconfig"
+    })
+    use("folke/lua-dev.nvim")
 
-    
   end,
   config = {
     max_jobs = 16,

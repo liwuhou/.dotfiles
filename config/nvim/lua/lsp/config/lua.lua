@@ -3,8 +3,16 @@ local runtime_path = vim.split(package.path, ";")
 table.insert(runtime_path, "lua/?.lua")
 table.insert(runtime_path, "lua/?/init.lua")
 
+local common = require("lsp.common-config")
+
 local opts = {
   -- Find this config in this site:https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#sumneko_lua    
+  -- capabilities = common.capabilities,
+  flags = common.flags,
+  on_attach = function(cilent, bufnr)
+    common.disableFormat(cilent)
+    common.keyAttach(bufnr)
+  end,
   settings = {
     Lua = {
       runtime = {
@@ -28,21 +36,11 @@ local opts = {
       },
     },
   },
-  flags = {
-    debounce_text_changes = 150,
-  },
-  on_attach = function(client)
-    -- Do not format the lua's file. we use other formater
-    client.resolved_capabilities.document_formatting = false
-    client.resolved_capabilities.document_range_formatting = false
-
-    -- Format on saved
-    vim.cmd('autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync()')
-  end,
 }
 
 return {
   on_setup = function(server)
+    require("neodev").setup()
     server:setup(opts)
   end,
 }

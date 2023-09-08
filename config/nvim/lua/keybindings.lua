@@ -1,3 +1,5 @@
+local uConfig = require("u-config")
+
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 vim.api.nvim_feedkeys('', 't', true)
@@ -133,33 +135,26 @@ pluginKeys.telescopeList = {
 map("<leader><leader>h", ":Dashboard<CR>")
 
 -- Lsp
-vim.keymap.set('n', '<space>e', vim.diagnostic.open_float)
-vim.keymap.set('n', 'gk', vim.diagnostic.goto_prev)
-vim.keymap.set('n', 'gj', vim.diagnostic.goto_next)
-vim.keymap.set('n', '<space>q', vim.diagnostic.setloclist)
-
-vim.api.nvim_create_autocmd('LspAttach', {
-  group = vim.api.nvim_create_augroup('UserLspConfig', {}),
-  callback = function(ev)
-    -- Enable completion triggered by <c-x><c-o>
-    vim.bo[ev.buf].omnifunc = 'v:lua.vim.lsp.omnifunc'
-
-    -- Buffer local mappings.
-    -- See `:help vim.lsp.*` for documentation on any of the below functions
-    local opts = { buffer = ev.buf }
-    vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
-    vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, opts)
-    vim.keymap.set('n', 'gh', vim.lsp.buf.hover, opts)
-    vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, opts)
-    vim.keymap.set('n', '<space>D', vim.lsp.buf.type_definition, opts)
-    vim.keymap.set('n', '<space>rn', vim.lsp.buf.rename, opts)
-    vim.keymap.set({ 'n', 'v' }, '<space>ca', vim.lsp.buf.code_action, opts)
-    vim.keymap.set('n', 'gr', vim.lsp.buf.references, opts)
-    vim.keymap.set('n', '<space>fm', function()
-      vim.lsp.buf.format { async = true }
-    end, opts)
-  end,
-})
+local lsp = uConfig.lsp
+pluginKeys.mapLsp = function(mapbuf)
+  vim.notify("I'm in!!!!")
+  mapbuf("n", lsp.rename, "<cmd>lua vim.lsp.buf.rename()<CR>")
+  mapbuf("n", lsp.code_action, "<cmd>lua vim.lsp.buf.code_action()<CR>")
+  mapbuf("n", lsp.code_action, function()
+    require("telescope.builtin").lsp_definitions({
+      initial_mode = "normal",
+    })
+  end)
+  mapbuf("n", lsp.hover, "<cmd>lua vim.lsp.buf.hover()<CR>")
+  mapbuf(
+    "n", 
+    lsp.references, 
+    "<cmd>lua require'telescope.builtin'.lsp_references(require('telescope.themes').get_ivy())<CR>"
+  )
+  mapbuf("n", lsp.open_flow, "<cmd>lua vim.diagnostic.open_float()<CR>")
+  mapbuf("n", lsp.goto_next, "<cmd>lua vim.diagnostic.goto_next()<CR>")
+  mapbuf("n", lsp.goto_prev, "<cmd>lua vim.diagnostic.goto_prev()<CR>")
+end
 
 return pluginKeys
 

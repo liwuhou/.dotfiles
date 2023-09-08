@@ -20,16 +20,16 @@ nvim_tree.setup({
   -- hide dotfiles and other files
   filters = {
     dotfiles = true,
-    custom = { 
+    custom = {
       "node_modules",
     }
   },
   view = {
-    width = 40,
+    width = 30,
     side = "left",
     hide_root_folder = false,
     mappings = {
-      custom_only = false,
+      custom_only = true,
       list = list_keys,
     },
     -- Hide the line number
@@ -40,8 +40,8 @@ nvim_tree.setup({
   },
   actions = {
     open_file = {
-      resize_window = true,
-      quit_on_open = true,
+      resize_window = false,
+      quit_on_open = false,
     }
   },
   system_open = {
