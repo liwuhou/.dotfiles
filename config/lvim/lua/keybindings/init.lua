@@ -23,7 +23,6 @@ function M.setup()
   keymap("<C-M-h>", ":vertical resize -2<CR>")
   keymap("<C-M-l>", ":vertical resize +2<CR>")
 
-  -- code
   keymap("<", "<gv", "v")
   keymap(">", ">gv", "v")
   keymap("<C-/>", "<Plug>(comment_toggle_linewise_current)")
