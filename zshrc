@@ -6,6 +6,7 @@ ZSH_THEME="spaceship"
 # load plugins
 plugins=(
 	git
+	vi-mode
 	zsh-syntax-highlighting
 	zsh-autosuggestions
 	autojump
