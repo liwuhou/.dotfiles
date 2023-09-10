@@ -25,7 +25,7 @@ function M.setup()
 
   keymap("<", "<gv", "v")
   keymap(">", ">gv", "v")
-  keymap("<C-/>", "<Plug>(comment_toggle_linewise_current)")
+  -- keymap("<C-/>", "<Plug>(comment_toggle_linewise_current)")
   keymap("<C-s>", "<cmd>w!<CR>", { "n", "i", "v" })
 
   lvim.builtin.terminal.float_opts.width = 80
@@ -39,20 +39,7 @@ function M.setup()
     o = { "<C-w>o", "Close other editor group" },
     ["="] = { "<C-w>=", "resize equally editor groups" }
   }
-  lvim.builtin.which_key.mappings["t"] = {
-    name = "Terminal",
-    v = { ":vsp | terminal<CR>", "Open terminal vertically" },
-    h = { ":sp | terminal<CR>", "Open terminal horizontally" },
-    f = {
-      function()
-        -- FIXME: toggleterm is not found
-        local Terminal = require("toggleterm.terminal").Terminal
-        local ter = Terminal:new({ cmd = vim.o.shell, direction = "float" })
-        ter.toggleterm(lvim.builtin.terminal.size, "float")
-      end,
-      "Open float terminal" },
-    c = { "<C-\\>", "Hide the terminal" }
-  }
+  lvim.builtin.which_key.mappings["lm"] = { ":MinimapToggle<CR>", "Toggle Minimap" }
 end
 
 return M

@@ -7,6 +7,8 @@ local function get_mode(mode)
     mode = "visual_mode"
   elseif mode == "i" then
     mode = "insert_mode"
+  elseif mode == "t" then
+    mode = "term_mode"
   end
   return mode
 end
@@ -33,8 +35,8 @@ M.reset = function()
     "<C-Right>",
     "<C-=>",
   }
-  for key in pairs(reset_key) do
-    M.keymap(key, false)
+  for _, key in ipairs(reset_key) do
+    M.keymap(key, false, { "v", "n", "t" })
   end
 
   lvim.lsp.buffer_mappings.normal_mode["K"] = nil

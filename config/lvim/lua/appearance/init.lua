@@ -1,12 +1,17 @@
 local M = {}
 
-local theme = "nightfox"
+local theme =
+-- "dracula"
+-- "nightfox"
+-- "tokyonight-day"
+-- "tokyonight-moon"
+"tokyonight-storm"
 
 function M.setup()
   -- theme
   lvim:extend({
     colorscheme = theme,
-    transparent_window = true,
+    transparent_window = false,
     builtin = {
       alpha = {
         dashboard = {
@@ -18,4 +23,3 @@ function M.setup()
 end
 
 return M
-
