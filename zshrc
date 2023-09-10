@@ -23,6 +23,7 @@ alias proxy_off="export http_proxy=''; export https_proxy=''; export all_prosy='
 alias signme="git config --local user.name 'awu' && git config --local user.email 'hugewilliam@foxmail.com'"
 
 export XIAOE_REGISTRY="http://111.230.199.61:6888/"
+export PATH="$HOME/.local/bin:$PATH"
 
 # pnpm
 export PNPM_HOME="/Users/awu/Library/pnpm"
