@@ -1,11 +1,11 @@
 local M = {}
 
 local theme =
--- "dracula"
+"dracula"
 -- "nightfox"
 -- "tokyonight-day"
 -- "tokyonight-moon"
-"tokyonight-storm"
+-- "tokyonight-storm"
 
 function M.setup()
   -- theme

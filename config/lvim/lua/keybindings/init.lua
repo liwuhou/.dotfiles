@@ -10,7 +10,7 @@ function M.setup()
 
   -- Super cursor
   keymap("<C-j>", "5j", { "n", "v" })
-  keymap("<C-K>", "5k", { "n", "v" })
+  keymap("<C-k>", "5k", { "n", "v" })
   keymap("<C-j>", "<ESC>5ji", "i")
   keymap("<C-k>", "<ESC>5ki", "i")
   -- Editor group
