@@ -50,4 +50,4 @@ eval "$(fnm env --use-on-cd)"
 
 # welcome
 # echo Life is short, play more!
-life-progress-cli -b 19941210 -g 1 -n "People's Republic of China"
+life-progress-cli -b 19941210 -g 1 -n china
