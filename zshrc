@@ -21,6 +21,7 @@ alias v="$HOME/.local/bin/lvim"
 alias proxy_on="export https_proxy=http://127.0.0.1:7891 http_proxy=http://127.0.0.1:7891 all_proxy=socks5://127.0.0.1:7891"
 alias proxy_off="export http_proxy=''; export https_proxy=''; export all_prosy=''"
 alias signme="git config --local user.name 'liwuhou' && git config --local user.email 'hugewilliam@foxmail.com'"
+alias rr="nr run"
 
 export XIAOE_REGISTRY="http://111.230.199.61:6888/"
 export PATH="$HOME/.local/bin:$PATH"
@@ -51,3 +52,10 @@ eval "$(fnm env --use-on-cd)"
 # welcome
 # echo Life is short, play more!
 life-progress-cli -b 19941210 -g 1 -n china
+
+# bun completions
+[ -s "/Users/awu/.bun/_bun" ] && source "/Users/awu/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
