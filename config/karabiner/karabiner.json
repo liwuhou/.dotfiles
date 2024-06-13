@@ -4653,7 +4653,7 @@
                                 "type": "basic"
                             },
                             {
-                                "description": "g = Music",
+                                "description": "g = Google Chrome",
                                 "from": {
                                     "key_code": "g",
                                     "modifiers": {
@@ -4667,7 +4667,7 @@
                                 },
                                 "to": [
                                     {
-                                        "shell_command": "open -a Music"
+                                        "shell_command": "open -a Google Chrome"
                                     }
                                 ],
                                 "type": "basic"
