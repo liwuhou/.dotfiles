@@ -23,6 +23,7 @@ alias proxy_on="export https_proxy=http://127.0.0.1:7891 http_proxy=http://127.0
 alias proxy_off="export http_proxy=''; export https_proxy=''; export all_prosy=''"
 alias signme="git config --local user.name 'liwuhou' && git config --local user.email 'hugewilliam@foxmail.com'"
 alias rr="nr run"
+alias r="nr run"
 
 export XIAOE_REGISTRY="http://111.230.199.61:6888/"
 export PATH="$HOME/.local/bin:$PATH"
