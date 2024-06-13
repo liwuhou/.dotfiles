@@ -53,3 +53,10 @@ eval "$(fnm env --use-on-cd)"
 # welcome
 # echo Life is short, play more!
 life-progress-cli -b 19941210 -g 1 -n china
+
+# bun completions
+[ -s "/Users/awu/.bun/_bun" ] && source "/Users/awu/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
