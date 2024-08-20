@@ -15,7 +15,7 @@ And then change directory to this directory, run `rcm rcup` to cover your home d
 
 ```bash
 
-rcm rcup
+rcup
 
 ```
 
