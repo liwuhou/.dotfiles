@@ -1,7 +1,7 @@
 export ZSH="/Users/awu/.oh-my-zsh"
 
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="spaceship"
+# ZSH_THEME="spaceship"
 
 # load plugins
 plugins=(
@@ -50,6 +50,23 @@ export RUSTUP_UPDATE_ROOT="https://rsproxy.cn/rustup"
 # fnm init
 export PATH="/Users/awu/Library/Application Support/fnm:$PATH"
 eval "$(fnm env --use-on-cd)"
+
+# startship
+eval "$(starship init zsh)"
+
+# init
+if [ "$(command -v bat)" ]; then
+	unalias -m 'cat'
+	alias cat='bat --theme="Visual Studio Dark+"'
+fi
+if [ "$(command -v exa)" ]; then
+	unalias -m 'll'
+	unalias -m 'l'
+	unalias -m 'la'
+	unalias -m 'ls'
+	alias ls="exa -G --color auto --icons -a -s type"
+	alias ll="exa -l --color always --icons -a -s type"
+fi
 
 # welcome
 # echo Life is short, play more!
