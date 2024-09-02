@@ -53,13 +53,16 @@ export PATH="/Users/awu/Library/Application Support/fnm:$PATH"
 eval "$(fnm env --use-on-cd)"
 
 # startship
+# cargo install startship
 eval "$(starship init zsh)"
 
 # init
+# brew install bat
 if [ "$(command -v bat)" ]; then
 	unalias -m 'cat'
 	alias cat='bat --theme="Visual Studio Dark+"'
 fi
+# cargo install exa
 if [ "$(command -v exa)" ]; then
 	unalias -m 'll'
 	unalias -m 'l'
