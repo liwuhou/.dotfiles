@@ -52,6 +52,9 @@ export RUSTUP_UPDATE_ROOT="https://rsproxy.cn/rustup"
 export PATH="/Users/awu/Library/Application Support/fnm:$PATH"
 eval "$(fnm env --use-on-cd)"
 
+# pypnv
+export PATH="$(pyenv root)/shims:${PATH}"
+
 # startship
 # cargo install startship
 eval "$(starship init zsh)"
