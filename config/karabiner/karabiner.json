@@ -4357,7 +4357,7 @@
                                 },
                                 "to": [
                                     {
-                                        "shell_command": "open -a ChatGPT"
+                                        "shell_command": "open -a 腾讯元宝"
                                     }
                                 ],
                                 "type": "basic"
