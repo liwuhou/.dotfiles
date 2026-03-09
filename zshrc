@@ -48,6 +48,9 @@ proxy_on
 export RUSTUP_DIST_SERVER="https://rsproxy.cn" 
 export RUSTUP_UPDATE_ROOT="https://rsproxy.cn/rustup"
 
+#opencode
+export PATH="$HOME/opencode:$PATH"
+
 # fnm init
 export PATH="/Users/awu/Library/Application Support/fnm:$PATH"
 eval "$(fnm env --use-on-cd)"
@@ -85,3 +88,12 @@ life-progress-cli -b 19941210 -g 1 -n china
 # bun
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
+
+# Added by Windsurf
+export PATH="/Users/awu/.codeium/windsurf/bin:$PATH"
+
+# Added by Antigravity
+export PATH="/Users/awu/.antigravity/antigravity/bin:$PATH"
+
+# opencode
+export PATH=/Users/awu/.opencode/bin:$PATH
