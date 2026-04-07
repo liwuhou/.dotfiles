@@ -97,3 +97,6 @@ export PATH="/Users/awu/.antigravity/antigravity/bin:$PATH"
 
 # opencode
 export PATH=/Users/awu/.opencode/bin:$PATH
+source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+[[ -s "/Users/awu/.gvm/scripts/gvm" ]] && source "/Users/awu/.gvm/scripts/gvm"
