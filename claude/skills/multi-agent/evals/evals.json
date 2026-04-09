@@ -1,0 +1,74 @@
+{
+  "skill_name": "multi-agent",
+  "evals": [
+    {
+      "id": 1,
+      "name": "parallel-components",
+      "prompt": "用多个 agent 并行做：为首页、关于页、联系页分别编写 React 组件，每个组件包含基本的页面结构和样式",
+      "expected_output": "三个独立的 React 组件文件，每个组件都有完整的结构和样式",
+      "files": [],
+      "expectations": [
+        "任务被拆分为 3 个独立的子任务",
+        "每个子任务在独立的 git worktree 中执行",
+        "所有子任务并行启动而非顺序执行",
+        "最终合并了三个组件到主分支",
+        "每个组件包含完整的页面结构",
+        "每个组件包含样式定义"
+      ]
+    },
+    {
+      "id": 2,
+      "name": "single-debug-task",
+      "prompt": "用多个 agent 并行做：修复这个登录按钮点击无效的问题",
+      "expected_output": "登录按钮点击问题被修复",
+      "files": [],
+      "expectations": [
+        "技能评估任务不适合并行执行",
+        "向用户解释了为什么不可并行",
+        "直接执行任务而非拆分",
+        "定位了登录按钮的事件问题",
+        "修复了点击无效的问题"
+      ]
+    },
+    {
+      "id": 3,
+      "name": "batch-type-annotation",
+      "prompt": "使用多 agent 并发执行：给所有 10 个工具函数添加 TypeScript 类型注解",
+      "expected_output": "10 个工具函数都有了 TypeScript 类型注解",
+      "files": [],
+      "expectations": [
+        "任务被拆分为多个子任务（每个函数或每组函数）",
+        "子任务之间没有共享状态冲突",
+        "所有类型注解符合 TypeScript 规范",
+        "合并后代码没有类型冲突"
+      ]
+    },
+    {
+      "id": 4,
+      "name": "multi-domain-analysis",
+      "prompt": "同时分析这个应用的前端性能、后端 API 延迟、数据库查询效率",
+      "expected_output": "三个领域的分析报告",
+      "files": [],
+      "expectations": [
+        "任务被拆分为 3 个独立分析子任务",
+        "前端性能分析包含加载时间、渲染性能等指标",
+        "后端 API 分析包含响应时间、吞吐量等指标",
+        "数据库分析包含查询时间、索引使用情况",
+        "最终汇总了三个领域的分析结果"
+      ]
+    },
+    {
+      "id": 5,
+      "name": "scheme-exploration",
+      "prompt": "尝试 3 种不同的方案来实现这个数据缓存功能：内存缓存、Redis、本地文件",
+      "expected_output": "三种缓存方案的实现代码和对比分析",
+      "files": [],
+      "expectations": [
+        "任务被拆分为 3 个方案探索子任务",
+        "每个子任务实现一种完整的缓存方案",
+        "提供了三种方案的对比分析",
+        "给出了推荐方案及理由"
+      ]
+    }
+  ]
+}
