@@ -1,0 +1,14 @@
+{
+  "showInTray": true,
+  "minimizeToTrayOnClose": true,
+  "enableClaudePluginIntegration": true,
+  "skipClaudeOnboarding": true,
+  "launchOnStartup": true,
+  "silentStartup": true,
+  "enableLocalProxy": false,
+  "enableFailoverToggle": false,
+  "language": "en",
+  "currentProviderClaude": "e521ba29-38db-4eb0-823e-adddcdd7dc4b",
+  "skillSyncMethod": "copy",
+  "preferredTerminal": "iterm2"
+}
