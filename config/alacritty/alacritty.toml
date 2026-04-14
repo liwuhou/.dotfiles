@@ -1,3 +1,4 @@
+[general]
 import = ["/Users/awu/.config/alacritty/themes/themes/tokyo-night_storm.yaml"]
 live_config_reload = true
 
