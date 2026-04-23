@@ -6,9 +6,20 @@
   "launchOnStartup": true,
   "silentStartup": true,
   "enableLocalProxy": false,
+  "usageConfirmed": true,
   "enableFailoverToggle": false,
-  "language": "en",
-  "currentProviderClaude": "e521ba29-38db-4eb0-823e-adddcdd7dc4b",
+  "firstRunNoticeConfirmed": true,
+  "commonConfigConfirmed": true,
+  "language": "zh",
+  "visibleApps": {
+    "claude": true,
+    "codex": false,
+    "gemini": false,
+    "opencode": false,
+    "openclaw": false
+  },
+  "currentProviderClaude": "metarouter-1776838655505",
   "skillSyncMethod": "copy",
+  "skillStorageLocation": "cc_switch",
   "preferredTerminal": "iterm2"
 }
