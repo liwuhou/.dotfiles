@@ -7,6 +7,7 @@
   "silentStartup": true,
   "enableLocalProxy": false,
   "usageConfirmed": true,
+  "streamCheckConfirmed": true,
   "enableFailoverToggle": false,
   "firstRunNoticeConfirmed": true,
   "commonConfigConfirmed": true,
@@ -18,7 +19,7 @@
     "opencode": false,
     "openclaw": false
   },
-  "currentProviderClaude": "metarouter-1776838655505",
+  "currentProviderClaude": "metarouter-1776152524994",
   "skillSyncMethod": "copy",
   "skillStorageLocation": "cc_switch",
   "preferredTerminal": "iterm2"
