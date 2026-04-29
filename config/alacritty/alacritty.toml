@@ -397,7 +397,7 @@ mods = "Alt|Shift"
 [window]
 decorations = "buttonless"
 dynamic_padding = false
-opacity = 0.85
+opacity = 0.9
 
 [window.dimensions]
 columns = 240

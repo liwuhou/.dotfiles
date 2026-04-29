@@ -1,6 +1,7 @@
 {
   "showInTray": true,
   "minimizeToTrayOnClose": true,
+  "useAppWindowControls": false,
   "enableClaudePluginIntegration": true,
   "skipClaudeOnboarding": true,
   "launchOnStartup": true,
@@ -14,10 +15,11 @@
   "language": "zh",
   "visibleApps": {
     "claude": true,
-    "codex": false,
+    "codex": true,
     "gemini": false,
     "opencode": false,
-    "openclaw": false
+    "openclaw": false,
+    "hermes": false
   },
   "currentProviderClaude": "metarouter-1776152524994",
   "skillSyncMethod": "copy",
