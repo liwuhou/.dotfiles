@@ -10,7 +10,7 @@ function lvim:appearance_extend(opt)
 end
 
 function M.extend(target, opt)
-  vim.tbl_deep_extend("force", target, opt)
+  return vim.tbl_deep_extend("force", target, opt)
 end
 
 return M

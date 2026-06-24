@@ -39,7 +39,8 @@ function M.setup()
     o = { "<C-w>o", "Close other editor group" },
     ["="] = { "<C-w>=", "resize equally editor groups" }
   }
-  lvim.builtin.which_key.mappings["lm"] = { ":MinimapToggle<CR>", "Toggle Minimap" }
+  lvim.builtin.which_key.mappings["lm"] = { "<cmd>Neominimap toggle<cr>", "Toggle Minimap" }
+  lvim.builtin.which_key.mappings["ts"] = { "<cmd>lua require('onedark').toggle()<cr>", "Toggle Onedark Style" }
 end
 
 return M

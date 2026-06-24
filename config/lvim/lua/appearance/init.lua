@@ -1,8 +1,9 @@
 local M = {}
 
 local theme =
-"dracula"
+-- "dracula"
 -- "nightfox"
+"onedark"
 -- "tokyonight-day"
 -- "tokyonight-moon"
 -- "tokyonight-storm"
@@ -17,8 +18,13 @@ function M.setup()
         dashboard = {
           section = reload("appearance.section")
         }
-      }
-    }
+      },
+      lualine = {
+        options = {
+          theme = theme,
+        },
+      },
+    },
   })
 end
 

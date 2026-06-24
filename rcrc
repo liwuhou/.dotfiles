@@ -1,1 +1,1 @@
-EXCLUDES="README.md package.json node_modules"
+EXCLUDES="README.md package.json node_modules claude"

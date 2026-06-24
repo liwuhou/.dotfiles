@@ -4,8 +4,10 @@ local slogan = "Winter is coming..."
 
 local section = {
   header = {
+    type = "text",
     val = acii.wolves,
     opts = {
+      position = "center",
       hl = "DashBoardHeader",
     },
   },
@@ -16,10 +18,12 @@ local section = {
     },
   },
   footer = {
+    type = "text",
     val = text.align_center({ width = 0 }, {
       slogan,
     }, 0.5),
     opts = {
+      position = "center",
       hl = "DashBoardFooter",
     },
   },
