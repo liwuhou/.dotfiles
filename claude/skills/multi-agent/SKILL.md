@@ -1,336 +1,84 @@
 ---
 name: multi-agent
-description: 评估任务是否可拆分为多个可并发执行的子任务，并协调多 Agent 并行完成。当任务无需或无法并行时直接执行。**触发场景**：用户说"用多个 agent 并行做..."、"/multi-agent"、"拆分任务"、"并发执行"、"同时做多个..."，或任何明确表达想要多 Agent 协作完成复杂任务的请求。
+description: "Coordinate multiple agents to execute tasks in parallel. Use when user says 'use multiple agents in parallel', 'split task', 'concurrent execution', 'do multiple things at the same time', '/multi-agent', or any explicit request for multi-agent collaboration on complex tasks. Automatically assesses task parallelizability, splits subtasks, and coordinates execution."
+argument-hint: "[task] [--max-agents N] [--no-worktree] [--dry-run] [--no-confirm]"
+allowed-tools:
+  - Agent
+  - Bash
+  - Read
+  - Write
+  - Edit
+  - AskUserQuestion
 ---
 
 # Multi-Agent Coordinator
 
-这个 skill 负责评估任务是否适合并行拆分，并在适合时协调多个子 Agent 并发执行。
-
-## 核心流程
-
-```
-1. 接收任务 → 2. 评估可并行性 → 3. 决策分支
-   ├─ 不可并行/无须并行 → 直接执行任务
-   └─ 可并行 → 拆分子任务 → 创建 git worktree → 分配子 Agent → 合并结果
-```
-
-## Step 1: 评估任务可并行性
-
-接到任务后，首先评估：
-
-### 可并行的特征（满足任一即可拆分）
-
-1. **独立子任务** - 任务可以拆分为多个相互独立的部分
-   - 例如："为 3 个不同页面编写组件"、"分析 5 个不同的数据文件"
-
-2. **可并行探索的方案** - 需要同时探索多个方案/实现
-   - 例如："对比 3 种不同的设计方案"、"尝试多种修复方法"
-
-3. **批量处理** - 对多个相似项目执行相同操作
-   - 例如："给所有 10 个组件添加 TypeScript 类型"、"为每个 API 端点写测试"
-
-4. **多领域/多维度分析** - 任务涉及多个独立领域
-   - 例如："同时分析前端性能、后端延迟、数据库查询"
-
-### 不可并行的特征
-
-1. **强依赖链** - 后续步骤依赖前序步骤的输出
-   - 例如："先分析代码，然后根据分析结果重构"
-
-2. **单一原子任务** - 任务本身就是最小单位
-   - 例如："修复这个具体的 bug"、"解释这段代码"
-
-3. **上下文敏感** - 需要持续理解同一上下文的演变
-   - 例如："逐步调试这个问题"、"帮我梳理这个功能的设计思路"
-
-### 无须并行的情况
-
-1. **简单任务** - 单个 Agent 可以快速完成
-2. **探索性任务** - 需要先理解问题再决定方向
-3. **用户未明确要求** - 用户没有表达多 Agent 协作的意愿
-
-## Step 2: 决策分支
-
-### 分支 A: 不可并行/无须并行
-
-如果判断任务不适合拆分：
-
-```markdown
-**任务评估结果**：不适合并行执行
-
-**原因**：[具体说明为什么不可并行/无须并行]
-
-**执行计划**：我将直接执行此任务...
-
-[然后直接开始执行任务]
-```
-
-### 分支 B: 可并行拆分
-
-如果判断任务可以拆分，进入协调流程。
-
----
-
-## 多 Agent 协调流程
-
-### Phase 1: 任务拆分
-
-将主任务拆分为 2-N 个可独立执行的子任务。每个子任务描述应包含：
-
-1. **子任务目标** - 清晰的任务描述
-2. **输入/输出** - 需要什么输入，产出什么输出
-3. **依赖关系** - 是否依赖其他子任务（应尽量避免）
-4. **验收标准** - 如何判断子任务完成
-
-保存拆分结果到 `task_decomposition.json`：
-
-```json
-{
-  "main_task": "主任务描述",
-  "decomposition_rationale": "为什么可以并行拆分",
-  "subtasks": [
-    {
-      "id": "subtask-1",
-      "name": "简短名称",
-      "description": "详细子任务描述",
-      "expected_output": "期望的输出形式",
-      "worktree_branch": "feature/subtask-1",
-      "work_dir": "./worktrees/subtask-1"
-    }
-  ]
-}
-```
-
-### Phase 2: 创建 Git Worktree 隔离环境
-
-**重要**：使用 git worktree 隔离每个子任务的代码修改，避免冲突。
-
-```bash
-# 1. 确保主仓库是干净的
-git status
-
-# 2. 为每个子任务创建 worktree
-git worktree add -b <branch-name> <worktree-path> [base-branch]
-
-# 示例：
-git worktree add -b feature/agent-1 ./worktrees/agent-1 main
-git worktree add -b feature/agent-2 ./worktrees/agent-2 main
-```
-
-为每个子任务：
-1. 创建独立的 worktree 目录
-2. 创建独立的 git 分支
-3. 记录 worktree 路径供子 Agent 使用
-
-### Phase 3: 分配子 Agent 执行
-
-为每个子任务启动一个子 Agent，分配明确的工作目录和任务。
-
-**子 Agent 提示词模板**：
-
-```
-执行此子任务：
-- 任务 ID: subtask-{N}
-- 任务描述：{description}
-- 工作目录：{worktree-path}
-- 期望输出：{expected-output}
-- 保存输出到：{outputs-dir}/subtask-{N}/
-
-约束：
-1. 所有代码修改必须在工作目录内
-2. 完成后提交代码到当前分支
-3. 不要修改其他子任务的内容
-4. 如有不确定，记录到 user_notes.md
-```
-
-**重要**：所有子 Agent 必须并行启动，而不是顺序执行。
-
-### Phase 4: 等待并收集结果
-
-等待所有子 Agent 完成后：
-
-1. **收集输出** - 从每个子 Agent 的输出目录收集结果
-2. **检查状态** - 确认每个子任务是否成功完成
-3. **记录问题** - 汇总各子任务的 user_notes.md
-
-### Phase 5: 合并结果
-
-这是最关键的一步。根据任务类型选择合适的合并策略：
-
-#### 策略 A: 代码合并（适用于代码修改类任务）
-
-```bash
-# 1. 回到主仓库
-cd /path/to/main/repo
-
-# 2. 逐个合并 worktree 的修改
-git merge --no-commit feature/subtask-1
-git merge --no-commit feature/subtask-2
-# ...
-
-# 3. 解决可能的冲突
-# 如果发生冲突，需要人工介入或重新设计任务拆分
-
-# 4. 提交合并结果
-git commit -m "Merge multi-agent subtasks"
-```
-
-#### 策略 B: 结果汇总（适用于分析/生成类任务）
-
-将所有子 Agent 的输出汇总到一个统一的报告或文件中：
-
-```markdown
-# 多 Agent 执行结果汇总
-
-## 子任务 1: [名称]
-- 状态：完成/失败
-- 输出：[链接或摘要]
-- 备注：[user_notes 中的问题]
-
-## 子任务 2: [名称]
-...
-
-## 整合分析
-[对各子任务结果的综合分析]
-```
-
-#### 策略 C: 并行结果选择（适用于方案探索类任务）
-
-如果多个子 Agent 探索不同方案：
-
-1. 展示各方案的对比
-2. 分析各方案优缺点
-3. 给出推荐方案或让用户选择
-
-### Phase 6: 清理 Worktree（可选）
-
-任务完成后，可以选择保留或删除 worktree：
-
-```bash
-# 保留 worktree（便于后续查看）
-# 或者删除：
-git worktree remove <worktree-path>
-git branch -D <branch-name>
-```
-
----
-
-## 特殊场景处理
-
-### 场景 1: 子任务之间存在依赖
-
-如果部分子任务依赖其他子任务的输出：
-
-1. 将任务分为多个"阶段"
-2. 每个阶段内的子任务互相独立
-3. 阶段之间顺序执行
-4. 前阶段的输出作为后阶段的输入
-
-### 场景 2: 子 Agent 执行失败
-
-如果某个子 Agent 失败：
-
-1. 记录失败原因
-2. 评估是否可以重试
-3. 如果不可恢复，考虑调整任务拆分或回退到单 Agent 执行
-
-### 场景 3: 合并冲突
-
-如果代码合并时发生冲突：
-
-1. 分析冲突原因
-2. 如果可以自动解决，直接解决
-3. 如果需要人工判断，向用户展示冲突点并请求决策
-
----
-
-## 与用户沟通
-
-### 任务开始前
-
-向用户展示：
-
-1. **任务评估结果** - 是否可并行
-2. **拆分方案**（如果可并行）：
-   - 计划拆分为几个子任务
-   - 每个子任务做什么
-   - 预计执行时间
-3. **执行策略** - 使用 git worktree 隔离
-
-### 执行过程中
-
-1. **启动通知** - 告知用户已启动多少个子 Agent
-2. **进度更新** - 当子任务完成时更新状态
-3. **异常通知** - 如有子任务失败，及时告知
-
-### 执行完成后
-
-1. **结果汇总** - 展示所有子任务的输出
-2. **合并说明** - 说明如何合并了结果
-3. **后续步骤** - 是否需要用户进一步操作
-
----
-
-## 使用示例
-
-### 示例 1: 并行编写组件
-
-**用户**: "用多个 agent 并行做：为首页、关于页、联系页分别编写 React 组件"
-
-**响应**:
-```
-**任务评估**：适合并行执行
-
-**拆分方案**：
-- 子任务 1: 编写首页组件 (HomePage.tsx)
-- 子任务 2: 编写关于页组件 (AboutPage.tsx)
-- 子任务 3: 编写联系页组件 (ContactPage.tsx)
-
-每个子任务将独立进行，使用 git worktree 隔离代码修改。
-预计 15-20 分钟完成所有子任务。
-
-开始执行...
-```
-
-### 示例 2: 单任务无需拆分
-
-**用户**: "用多个 agent 并行做：修复这个登录按钮点击无效的问题"
-
-**响应**:
-```
-**任务评估结果**：不适合并行执行
-
-**原因**：这是一个单一的调试任务，需要理解登录按钮的完整事件流程。拆分后各子任务会共享同一上下文，无法真正并行。
-
-**执行计划**：我将直接执行此任务，按以下步骤进行：
-1. 检查登录按钮的事件绑定
-2. 查看点击处理函数
-3. 定位问题并修复
-
-开始执行...
-```
-
----
-
-## 配置选项（可选）
-
-用户可以在 `.claude/settings.json` 中配置：
-
-```json
-{
-  "multi-agent": {
-    "max_parallel_agents": 5,
-    "use_git_worktree": true,
-    "auto_cleanup": false,
-    "worktree_base": "./worktrees"
-  }
-}
-```
-
----
-
-## 参考文件
-
-- `agents/coordinator.md` - 子 Agent 协调详细指南
-- `agents/merger.md` - 合并结果详细指南
+Assess if a task can be split into multiple parallelizable subtasks, and coordinate multiple sub-agents to execute concurrently when appropriate. Execute directly when parallelism is unnecessary or impossible.
+
+## Workflow Checklist
+Copy this checklist and check off items as you complete them:
+
+Multi-Agent Workflow Progress:
+- [ ] Step 0: Load core concepts ⛔ BLOCKING
+  - [ ] Read references/core-concepts.md for parallelizability assessment criteria
+  - [ ] Load templates from references/templates.md if needed
+- [ ] Step 1: Assess task parallelizability ⛔ BLOCKING
+  - [ ] Ask yourself: Can this task be split into independent subtasks?
+  - [ ] Ask yourself: Did the user explicitly request parallel execution?
+  - [ ] Ask yourself: Will splitting provide significant performance benefits?
+- [ ] Step 2: Decision Branch
+  - [ ] Branch A: Not parallelizable/unnecessary → Go to Step 8 (Direct Execution)
+  - [ ] Branch B: Parallelizable → Continue to Step 3
+- [ ] Step 3: Split into subtasks
+  - [ ] Split into 2-5 independent subtasks (max based on --max-agents parameter)
+  - [ ] Define clear goals, inputs/outputs, and acceptance criteria for each subtask
+  - [ ] Save decomposition to task_decomposition.json using template from references/templates.md
+- [ ] Step 4: Confirm split scheme with user ⚠️ REQUIRED (unless --no-confirm flag is set)
+  - [ ] Present split scheme to user using template from references/templates.md
+  - [ ] Get explicit user approval before proceeding
+  - [ ] Adjust split based on user feedback if needed
+- [ ] Step 5: Prepare execution environment
+  - [ ] If --no-worktree flag is NOT set: Create git worktree for each subtask
+  - [ ] Create output directories for each subtask
+- [ ] Step 6: Execute subtasks in parallel
+  - [ ] Spawn one sub-agent per subtask with isolated working directory
+  - [ ] Use sub-agent prompt template from references/templates.md
+  - [ ] Start all agents concurrently, not sequentially
+  - [ ] Read references/coordinator-guide.md for best practices
+- [ ] Step 7: Collect and merge results
+  - [ ] Wait for all sub-agents to complete
+  - [ ] Collect outputs from each subtask directory
+  - [ ] Choose appropriate merge strategy based on task type
+  - [ ] Check for conflicts or issues
+  - [ ] Read references/scenario-handling.md for edge case handling
+  - [ ] Read references/merger-guide.md for merging best practices
+- [ ] Step 8: Final output
+  - [ ] If executed directly: Present task results
+  - [ ] If parallel execution: Present merged results using summary template from references/templates.md
+  - [ ] Clean up worktrees if auto_cleanup is enabled in settings
+  - [ ] Ask user if they need further assistance
+
+## Parameter Reference
+| Parameter | Description | Default |
+|-----------|-------------|---------|
+| `--max-agents N` | Maximum number of parallel agents | 5 |
+| `--no-worktree` | Don't use git worktree isolation | false |
+| `--dry-run` | Only assess parallelizability and show split scheme, don't execute | false |
+| `--no-confirm` | Skip user confirmation step for split scheme | false |
+
+## Issue Severity Definitions
+| Severity | Meaning | Handling |
+|----------|---------|----------|
+| P0 | Critical failure, task cannot continue | Notify user immediately and stop |
+| P1 | Subtask failure, but overall task can continue | Record issue and proceed with remaining subtasks |
+| P2 | Minor issue, no impact on overall execution | Record in notes and mention in final report |
+| P3 | Optimization suggestion | Note for future improvements |
+
+## Configuration
+See references/configuration.md for available user configuration options.
+
+## Usage Examples
+See references/examples.md for detailed usage examples.
+
+## Special Scenarios
+See references/scenario-handling.md for handling edge cases and exceptions.

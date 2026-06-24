@@ -10,19 +10,33 @@
   "usageConfirmed": true,
   "streamCheckConfirmed": true,
   "enableFailoverToggle": false,
+  "preserveCodexOfficialAuthOnSwitch": false,
   "firstRunNoticeConfirmed": true,
   "commonConfigConfirmed": true,
-  "language": "zh",
+  "language": "en",
   "visibleApps": {
     "claude": true,
+    "claude-desktop": false,
     "codex": true,
     "gemini": false,
     "opencode": false,
     "openclaw": false,
-    "hermes": false
+    "hermes": true
   },
-  "currentProviderClaude": "metarouter-1776152524994",
-  "skillSyncMethod": "copy",
+  "currentProviderClaude": "metarouter-1775548532981",
+  "skillSyncMethod": "symlink",
   "skillStorageLocation": "cc_switch",
-  "preferredTerminal": "iterm2"
+  "preferredTerminal": "alacritty",
+  "localMigrations": {
+    "codexThirdPartyHistoryProviderBucketV1": {
+      "completedAt": "2026-06-03T08:20:58.097313+00:00",
+      "targetProviderId": "custom",
+      "migratedJsonlFiles": 0,
+      "migratedStateRows": 0,
+      "scannedHistoryFiles": true
+    },
+    "codexProviderTemplateV1": {
+      "completedAt": "2026-06-03T08:20:58.100163+00:00"
+    }
+  }
 }

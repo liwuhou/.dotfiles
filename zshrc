@@ -25,6 +25,7 @@ alias signme="git config --local user.name 'liwuhou' && git config --local user.
 alias rr="nr run"
 alias rb="nr run build"
 alias r="nr run"
+alias cc="claude --dangerously-skip-permissions"
 
 export XIAOE_REGISTRY="http://111.230.199.61:6888/"
 export PATH="$HOME/.local/bin:$PATH"
