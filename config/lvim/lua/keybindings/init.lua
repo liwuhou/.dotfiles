@@ -18,10 +18,10 @@ function M.setup()
   keymap("K", "<C-w>k", { "n", "v" })
   keymap("H", "<C-w>h", { "n", "v" })
   keymap("L", "<C-w>l", { "n", "v" })
-  keymap("<C-M-j>", ":resize -2<CR>")
-  keymap("<C-M-k>", ":resize +2<CR>")
-  keymap("<C-M-h>", ":vertical resize -2<CR>")
-  keymap("<C-M-l>", ":vertical resize +2<CR>")
+  keymap("<C-M-k>", ":resize -2<CR>")
+  keymap("<C-M-j>", ":resize +2<CR>")
+  keymap("<C-M-l>", ":vertical resize -2<CR>")
+  keymap("<C-M-h>", ":vertical resize +2<CR>")
 
   keymap("<", "<gv", "v")
   keymap(">", ">gv", "v")
@@ -41,6 +41,25 @@ function M.setup()
   }
   lvim.builtin.which_key.mappings["lm"] = { "<cmd>Neominimap toggle<cr>", "Toggle Minimap" }
   lvim.builtin.which_key.mappings["ts"] = { "<cmd>lua require('onedark').toggle()<cr>", "Toggle Onedark Style" }
+
+  -- Folding (nvim-ufo): zR/zM route through ufo so the fold provider stays
+  -- consistent. Per-fold toggle (za/zo/zc) uses Neovim defaults, no remap needed.
+  local ok, ufo = pcall(require, "ufo")
+  if ok then
+    vim.keymap.set("n", "zR", ufo.openAllFolds)
+    vim.keymap.set("n", "zM", ufo.closeAllFolds)
+  end
+
+  -- Move (not duplicate) a few which-key entries:
+  --   <leader>p  Plugins group   -> <leader>P
+  --   <leader>f  Find File       -> <leader>p
+  --   <leader>st Search Text     -> <leader>f   (and clear the old <leader>st)
+  -- Order matters: each assignment reads the current value before it's overwritten.
+  local wk = lvim.builtin.which_key.mappings
+  wk["P"] = wk["p"]          -- Plugins group  -> <leader>P
+  wk["p"] = wk["f"]          -- Find File      -> <leader>p
+  wk["f"] = wk["s"]["t"]     -- live_grep Text -> <leader>f
+  wk["s"]["t"] = nil         -- clear old      <leader>st
 end
 
 return M
