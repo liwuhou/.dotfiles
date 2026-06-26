@@ -60,7 +60,9 @@ function M.setup()
   vim.o.completeopt = "menu,menuone,noselect,noinsert"
   -- 样式
   vim.o.background = "dark"
-  vim.o.termguicolors = true
+  -- Terminal.app 无 24-bit 真彩色：在里面关掉 termguicolors，让 onedark.nvim 回退到
+  -- 256 色 cterm 调色板，而不是发出 Apple Terminal 会直接丢弃的 #rrggbb 序列。
+  vim.o.termguicolors = vim.env.TERM_PROGRAM ~= "Apple_Terminal"
   -- 不可见字符的显示，这里只把空格显示为一个点
   vim.o.list = true
   -- vim.o.listchars = "space:·"
