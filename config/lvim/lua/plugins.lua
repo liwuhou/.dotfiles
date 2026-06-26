@@ -42,15 +42,17 @@ function M.setup()
         end,
       },
     },
-    -- nvim-treesitter stays on the legacy `master` branch (also pinned by
-    -- LunarVim's snapshot). LunarVim's core treesitter config uses the old
-    -- `nvim-treesitter.configs` API, which `main` removed — on master it runs
-    -- natively, so no compat hacks are needed in basic.lua. (The old
-    -- `ft_to_lang` previewer crash is no longer reproducible: telescope is on
-    -- master and nvim-treesitter master doesn't call the removed API.)
+    -- nvim-treesitter on `main` (also pinned by LunarVim's snapshot). main
+    -- tracks Neovim's treesitter parser ABI and auto-registers parsers via
+    -- vim.treesitter.language.add, so highlighting works on Neovim 0.12.
+    -- (master/legacy compiles ABI-incompatible parsers and doesn't register
+    -- them — vim.treesitter.start fails with "Parser could not be created".)
+    -- main removed `nvim-treesitter.configs`, so LunarVim core's treesitter
+    -- setup silently no-ops; basic.lua re-enables highlighting via a FileType
+    -- autocmd and injects main's runtime/ parser path.
     {
       "nvim-treesitter/nvim-treesitter",
-      branch = "master",
+      branch = "main",
       build = ":TSUpdate",
     },
     -- Project switcher: scan git repos under given base_dirs.

@@ -84,12 +84,31 @@ function M.setup()
   -- Fix: vim-illuminate 在加载时硬编码 require("nvim-treesitter.query")，不兼容 Neovim 0.12+
   lvim.builtin.illuminate.active = false
 
-  -- treesitter is pinned to master (via LunarVim snapshot), where the legacy
-  -- `nvim-treesitter.configs` API still exists and LunarVim's core/treesitter.lua
-  -- runs natively. The main-branch workarounds that used to live here (suppressing
-  -- the configs error via log.level, injecting ts runtime/parser paths, and a
-  -- FileType autocmd to call vim.treesitter.start()) are no longer needed and
-  -- were removed when we reverted to master.
+  -- Fix: 屏蔽 LunarVim 内部 "Failed to load nvim-treesitter.configs" 错误
+  -- (新版 nvim-treesitter 已移除 configs 模块，此错误无害)
+  lvim.log.level = "fatal"
+
+  -- Fix: 新版 nvim-treesitter 将 queries 放在 runtime/ 子目录下，需要手动加入 runtimepath
+  -- 同时解析器安装到 stdpath('data')/site，也需要加入
+  local ts_dir = vim.fn.glob("~/.local/share/lunarvim/site/pack/lazy/opt/nvim-treesitter")
+  if ts_dir ~= "" then
+    local ts_runtime = ts_dir .. "/runtime"
+    if vim.fn.isdirectory(ts_runtime) == 1 then
+      vim.o.runtimepath = vim.o.runtimepath .. "," .. ts_runtime
+    end
+  end
+  local parser_dir = vim.fn.stdpath("data") .. "/site"
+  if vim.fn.isdirectory(parser_dir) == 1 then
+    vim.o.runtimepath = vim.o.runtimepath .. "," .. parser_dir
+  end
+
+  -- Fix: 新版 nvim-treesitter 不再自动启用高亮，通过 autocommand 启用
+  vim.api.nvim_create_autocmd("FileType", {
+    group = vim.api.nvim_create_augroup("UserTreesitterHighlight", { clear = true }),
+    callback = function()
+      pcall(vim.treesitter.start)
+    end,
+  })
 end
 
 return M
