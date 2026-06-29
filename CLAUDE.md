@@ -57,3 +57,30 @@ User config in `config/lvim/` consumes the framework and stays mostly
 fork-agnostic. The `basic.lua` nvim-0.12 workarounds (indentlines/illuminate
 guards, treesitter runtime injection, FileType highlight autocmd, log.level)
 are kept because LunarVim core still assumes the old treesitter API.
+
+## Karabiner-Elements
+
+`~/.config/karabiner/karabiner.json` is an rcm symlink into
+`config/karabiner/karabiner.json`. Edits to the source file are picked up by
+Karabiner's file watcher — but see the reload caveat below.
+
+**Reload caveat (DriverKit architecture):** this Karabiner build uses
+DriverKit (`Karabiner-Core-Service` + `org.pqrs.Karabiner-DriverKit-VirtualHIDDevice`
+dext), NOT the legacy `karabiner_grabber` process. So `karabiner_grabber` not
+running is normal here. `karabiner_cli reload` (at
+`/Library/Application Support/org.pqrs/Karabiner-Elements/bin/karabiner_cli`)
+returns exit 0 but **does not always re-apply the config to the running
+Core-Service** — a rule change can sit in the file, valid and reloaded, yet
+still trigger the old behavior. When a confirmed-correct edit doesn't take
+effect after `reload`, restart Karabiner (quit & reopen the app, or
+`sudo killall Karabiner-Core-Service karabiner_console_user_server` and relaunch)
+to force the running state to re-read the config. Don't waste time
+re-checking the file/symlink in that situation — verify the file is correct
+once, then go straight to a service restart.
+
+Config shape: one profile ("Default"), no global simple_modifications, 10
+complex-modification rule groups organized around a Hyper key
+(CapsLock → right_command+right_control+right_shift+right_option), plus
+per-device simple_modifications for ~15 keyboards. App launchers live in the
+"Hyper Application" group as `shell_command: open -a <App>`.
+
