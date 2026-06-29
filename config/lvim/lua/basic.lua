@@ -77,6 +77,13 @@ function M.setup()
   -- 使用增强状态栏插件后不再需要 vim 的模式提示
   vim.o.showmode = false
 
+  -- Format on save: 交给 conform.nvim（见 plugins.lua）。conform 自己监听
+  -- BufWritePre，所以关掉 LunarVim 内置的 format_on_save 避免双重格式化。
+  -- 必须在这里关——LunarVim 在 source config.lua 之后才注册 BufWritePre
+  -- autocmd，等插件 config 函数（BufReadPre 才跑）去改 lvim.format_on_save
+  -- 已经晚了，autocmd 不会因此移除。
+  lvim.format_on_save.enabled = false
+
   -- Fix: indent-blankline v2 的 treesitter 功能不兼容 Neovim 0.12+
   lvim.builtin.indentlines.options.use_treesitter = false
   lvim.builtin.indentlines.options.show_current_context = false
