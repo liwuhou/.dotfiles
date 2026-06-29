@@ -84,6 +84,12 @@ function M.setup()
   -- Fix: vim-illuminate 在加载时硬编码 require("nvim-treesitter.query")，不兼容 Neovim 0.12+
   lvim.builtin.illuminate.active = false
 
+  -- Fix: LunarVim core 默认 ensure_installed 含 "regex"，每次启动自动装回 regex
+  -- parser。而 nvim-treesitter runtime 里的 regex highlights.scm 第 9 行匹配了
+  -- regex parser 不存在的节点 "<"，导致 js 文件里的正则字面量触发 regex 注入高亮时
+  -- 报 "Query error at 9:4. Invalid node type <"。regex 高亮非必需，直接移除。
+  lvim.builtin.treesitter.ensure_installed = { "comment", "markdown_inline" }
+
   -- Fix: 屏蔽 LunarVim 内部 "Failed to load nvim-treesitter.configs" 错误
   -- (新版 nvim-treesitter 已移除 configs 模块，此错误无害)
   lvim.log.level = "fatal"
