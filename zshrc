@@ -27,6 +27,34 @@ alias rb="nr run build"
 alias r="nr run"
 alias cc="claude --dangerously-skip-permissions"
 
+pi() {
+  local pi_bin="/Users/awu/.bun/bin/pi"
+
+  case "${1:-}" in
+    install|remove|uninstall|update|list|config)
+      command "$pi_bin" "$@"
+      return
+      ;;
+  esac
+
+  for arg in "$@"; do
+    if [ "$arg" = "--no-skills" ]; then
+      command "$pi_bin" "$@"
+      return
+    fi
+  done
+
+  local root
+  root="$(git rev-parse --show-toplevel 2>/dev/null || pwd)"
+
+  if [ -d "$root/.claude/skills" ]; then
+    command "$pi_bin" --skill "$root/.claude/skills" "$@"
+  else
+    command "$pi_bin" "$@"
+  fi
+}
+
+
 export XIAOE_REGISTRY="http://111.230.199.61:6888/"
 export PATH="$HOME/.local/bin:$PATH"
 
@@ -101,3 +129,4 @@ export PATH=/Users/awu/.opencode/bin:$PATH
 source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 [[ -s "/Users/awu/.gvm/scripts/gvm" ]] && source "/Users/awu/.gvm/scripts/gvm"
+export ECLI_REGISTRY_URL="https://cli-tool-registry-1252524126.cos.ap-shanghai.myqcloud.com/ecli/registry.yaml"
