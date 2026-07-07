@@ -16,7 +16,8 @@
     "blue": "#61afef",
     "purple": "#c678dd",
     "cyan": "#56b6c2",
-    "orange": "#d19a66"
+    "orange": "#d19a66",
+    "steelBlue": "#4b6f92"
   },
   "colors": {
     "accent": "blue",
@@ -72,7 +73,7 @@
     "thinkingMinimal": "mutedFg",
     "thinkingLow": "cyan",
     "thinkingMedium": "blue",
-    "thinkingHigh": "purple",
+    "thinkingHigh": "mutedFg",
     "thinkingXhigh": "red",
 
     "bashMode": "green"
