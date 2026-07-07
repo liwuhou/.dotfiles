@@ -1,0 +1,13 @@
+{
+  "lastChangelogVersion": "0.80.3",
+  "defaultProvider": "metarouter-openai",
+  "defaultModel": "gpt-5.5",
+  "defaultThinkingLevel": "high",
+  "theme": "onedark",
+  "compaction": {
+    "enabled": false
+  },
+  "terminal": {
+    "showTerminalProgress": true
+  }
+}

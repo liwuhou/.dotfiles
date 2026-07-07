@@ -1,0 +1,65 @@
+{
+  "providers": {
+    "metarouter-openai": {
+      "baseUrl": "https://metarouter-ai.xiaoe-tools.com/api/v1",
+      "apiKey": "!security find-generic-password -a \"$USER\" -s 'pi/metarouter' -w",
+      "api": "openai-responses",
+      "models": [
+        {
+          "id": "gpt-5.5",
+          "name": "gpt-5.5",
+          "reasoning": true,
+          "input": [
+            "text"
+          ],
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0
+          },
+          "contextWindow": 200000,
+          "maxTokens": 16384,
+          "compat": {
+            "supportsDeveloperRole": false,
+            "supportsReasoningEffort": true,
+            "maxTokensField": "max_completion_tokens",
+            "supportsUsageInStreaming": true,
+            "reasoningEffortMap": {
+              "xhigh": "xhigh"
+            }
+          }
+        }
+      ]
+    },
+    "metarouter-openai-compatible": {
+      "baseUrl": "https://metarouter-ai.xiaoe-tools.com/api/v1",
+      "apiKey": "!security find-generic-password -a \"$USER\" -s 'pi/metarouter' -w",
+      "api": "openai-completions",
+      "models": [
+        {
+          "id": "glm-5",
+          "name": "glm-5",
+          "reasoning": true,
+          "input": [
+            "text"
+          ],
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0
+          },
+          "contextWindow": 200000,
+          "maxTokens": 16384,
+          "compat": {
+            "supportsDeveloperRole": false,
+            "supportsReasoningEffort": true,
+            "maxTokensField": "max_tokens",
+            "supportsUsageInStreaming": true
+          }
+        }
+      ]
+    }
+  }
+}
