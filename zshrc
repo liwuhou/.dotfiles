@@ -128,5 +128,12 @@ export PATH="/Users/awu/.antigravity/antigravity/bin:$PATH"
 export PATH=/Users/awu/.opencode/bin:$PATH
 source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
+# One Dark sets ANSI black (palette 0) == background (#282c34), so the default
+# `comment` style (fg=black,bold) renders invisible. That style is also used for
+# parameter-elision — a bare `$VAR` whose expansion is empty (e.g. `$ENV` when
+# ENV is unset) gets painted with it, so typing `$ENV` at the prompt vanishes.
+# Point it at the One Dark gutter grey (#5c6370, the bright-black slot) instead.
+ZSH_HIGHLIGHT_STYLES[comment]=fg=#5c6370
+
 [[ -s "/Users/awu/.gvm/scripts/gvm" ]] && source "/Users/awu/.gvm/scripts/gvm"
 export ECLI_REGISTRY_URL="https://cli-tool-registry-1252524126.cos.ap-shanghai.myqcloud.com/ecli/registry.yaml"
