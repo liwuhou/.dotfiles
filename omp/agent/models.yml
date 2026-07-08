@@ -1,0 +1,45 @@
+providers:
+  metarouter:
+    baseUrl: https://metarouter-ai.xiaoe-tools.com/api/v1
+    api: openai-completions
+    apiKey: '!security find-generic-password -a "$USER" -s ''pi/metarouter'' -w'
+    authHeader: true
+    models:
+      - id: glm-5.2
+        name: glm-5.2
+        reasoning: true
+        input: [text, image]
+        cost:
+          input: 8
+          output: 28
+          cacheRead: 2
+          cacheWrite: 0
+        contextWindow: 1000000
+        maxTokens: 128000
+        compat:
+          supportsDeveloperRole: false
+          supportsReasoningEffort: true
+          maxTokensField: max_tokens
+          supportsUsageInStreaming: true
+          reasoningEffortMap:
+            high: high
+            xhigh: max
+      - id: gpt-5.5
+        name: gpt-5.5
+        reasoning: true
+        input: [text, image]
+        cost:
+          input: 35
+          output: 210
+          cacheRead: 3.5
+          cacheWrite: 3.5
+        contextWindow: 256000
+        maxTokens: 128000
+        compat:
+          supportsDeveloperRole: false
+          supportsReasoningEffort: true
+          maxTokensField: max_tokens
+          supportsUsageInStreaming: true
+          reasoningEffortMap:
+            high: high
+            xhigh: max

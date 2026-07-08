@@ -13,7 +13,7 @@ this repo, created/updated by `rcup`.
 | Adopt an existing `~/.config/x/y` into the repo | `mkrc ~/.config/x/y` |
 | Config (excludes, etc.) | `~/.dotfiles/rcrc` |
 
-`rcrc` currently sets `EXCLUDES="README.md package.json node_modules claude"`.
+`rcrc` currently sets `EXCLUDES="README.md CLAUDE.md package.json node_modules claude"`.
 
 ## ⚠️ Critical lesson: run `rcup` after adding NEW files
 
@@ -41,6 +41,28 @@ targets). `~/.config/lvim` is a real directory; its contents
 into `~/.dotfiles/config/lvim/`. So adding a new nested file requires `rcup`
 to link that specific path — copying into a real subdir under `~/.config`
 would drift from the repo.
+
+## OMP
+
+Active `omp` user config lives under `~/.omp/agent` (`omp config path`). This
+repo now tracks the live source files at `omp/agent/config.yml` and
+`omp/agent/models.yml`, linked by rcm to `~/.omp/agent/config.yml` and
+`~/.omp/agent/models.yml`.
+
+Use `omp config get <key>` / `omp config list` to inspect effective settings;
+`omp config set/reset` writes to the live global config file. If either
+`config.yml` or `models.yml` is newly adopted or recreated, run `rcup` and
+verify the symlinks:
+
+```sh
+ls -l ~/.omp/agent/config.yml ~/.omp/agent/models.yml
+```
+
+Do not manage OMP through the legacy `~/.pi/agent` files for current `omp`
+behavior. LSP is enabled by schema defaults unless overridden in
+`omp/agent/config.yml`; project-specific LSP overrides belong in
+`<repo>/.omp/lsp.json` or another documented OMP LSP config path, not in the
+global model config.
 
 ## LunarVim (self-maintained fork)
 

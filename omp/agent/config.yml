@@ -1,0 +1,19 @@
+modelRoles: 
+  default: metarouter/gpt-5.5:high
+  smol: metarouter/glm-5.2:medium
+  slow: metarouter/gpt-5.5:high
+  plan: metarouter/gpt-5.5:high
+  task: metarouter/gpt-5.5:high
+enabledModels: 
+  - metarouter/gpt-5.5
+  - metarouter/glm-5.2
+modelProviderOrder: 
+  - metarouter
+providers: 
+  webSearch: auto
+symbolPreset: nerd
+theme: 
+  dark: dark-one
+setupVersion: 1
+autocompleteMaxVisible: 5
+hideThinkingBlock: true
