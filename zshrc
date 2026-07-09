@@ -29,17 +29,27 @@ alias cc="claude --dangerously-skip-permissions"
 
 pi() {
   local pi_bin="/Users/awu/.bun/bin/pi"
+  # pi is installed by bun, but its bin script uses `#!/usr/bin/env node`.
+  # Force a modern Node here so fnm's per-project Node 14/16 won't run pi itself.
+  local pi_node_version="${PI_NODE_VERSION:-24}"
+  local -a pi_cmd
+
+  if command -v fnm >/dev/null 2>&1; then
+    pi_cmd=(fnm exec --using="$pi_node_version" -- "$pi_bin")
+  else
+    pi_cmd=("$pi_bin")
+  fi
 
   case "${1:-}" in
     install|remove|uninstall|update|list|config)
-      command "$pi_bin" "$@"
+      command "${pi_cmd[@]}" "$@"
       return
       ;;
   esac
 
   for arg in "$@"; do
     if [ "$arg" = "--no-skills" ]; then
-      command "$pi_bin" "$@"
+      command "${pi_cmd[@]}" "$@"
       return
     fi
   done
@@ -48,9 +58,9 @@ pi() {
   root="$(git rev-parse --show-toplevel 2>/dev/null || pwd)"
 
   if [ -d "$root/.claude/skills" ]; then
-    command "$pi_bin" --skill "$root/.claude/skills" "$@"
+    command "${pi_cmd[@]}" --skill "$root/.claude/skills" "$@"
   else
-    command "$pi_bin" "$@"
+    command "${pi_cmd[@]}" "$@"
   fi
 }
 
