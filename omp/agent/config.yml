@@ -1,19 +1,76 @@
-modelRoles: 
-  default: metarouter/gpt-5.5:high
-  smol: metarouter/glm-5.2:medium
-  slow: metarouter/gpt-5.5:high
-  plan: metarouter/gpt-5.5:high
-  task: metarouter/gpt-5.5:high
-enabledModels: 
-  - metarouter/gpt-5.5
+modelRoles:
+  default: metarouter/gpt-5.6-terra:high
+  smol: metarouter/gpt-5.6-luna:low
+  slow: metarouter/gpt-5.6-sol:high
+  plan: metarouter/gpt-5.6-sol:high
+  task: metarouter/gpt-5.6-terra:high
+enabledModels:
+  - metarouter/gpt-5.6-sol
+  - metarouter/gpt-5.6-terra
+  - metarouter/gpt-5.6-luna
   - metarouter/glm-5.2
-modelProviderOrder: 
+modelProviderOrder:
   - metarouter
-providers: 
-  webSearch: auto
+providers:
+  webSearch: exa
 symbolPreset: nerd
-theme: 
+theme:
   dark: dark-one
 setupVersion: 1
 autocompleteMaxVisible: 5
 hideThinkingBlock: true
+statusLine:
+  preset: custom
+  separator: powerline-thin
+  transparent: true
+  compactThinkingLevel: true
+  showHookStatus: true
+  leftSegments:
+    - pi
+    - model
+    - path
+    - git
+    - context_pct
+  rightSegments:
+    - subagents
+    - session_name
+    - token_rate
+    - time
+  segmentOptions:
+    model:
+      showThinkingLevel: true
+    path:
+      abbreviate: true
+      maxLength: 40
+      stripWorkPrefix: true
+    git:
+      showBranch: true
+      showStaged: true
+      showUnstaged: true
+      showUntracked: true
+terminal:
+  showProgress: false
+tui:
+  textSizing: false
+  renderMermaid: true
+display:
+  showTokenUsage: true
+  cacheMissMarker: true
+task:
+  showResolvedModelBadge: false
+advisor:
+  enabled: false
+memory:
+  backend: local
+autolearn:
+  enabled: false
+  autoContinue: true
+readLineNumbers: false
+bash:
+  autoBackground:
+    enabled: true
+web_search:
+  enabled: true
+todo:
+  reminders:
+    max: 5

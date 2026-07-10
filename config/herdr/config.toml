@@ -1,0 +1,34 @@
+onboarding = false
+[ui]
+agent_panel_sort = "spaces"
+
+show_agent_labels_on_pane_borders = true
+[theme]
+name = "one-dark"
+auto_switch = false
+
+[ui.sound]
+enabled = true
+
+[ui.toast]
+delivery = "system"
+
+[experimental]
+switch_ascii_input_source_in_prefix = true
+pane_history = true
+
+[keys]
+# Option+1..9 switches workspace directly (no prefix).
+# Option works as Alt here because Ghostty sets macos-option-as-alt = true.
+# Note: herdr intercepts these at the outer layer, so pane apps (zsh/vim)
+# won't receive Option+1..9 while a herdr workspace is focused.
+switch_workspace = "alt+1..9"
+# Option+h/j/k/l moves pane focus (vim-style), no prefix.
+focus_pane_left = "alt+h"
+focus_pane_down = "alt+j"
+focus_pane_up = "alt+k"
+focus_pane_right = "alt+l"
+# prefix (ctrl+b) then z toggles pane zoom / fullscreen.
+zoom = "prefix+z"
+# Ctrl+1..9 switches tab directly (no prefix).
+switch_tab = "ctrl+1..9"

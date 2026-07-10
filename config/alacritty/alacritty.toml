@@ -9,7 +9,7 @@ blinking = "On"
 TERM = "xterm-256color"
 
 [font]
-builtin_box_drawing = false
+builtin_box_drawing = true
 size = 14.0
 
 [font.normal]
@@ -399,9 +399,12 @@ decorations = "buttonless"
 dynamic_padding = true
 opacity = 1
 
-[window.dimensions]
-columns = 240
-lines = 65
+# No [window.dimensions] here: a static columns/lines size interacts badly with
+# a tiling/resized window — Alacritty re-applies the static size on certain
+# events (focus, full-screen TUI launch), thrashing the WINCH signal it sends
+# to tmux. tmux then mis-sizes mid-redraw and collapses to a background-only
+# frame with no status bar. Letting Alacritty track the real window size keeps
+# the resize signal clean. (live_config_reload will pick this up on save.)
 
 [window.padding]
 x = 5

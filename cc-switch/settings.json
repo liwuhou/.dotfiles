@@ -4,7 +4,7 @@
   "useAppWindowControls": false,
   "enableClaudePluginIntegration": true,
   "skipClaudeOnboarding": true,
-  "launchOnStartup": true,
+  "launchOnStartup": false,
   "silentStartup": true,
   "enableLocalProxy": false,
   "usageConfirmed": true,
@@ -23,10 +23,10 @@
     "openclaw": false,
     "hermes": true
   },
-  "currentProviderClaude": "metarouter-1775548532981",
+  "currentProviderClaude": "metarouter-1776152524994",
   "skillSyncMethod": "symlink",
-  "skillStorageLocation": "cc_switch",
-  "preferredTerminal": "alacritty",
+  "skillStorageLocation": "unified",
+  "preferredTerminal": "ghostty",
   "localMigrations": {
     "codexThirdPartyHistoryProviderBucketV1": {
       "completedAt": "2026-06-03T08:20:58.097313+00:00",
