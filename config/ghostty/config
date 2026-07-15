@@ -12,7 +12,7 @@
 # top-down per glyph.
 font-family = Maple Mono Normal CN
 font-family = JetBrainsMono Nerd Font Mono
-font-size = 15
+font-size = 14
 # `font-style` takes the style string the font advertises (e.g. "SemiBold"),
 # NOT the full font name. Maple has Medium, so italic stays a step lighter than
 # normal (Medium Italic). JetBrainsMono shares these style names, so the icon
