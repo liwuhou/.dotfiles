@@ -11,18 +11,20 @@ auto_switch = false
 enabled = true
 
 [ui.toast]
-delivery = "system"
+delivery = "herdr"
+
+[ui.toast.herdr]
+position = "bottom-left"
 
 [experimental]
 switch_ascii_input_source_in_prefix = true
 pane_history = true
 
 [keys]
-# Option+1..9 switches workspace directly (no prefix).
-# Option works as Alt here because Ghostty sets macos-option-as-alt = true.
-# Note: herdr intercepts these at the outer layer, so pane apps (zsh/vim)
-# won't receive Option+1..9 while a herdr workspace is focused.
-switch_workspace = "alt+1..9"
+# Ctrl+1..9 switches workspace directly (no prefix).
+# Note: herdr intercepts these at the outer layer while a herdr workspace
+# is focused.
+switch_workspace = "ctrl+1..9"
 # Option+h/j/k/l moves pane focus (vim-style), no prefix.
 focus_pane_left = "alt+h"
 focus_pane_down = "alt+j"
@@ -30,5 +32,15 @@ focus_pane_up = "alt+k"
 focus_pane_right = "alt+l"
 # prefix (ctrl+b) then z toggles pane zoom / fullscreen.
 zoom = "prefix+z"
-# Ctrl+1..9 switches tab directly (no prefix).
-switch_tab = "ctrl+1..9"
+# Option+1..9 focuses agent slots directly; tabs stay on default prefix+1..9.
+# Option works as Alt here because Ghostty sets macos-option-as-alt = true.
+focus_agent = "alt+1..9"
+# Option+o jumps to the pane targeted by the latest notification.
+open_notification_target = "alt+o"
+# Option+i jumps back to the last focused pane across tabs/workspaces.
+last_pane = "alt+i"
+# Ctrl+h/l and Ctrl+Alt+h/l both switch tabs; Ctrl+Alt+j/k switch agents.
+previous_tab = ["ctrl+h", "ctrl+alt+h"]
+next_agent = "ctrl+alt+j"
+previous_agent = "ctrl+alt+k"
+next_tab = ["ctrl+l", "ctrl+alt+l"]

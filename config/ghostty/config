@@ -62,6 +62,15 @@ macos-option-as-alt = true
 # no explicit binding is needed — alacritty.toml had one because Alacritty
 # didn't emit NUL on its own.
 
+# ── Background image ───────────────────────────────────────────────────────
+# Bright, right-weighted photo: keep the subject visible while preserving
+# contrast for light One Dark text by mixing the image in lightly.
+background-image = /Users/awu/Desktop/workplace/gundam/01.jpg
+background-image-fit = cover
+background-image-position = center-right
+background-image-repeat = false
+background-image-opacity = 0.03
+
 # ── Colors: One Dark (navarasu/onedark.nvim "dark" — matches onedark.toml) ──
 background = #282c34
 foreground = #abb2bf

@@ -13,12 +13,28 @@ function M.setup()
         require("onedark").setup({
           style = "dark",
           toggle_style_list = { "dark", "darker", "cool", "deep", "warm", "warmer", "light" },
+          transparent = lvim.transparent_window,
+          lualine = { transparent = lvim.transparent_window },
         })
         require("onedark").load()
       end,
     },
-    -- minimap
-    { "Isrothy/neominimap.nvim" },
+    -- minimap: use a real split instead of the default float overlay so it
+    -- never covers buffer text.
+    {
+      "Isrothy/neominimap.nvim",
+      init = function()
+        ---@type Neominimap.UserConfig
+        vim.g.neominimap = {
+          layout = "split",
+          split = {
+            direction = "rightbelow",
+            minimap_width = 16,
+            fix_width = true,
+          },
+        }
+      end,
+    },
     -- Code folding with a nicer look (colored fold bar + signature preview),
     -- layered on top of Neovim's native folding. Uses treesitter as the
     -- primary provider, indent as fallback for langs without a parser.

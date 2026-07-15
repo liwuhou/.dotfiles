@@ -101,6 +101,28 @@ function M.setup()
   -- (新版 nvim-treesitter 已移除 configs 模块，此错误无害)
   lvim.log.level = "fatal"
 
+  -- Fix: Neovim 0.12 移除了 vim.diagnostic.is_disabled()，但当前锁定的
+  -- nvim-tree 仍会在诊断回调里直接调用它，导致进入有 LSP 诊断的文件时抛
+  -- "attempt to call field 'is_disabled'"。补一个向后兼容 shim，让旧插件走
+  -- 新 API vim.diagnostic.is_enabled()。
+  if vim.diagnostic.is_disabled == nil then
+    vim.diagnostic.is_disabled = function()
+      return not vim.diagnostic.is_enabled({})
+    end
+  end
+
+  -- Fix: Neovim 0.12 将 vim.tbl_add_reverse_lookup() 标为 deprecated，当前
+  -- 锁定的 LunarVim/runtime 插件仍会在启动路径里调用，导致每次启动都吐出
+  -- deprecation 提示。补一个等价实现，保留原有行为并压掉这类兼容噪音。
+  if vim.fn.has("nvim-0.12") == 1 and vim.tbl_add_reverse_lookup ~= nil then
+    vim.tbl_add_reverse_lookup = function(tbl)
+      for k, v in pairs(tbl) do
+        tbl[v] = k
+      end
+      return tbl
+    end
+  end
+
   -- Fix: 新版 nvim-treesitter 将 queries 放在 runtime/ 子目录下，需要手动加入 runtimepath
   -- 同时解析器安装到 stdpath('data')/site，也需要加入
   local ts_dir = vim.fn.glob("~/.local/share/lunarvim/site/pack/lazy/opt/nvim-treesitter")
