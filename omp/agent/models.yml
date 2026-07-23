@@ -1,7 +1,7 @@
 providers:
   metarouter:
     baseUrl: https://metarouter-ai.xiaoe-tools.com/api/v1
-    api: openai-completions
+    api: openai-responses
     apiKey: '!security find-generic-password -a "$USER" -s ''pi/metarouter'' -w'
     authHeader: true
     models:
@@ -19,7 +19,7 @@ providers:
         compat:
           supportsDeveloperRole: false
           supportsReasoningEffort: true
-          maxTokensField: max_tokens
+          maxTokensField: max_completion_tokens
           supportsUsageInStreaming: true
           reasoningEffortMap:
             high: high
@@ -33,12 +33,12 @@ providers:
           output: 30
           cacheRead: 0.5
           cacheWrite: 0.5
-        contextWindow: 256000
+        contextWindow: 1000000
         maxTokens: 128000
         compat:
           supportsDeveloperRole: false
           supportsReasoningEffort: true
-          maxTokensField: max_tokens
+          maxTokensField: max_completion_tokens
           supportsUsageInStreaming: true
           reasoningEffortMap:
             high: high
@@ -57,7 +57,7 @@ providers:
         compat:
           supportsDeveloperRole: false
           supportsReasoningEffort: true
-          maxTokensField: max_tokens
+          maxTokensField: max_completion_tokens
           supportsUsageInStreaming: true
           reasoningEffortMap:
             high: high
@@ -76,8 +76,30 @@ providers:
         compat:
           supportsDeveloperRole: false
           supportsReasoningEffort: true
-          maxTokensField: max_tokens
+          maxTokensField: max_completion_tokens
           supportsUsageInStreaming: true
           reasoningEffortMap:
             high: high
+            xhigh: max
+      - id: kimi-k3
+        name: Kimi K3
+        api: openai-completions
+        reasoning: true
+        input: [text, image]
+        cost:
+          input: 3
+          output: 15
+          cacheRead: 0.3
+          cacheWrite: 0
+        contextWindow: 1000000
+        maxTokens: 128000
+        compat:
+          supportsDeveloperRole: false
+          supportsReasoningEffort: true
+          maxTokensField: max_completion_tokens
+          supportsUsageInStreaming: true
+          reasoningEffortMap:
+            low: max
+            medium: max
+            high: max
             xhigh: max

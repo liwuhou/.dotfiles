@@ -57,11 +57,14 @@ pi() {
   local root
   root="$(git rev-parse --show-toplevel 2>/dev/null || pwd)"
 
+  local -a skill_args
+  skill_args=(--no-skills)
+
   if [ -d "$root/.claude/skills" ]; then
-    command "${pi_cmd[@]}" --skill "$root/.claude/skills" "$@"
-  else
-    command "${pi_cmd[@]}" "$@"
+    skill_args+=(--skill "$root/.claude/skills")
   fi
+
+  command "${pi_cmd[@]}" "${skill_args[@]}" "$@"
 }
 
 

@@ -1,15 +1,16 @@
 modelRoles: 
-  default: metarouter/gpt-5.6-terra:medium
   smol: metarouter/gpt-5.6-luna:low
-  slow: metarouter/gpt-5.6-sol:high
+  slow: metarouter/gpt-5.6-sol:xhigh
   plan: metarouter/gpt-5.6-sol:high
   task: metarouter/gpt-5.6-terra:medium
-  advisor: metarouter/gpt-5.6-terra:medium
+  advisor: metarouter/kimi-k3:low
+  default: metarouter/gpt-5.6-sol:medium
 enabledModels: 
   - metarouter/gpt-5.6-sol
   - metarouter/gpt-5.6-terra
   - metarouter/gpt-5.6-luna
   - metarouter/glm-5.2
+  - metarouter/kimi-k3
 modelProviderOrder: 
   - metarouter
 providers: 
@@ -57,14 +58,16 @@ tui:
 display: 
   showTokenUsage: true
   cacheMissMarker: true
-task: 
-skills:
+task: null
+skills: 
   enableClaudeUser: false
   enableClaudeProject: true
   showResolvedModelBadge: false
 advisor: 
-  enabled: false
+  enabled: true
   subagents: false
+  outputLanguage: user
+  syncBacklog: "1"
 memory: 
   backend: local
 autolearn: 
@@ -82,8 +85,7 @@ todo:
 tier: 
   advisor: auto
 dev: 
-  autoqa: 
-    consent: granted
+  autoqaConsent: granted
 textVerbosity: low
 defaultThinkingLevel: medium
 personality: pragmatic
