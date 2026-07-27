@@ -1,0 +1,13 @@
+# This is Git's per-user configuration file.
+[user]
+# Please adapt and uncomment the following lines:
+name = liwuhou
+email = hugewilliam@foxmail.com
+[credential "https://github.com"]
+	helper = 
+	helper = !/usr/local/bin/gh auth git-credential
+[credential "https://gist.github.com"]
+	helper = 
+	helper = !/usr/local/bin/gh auth git-credential
+[includeIf "hasconfig:remote.*.url:git@talkcheap.xiaoeknow.com:**/**"]
+	path = ~/.gitconfig-talkcheap
