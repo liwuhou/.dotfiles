@@ -1,20 +1,51 @@
 modelRoles: 
   smol: metarouter/gpt-5.6-luna:low
   slow: metarouter/gpt-5.6-sol:xhigh
-  plan: metarouter/gpt-5.6-sol:high
+  plan: metarouter-meiwei/gpt-5.6-terra:high
   task: metarouter/gpt-5.6-terra:medium
-  advisor: metarouter/kimi-k3:low
-  default: metarouter/gpt-5.6-sol:medium
-enabledModels: 
-  - metarouter/gpt-5.6-sol
-  - metarouter/gpt-5.6-terra
-  - metarouter/gpt-5.6-luna
-  - metarouter/glm-5.2
-  - metarouter/kimi-k3
+  advisor: metarouter-meiwei/glm-5.2
+  default: metarouter-meiwei/gpt-5.6-sol
+  enabledModels: 
+    - metarouter/gpt-5.6-sol
+    - metarouter/gpt-5.6-terra
+    - metarouter/gpt-5.6-luna
+    - metarouter/glm-5.2
+    - metarouter/kimi-k3
+    - metarouter-meiwei/gpt-5.6-sol
+    - metarouter-meiwei/gpt-5.6-terra
+    - metarouter-meiwei/gpt-5.6-luna
+    - metarouter-meiwei/glm-5.2
+    - metarouter-meiwei/kimi-k3
+    - metarouter-anthropic/claude-opus-4-8
+    - metarouter-anthropic/doubao-seed-2-1-pro
 modelProviderOrder: 
   - metarouter
+  - metarouter-anthropic
 providers: 
-  webSearch: exa
+  webSearchOrder: 
+    - exa
+    - perplexity
+    - gemini
+    - anthropic
+    - codex
+    - xai
+    - zai
+    - tinyfish
+    - jina
+    - kagi
+    - tavily
+    - firecrawl
+    - brave
+    - kimi
+    - parallel
+    - synthetic
+    - searxng
+    - startpage
+    - duckduckgo
+    - ecosia
+    - google
+    - mojeek
+    - public
 symbolPreset: nerd
 theme: 
   dark: dark-one
@@ -66,8 +97,6 @@ skills:
 advisor: 
   enabled: true
   subagents: false
-  outputLanguage: user
-  syncBacklog: "1"
 memory: 
   backend: local
 autolearn: 
@@ -87,5 +116,5 @@ tier:
 dev: 
   autoqaConsent: granted
 textVerbosity: low
-defaultThinkingLevel: medium
+defaultThinkingLevel: auto
 personality: pragmatic
