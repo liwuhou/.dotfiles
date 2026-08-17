@@ -44,3 +44,4 @@ previous_tab = ["ctrl+h", "ctrl+alt+h"]
 next_agent = "ctrl+alt+j"
 previous_agent = "ctrl+alt+k"
 next_tab = ["ctrl+l", "ctrl+alt+l"]
+copy_mode = ["prefix+[", "ctrl+["]
