@@ -15,32 +15,15 @@ this repo, created/updated by `rcup`.
 
 `rcrc` currently sets `EXCLUDES="README.md CLAUDE.md package.json node_modules claude"`.
 
-## ⚠️ Critical lesson: run `rcup` after adding NEW files
+## ⚠️ 禁止绝对路径，统一 `$HOME` 相对写法
 
-**rcm does not auto-link new files.** When you add a new file or subdirectory
-to this repo (e.g. `config/lvim/queries/regex/highlights.scm`), the symlink
-into `~/.config/...` is **not** created until you run `rcup`. A new file that
-sits only in the repo is invisible to the consuming tool — configs silently
-fail to take effect.
+本仓库跨设备复用，**任何文件里都不允许出现 `/Users/<username>` 形式的绝对路径**（zshrc、plist、models.yml 的 `!command`、脚本等一律用 `$HOME` 或 `~/`）。这些位置都经过 shell 展开，`$HOME` 写法已验证可用（含 LaunchAgent 的 `/bin/sh -c` 和 OMP apiKey 命令）。约定各设备统一把仓库克隆到 `~/.dotfiles`。新增文件时自查；发现存量绝对路径顺手改掉。
 
-This bit us with the LunarVim regex query override: the file was committed
-to `config/lvim/queries/regex/highlights.scm` but `rcup` was never run, so
-nvim never saw it and the "Invalid node type <" treesitter error persisted
-across what looked like a "fixed" commit. The symlink only appeared after an
-explicit `rcup`.
+## ⚠️ 新文件后运行 `rcup`
 
-**Rule:** after creating/adding any new dotfile in this repo, run `rcup` and
-verify the symlink landed (e.g. `ls -l ~/.config/<tool>/<path>`). Do not
-assume a committed file is live.
+rcm 不会自动链接新增文件。添加任意 dotfile（例如 `config/nvim/lua/plugins/example.lua`）后，必须运行 `rcup` 并确认对应的 `~/.config/...` 链接已创建；否则使用方无法看到新配置。
 
-## Symlink granularity
-
-rcm links **individual files**, not whole directories (for `~/.config/*`
-targets). `~/.config/lvim` is a real directory; its contents
-(`config.lua`, `lazy-lock.json`, `lua/...`, `queries/...`) are each symlinks
-into `~/.dotfiles/config/lvim/`. So adding a new nested file requires `rcup`
-to link that specific path — copying into a real subdir under `~/.config`
-would drift from the repo.
+rcm 对 `~/.config/*` 链接单个文件而不是整个目录。`~/.config/nvim` 是实际目录，内部文件分别链接回 `~/.dotfiles/config/nvim/`；新增嵌套文件后同样需要运行 `rcup`。
 
 ## OMP
 
@@ -64,21 +47,11 @@ behavior. LSP is enabled by schema defaults unless overridden in
 `<repo>/.omp/lsp.json` or another documented OMP LSP config path, not in the
 global model config.
 
-## LunarVim (self-maintained fork)
+## Neovim（LazyVim）
 
-LunarVim upstream is abandoned at `release-1.4/neovim-0.9`. The local install
-at `~/.local/share/lunarvim/lvim` points `origin` at our fork
-`liwuhou/LunarVim` (branch `release-1.4/neovim-0.12`); `upstream` is the
-official repo. Compat fixes (telescope master for the Find File refilter bug,
-treesitter main for nvim 0.12 ABI) live as commits on the fork's snapshot
-file (`snapshots/default.json`) — LunarVim forces core-plugin commits from
-that snapshot on every launch (`plugins.lua:377-382`), so the lockfile in
-`config/lvim/lazy-lock.json` is informational, not authoritative.
+Neovim 配置位于 `config/nvim/`，通过 `rcup` 链接到 `~/.config/nvim`；使用 `nvim`（或 `v`）启动。自定义选项、键位和自动命令分别在 `lua/config/`，插件配置在 `lua/plugins/editor.lua`。
 
-User config in `config/lvim/` consumes the framework and stays mostly
-fork-agnostic. The `basic.lua` nvim-0.12 workarounds (indentlines/illuminate
-guards, treesitter runtime injection, FileType highlight autocmd, log.level)
-are kept because LunarVim core still assumes the old treesitter API.
+`config/nvim/lazy-lock.json` 是受版本控制的插件锁文件。更新插件后运行 `:Lazy sync` 并提交它。Neovim 0.12 使用的 `nvim-treesitter` 必须固定在 `main` 分支，避免旧 `master` 生成的 parser ABI 不兼容。
 
 ## Karabiner-Elements
 

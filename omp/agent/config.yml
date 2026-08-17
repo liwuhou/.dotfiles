@@ -17,16 +17,6 @@ modelRoles:
     - metarouter/qwen3-coder-plus
     - metarouter/qwen3-coder-flash
     - metarouter/tencentcloud-th/deepseek-v4-flash
-    - metarouter-meiwei/gpt-5.6-sol
-    - metarouter-meiwei/gpt-5.6-terra
-    - metarouter-meiwei/gpt-5.6-luna
-    - metarouter-meiwei/glm-5.2
-    - metarouter-meiwei/kimi-k3
-    - metarouter-zzw/gpt-5.6-sol
-    - metarouter-zzw/gpt-5.6-terra
-    - metarouter-zzw/gpt-5.6-luna
-    - metarouter-zzw/glm-5.2
-    - metarouter-zzw/kimi-k3
     - metarouter-anthropic/claude-opus-4-8
     - metarouter-anthropic/doubao-seed-2-1-pro
 modelProviderOrder: 

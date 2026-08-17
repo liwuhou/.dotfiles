@@ -1,4 +1,4 @@
-export ZSH="/Users/awu/.oh-my-zsh"
+export ZSH="$HOME/.oh-my-zsh"
 
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
 # ZSH_THEME="spaceship"
@@ -37,12 +37,36 @@ alias ompg="omp --config ~/.dotfiles/omp/presets/gpt.yml"
 alias ompk="omp --config ~/.dotfiles/omp/presets/kimi.yml"
 alias ompc="omp --config ~/.dotfiles/omp/presets/cheap.yml"
 
+# 终端内 Codex CLI 也走同一把 key（GUI 版由 LaunchAgent 注入）
+export METAROUTER_API_KEY="$(~/.dotfiles/omp/scripts/metarouter-key.sh 2>/dev/null)"
+
+# 切换 metarouter API key（指针文件 ~/.omp/metarouter-key，新 session 生效）
+ompkey() {
+  local pointer=~/.omp/metarouter-key
+  local -A keys=(default pi/metarouter meiwei meiweiToken zzw metarouter-zzw)
+  if [[ $# -eq 0 ]]; then
+    echo "active: $(cat "$pointer" 2>/dev/null || echo pi/metarouter)"
+    echo "available: ${(k)keys}"
+    return
+  fi
+  local service=${keys[$1]:-$1}
+  echo "$service" > "$pointer"
+  echo "metarouter key -> $service（omp 新 session 生效）"
+  local key
+  if key=$(~/.dotfiles/omp/scripts/metarouter-key.sh) && [[ -n "$key" ]]; then
+    launchctl setenv METAROUTER_API_KEY "$key" && echo "codex env 已同步（重启 Codex 生效）"
+  else
+    echo "warning: keychain 读取失败: $service" >&2
+    return 1
+  fi
+}
+
 
 export XIAOE_REGISTRY="http://111.230.199.61:6888/"
 export PATH="$HOME/.local/bin:$PATH"
 
 # pnpm
-export PNPM_HOME="/Users/awu/Library/pnpm"
+export PNPM_HOME="$HOME/Library/pnpm"
 case ":$PATH:" in
   *":$PNPM_HOME:"*) ;;
   *) export PATH="$PNPM_HOME:$PATH" ;;
@@ -64,7 +88,7 @@ export RUSTUP_UPDATE_ROOT="https://rsproxy.cn/rustup"
 export PATH="$HOME/opencode:$PATH"
 
 # fnm init
-export PATH="/Users/awu/Library/Application Support/fnm:$PATH"
+export PATH="$HOME/Library/Application Support/fnm:$PATH"
 eval "$(fnm env --use-on-cd)"
 
 # pypnv
@@ -95,20 +119,20 @@ fi
 life-progress-cli -b 19941210 -g 1 -n china
 
 # bun completions
-[ -s "/Users/awu/.bun/_bun" ] && source "/Users/awu/.bun/_bun"
+[ -s "$HOME/.bun/_bun" ] && source "$HOME/.bun/_bun"
 
 # bun
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
 
 # Added by Windsurf
-export PATH="/Users/awu/.codeium/windsurf/bin:$PATH"
+export PATH="$HOME/.codeium/windsurf/bin:$PATH"
 
 # Added by Antigravity
-export PATH="/Users/awu/.antigravity/antigravity/bin:$PATH"
+export PATH="$HOME/.antigravity/antigravity/bin:$PATH"
 
 # opencode
-export PATH=/Users/awu/.opencode/bin:$PATH
+export PATH=$HOME/.opencode/bin:$PATH
 source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # One Dark sets ANSI black (palette 0) == background (#282c34), so the default
@@ -118,5 +142,5 @@ source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 # Point it at the One Dark gutter grey (#5c6370, the bright-black slot) instead.
 ZSH_HIGHLIGHT_STYLES[comment]=fg=#5c6370
 
-[[ -s "/Users/awu/.gvm/scripts/gvm" ]] && source "/Users/awu/.gvm/scripts/gvm"
+[[ -s "$HOME/.gvm/scripts/gvm" ]] && source "$HOME/.gvm/scripts/gvm"
 export ECLI_REGISTRY_URL="https://cli-tool-registry-1252524126.cos.ap-shanghai.myqcloud.com/ecli/registry.yaml"
