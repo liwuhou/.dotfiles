@@ -104,6 +104,113 @@ providers:
             medium: max
             high: max
             xhigh: max
+      - id: qwen3.8-max
+        name: qwen3.8-max
+        api: openai-completions
+        reasoning: true
+        input: [text, image]
+        cost:
+          input: 12
+          output: 36
+          cacheRead: 1
+          cacheWrite: 0
+        contextWindow: 1000000
+        maxTokens: 128000
+        compat:
+          supportsDeveloperRole: false
+          supportsReasoningEffort: true
+          maxTokensField: max_completion_tokens
+          supportsUsageInStreaming: true
+          reasoningEffortMap:
+            low: max
+            medium: max
+            high: max
+            xhigh: max
+      - id: qwen3.7-plus
+        name: qwen3.7-plus
+        api: openai-completions
+        reasoning: true
+        input: [text, image]
+        cost:
+          input: 1.6
+          output: 6.4
+          cacheRead: 0.32
+          cacheWrite: 0
+        contextWindow: 1000000
+        maxTokens: 128000
+        compat:
+          supportsDeveloperRole: false
+          supportsReasoningEffort: true
+          maxTokensField: max_completion_tokens
+          supportsUsageInStreaming: true
+          reasoningEffortMap:
+            low: max
+            medium: max
+            high: max
+            xhigh: max
+      - id: qwen3.6-flash
+        name: qwen3.6-flash
+        api: openai-completions
+        reasoning: true
+        input: [text, image]
+        cost:
+          input: 1.2
+          output: 7.2
+          cacheRead: 0.12
+          cacheWrite: 0
+        contextWindow: 1000000
+        maxTokens: 128000
+        compat:
+          supportsDeveloperRole: false
+          supportsReasoningEffort: true
+          maxTokensField: max_completion_tokens
+          supportsUsageInStreaming: true
+          reasoningEffortMap:
+            low: max
+            medium: max
+            high: max
+            xhigh: max
+      - id: qwen3-coder-plus
+        name: qwen3-coder-plus
+        api: openai-completions
+        input: [text]
+        cost:
+          input: 4
+          output: 16
+          cacheRead: 0.8
+          cacheWrite: 0
+        contextWindow: 1000000
+        maxTokens: 128000
+        compat:
+          supportsDeveloperRole: false
+          maxTokensField: max_completion_tokens
+          supportsUsageInStreaming: true
+      - id: qwen3-coder-flash
+        name: qwen3-coder-flash
+        api: openai-completions
+        input: [text]
+        cost:
+          input: 1
+          output: 4
+          cacheRead: 0.2
+          cacheWrite: 0
+        contextWindow: 1000000
+        maxTokens: 128000
+        compat:
+          supportsDeveloperRole: false
+          maxTokensField: max_completion_tokens
+          supportsUsageInStreaming: true
+      - id: tencentcloud-th/deepseek-v4-flash
+        name: deepseek-v4-flash
+        api: openai-completions
+        input: [text]
+        cost:
+          input: 1
+          output: 2
+          cacheRead: 0.02
+          cacheWrite: 0
+        contextWindow: 1000000
+        maxTokens: 128000
   metarouter-meiwei:
     baseUrl: https://metarouter-ai.xiaoe-tools.com/api/v1
     api: openai-responses
@@ -189,6 +296,111 @@ providers:
             xhigh: max
       - id: kimi-k3
         name: Kimi K3 (meiwei)
+        api: openai-completions
+        reasoning: true
+        input: [text, image]
+        cost:
+          input: 3
+          output: 15
+          cacheRead: 0.3
+          cacheWrite: 0
+        contextWindow: 1000000
+        maxTokens: 128000
+        compat:
+          supportsDeveloperRole: false
+          supportsReasoningEffort: true
+          maxTokensField: max_completion_tokens
+          supportsUsageInStreaming: true
+          reasoningEffortMap:
+            low: max
+            medium: max
+            high: max
+            xhigh: max
+  metarouter-zzw:
+    baseUrl: https://metarouter-ai.xiaoe-tools.com/api/v1
+    api: openai-responses
+    apiKey: '!security find-generic-password -a "$USER" -s ''meiweiToken'' -w'
+    authHeader: true
+    models:
+      - id: glm-5.2
+        name: glm-5.2 (zzw)
+        api: openai-completions
+        reasoning: true
+        input: [text, image]
+        cost:
+          input: 8
+          output: 28
+          cacheRead: 2
+          cacheWrite: 0
+        contextWindow: 1000000
+        maxTokens: 128000
+        compat:
+          supportsDeveloperRole: false
+          supportsReasoningEffort: true
+          maxTokensField: max_completion_tokens
+          supportsUsageInStreaming: true
+          reasoningEffortMap:
+            high: high
+            xhigh: max
+      - id: gpt-5.6-sol
+        name: gpt-5.6 Sol (zzw)
+        reasoning: true
+        input: [text, image]
+        cost:
+          input: 5
+          output: 30
+          cacheRead: 0.5
+          cacheWrite: 0.5
+        contextWindow: 1000000
+        maxTokens: 128000
+        compat:
+          supportsDeveloperRole: false
+          supportsReasoningEffort: true
+          maxTokensField: max_completion_tokens
+          supportsUsageInStreaming: true
+          reasoningEffortMap:
+            high: high
+            xhigh: max
+      - id: gpt-5.6-terra
+        name: gpt-5.6 Terra (zzw)
+        reasoning: true
+        input: [text, image]
+        cost:
+          input: 2.5
+          output: 15
+          cacheRead: 0.25
+          cacheWrite: 0.25
+        contextWindow: 1000000
+        maxTokens: 128000
+        compat:
+          supportsDeveloperRole: false
+          supportsReasoningEffort: true
+          maxTokensField: max_completion_tokens
+          supportsUsageInStreaming: true
+          reasoningEffortMap:
+            high: high
+            xhigh: max
+      - id: gpt-5.6-luna
+        name: gpt-5.6 Luna (zzw)
+        reasoning: true
+        input: [text, image]
+        cost:
+          input: 1
+          output: 6
+          cacheRead: 0.1
+          cacheWrite: 0.1
+        contextWindow: 1000000
+        maxTokens: 128000
+        compat:
+          supportsDeveloperRole: false
+          supportsReasoningEffort: true
+          maxTokensField: max_completion_tokens
+          supportsUsageInStreaming: true
+          reasoningEffortMap:
+            high: high
+            xhigh: max
+      - id: kimi-k3
+        name: Kimi K3 (zzw)
         api: openai-completions
         reasoning: true
         input: [text, image]

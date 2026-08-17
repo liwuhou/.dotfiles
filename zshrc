@@ -15,10 +15,15 @@ plugins=(
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
+
+# Codex uses the Metarouter provider without storing its API key in config.toml.
+if command -v security >/dev/null 2>&1; then
+  export METAROUTER_API_KEY="$(security find-generic-password -a "$USER" -s 'pi/metarouter' -w 2>/dev/null)"
+fi
 # alias v=nvim
 # alias vi=nvim
 alias nvm=fnm
-alias v="$HOME/.local/bin/lvim"
+alias v=nvim
 alias proxy_on="export https_proxy=http://127.0.0.1:7891 http_proxy=http://127.0.0.1:7891 all_proxy=socks5://127.0.0.1:7891"
 alias proxy_off="export http_proxy=''; export https_proxy=''; export all_prosy=''"
 alias signme="git config --local user.name 'liwuhou' && git config --local user.email 'hugewilliam@foxmail.com'"
@@ -26,46 +31,11 @@ alias rr="nr run"
 alias rb="nr run build"
 alias r="nr run"
 alias cc="claude --dangerously-skip-permissions"
-
-pi() {
-  local pi_bin="/Users/awu/.bun/bin/pi"
-  # pi is installed by bun, but its bin script uses `#!/usr/bin/env node`.
-  # Force a modern Node here so fnm's per-project Node 14/16 won't run pi itself.
-  local pi_node_version="${PI_NODE_VERSION:-24}"
-  local -a pi_cmd
-
-  if command -v fnm >/dev/null 2>&1; then
-    pi_cmd=(fnm exec --using="$pi_node_version" -- "$pi_bin")
-  else
-    pi_cmd=("$pi_bin")
-  fi
-
-  case "${1:-}" in
-    install|remove|uninstall|update|list|config)
-      command "${pi_cmd[@]}" "$@"
-      return
-      ;;
-  esac
-
-  for arg in "$@"; do
-    if [ "$arg" = "--no-skills" ]; then
-      command "${pi_cmd[@]}" "$@"
-      return
-    fi
-  done
-
-  local root
-  root="$(git rev-parse --show-toplevel 2>/dev/null || pwd)"
-
-  local -a skill_args
-  skill_args=(--no-skills)
-
-  if [ -d "$root/.claude/skills" ]; then
-    skill_args+=(--skill "$root/.claude/skills")
-  fi
-
-  command "${pi_cmd[@]}" "${skill_args[@]}" "$@"
-}
+# omp 模型组合预设（overlay，不改全局配置；预设文件在 ~/.dotfiles/omp/presets/）
+alias omp="omp --config ~/.dotfiles/omp/presets/qwen.yml"
+alias ompg="omp --config ~/.dotfiles/omp/presets/gpt.yml"
+alias ompk="omp --config ~/.dotfiles/omp/presets/kimi.yml"
+alias ompc="omp --config ~/.dotfiles/omp/presets/cheap.yml"
 
 
 export XIAOE_REGISTRY="http://111.230.199.61:6888/"

@@ -1,0 +1,8 @@
+# Qwen 日常组合（多模态，性价比）
+modelRoles:
+  default: metarouter/qwen3.7-plus
+  advisor: metarouter/qwen3.8-max
+  task: metarouter/qwen3.7-plus:medium
+  smol: metarouter/qwen3.6-flash:low
+  slow: metarouter/gpt-5.6-sol:xhigh
+  plan: metarouter/gpt-5.6-sol:high

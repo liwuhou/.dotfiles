@@ -1,21 +1,32 @@
 modelRoles: 
-  smol: metarouter/gpt-5.6-luna:low
+  smol: metarouter/qwen3.6-flash:low
   slow: metarouter/gpt-5.6-sol:xhigh
-  plan: metarouter-meiwei/gpt-5.6-terra:high
-  task: metarouter/gpt-5.6-terra:medium
-  advisor: metarouter-meiwei/glm-5.2
-  default: metarouter-meiwei/gpt-5.6-sol
+  plan: metarouter/gpt-5.6-sol:high
+  task: metarouter/qwen3.7-plus:medium
+  advisor: metarouter/qwen3.8-max
+  default: metarouter/qwen3.7-plus
   enabledModels: 
     - metarouter/gpt-5.6-sol
     - metarouter/gpt-5.6-terra
     - metarouter/gpt-5.6-luna
     - metarouter/glm-5.2
     - metarouter/kimi-k3
+    - metarouter/qwen3.8-max
+    - metarouter/qwen3.7-plus
+    - metarouter/qwen3.6-flash
+    - metarouter/qwen3-coder-plus
+    - metarouter/qwen3-coder-flash
+    - metarouter/tencentcloud-th/deepseek-v4-flash
     - metarouter-meiwei/gpt-5.6-sol
     - metarouter-meiwei/gpt-5.6-terra
     - metarouter-meiwei/gpt-5.6-luna
     - metarouter-meiwei/glm-5.2
     - metarouter-meiwei/kimi-k3
+    - metarouter-zzw/gpt-5.6-sol
+    - metarouter-zzw/gpt-5.6-terra
+    - metarouter-zzw/gpt-5.6-luna
+    - metarouter-zzw/glm-5.2
+    - metarouter-zzw/kimi-k3
     - metarouter-anthropic/claude-opus-4-8
     - metarouter-anthropic/doubao-seed-2-1-pro
 modelProviderOrder: 
@@ -89,14 +100,15 @@ tui:
 display: 
   showTokenUsage: true
   cacheMissMarker: true
-task: null
+task: 
+  agentAdvisor: 
+    task: "off"
 skills: 
   enableClaudeUser: false
   enableClaudeProject: true
   showResolvedModelBadge: false
 advisor: 
   enabled: true
-  subagents: false
 memory: 
   backend: local
 autolearn: 

@@ -1,0 +1,8 @@
+# 省钱组合（批量/低价值任务）
+modelRoles:
+  default: metarouter/qwen3.6-flash
+  advisor: metarouter/qwen3.7-plus
+  task: metarouter/qwen3-coder-flash
+  smol: metarouter/qwen3-coder-flash
+  slow: metarouter/qwen3.7-plus
+  plan: metarouter/qwen3.7-plus
