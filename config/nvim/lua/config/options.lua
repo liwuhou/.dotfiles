@@ -1,0 +1,42 @@
+local opt = vim.opt
+
+opt.fileencoding = "utf-8"
+opt.scrolloff = 8
+opt.sidescrolloff = 8
+opt.number = true
+opt.relativenumber = true
+opt.cursorline = false
+opt.signcolumn = "yes"
+opt.colorcolumn = "120"
+opt.tabstop = 2
+opt.softtabstop = 2
+opt.shiftwidth = 2
+opt.shiftround = true
+opt.expandtab = true
+opt.autoindent = true
+opt.smartindent = true
+opt.ignorecase = true
+opt.smartcase = true
+opt.hlsearch = true
+opt.incsearch = true
+opt.cmdheight = 0
+opt.autoread = true
+opt.wrap = true
+opt.whichwrap = "<,>,[,]"
+opt.mouse = "a"
+opt.backup = false
+opt.writebackup = false
+opt.swapfile = false
+opt.updatetime = 300
+opt.timeoutlen = 350
+opt.splitbelow = true
+opt.splitright = true
+opt.completeopt = "menu,menuone,noselect,noinsert"
+opt.background = "dark"
+opt.termguicolors = vim.env.TERM_PROGRAM ~= "Apple_Terminal"
+opt.list = true
+opt.wildmode = "longest:full,full"
+opt.pumheight = 10
+opt.showtabline = 2
+opt.showmode = false
+opt.shortmess:append("c")

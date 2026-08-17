@@ -8,7 +8,7 @@
 # than latin, and that imbalance can't be tuned away (Ghostty has no per-CJK
 # scaling). Maple Mono CN is built specifically to balance CJK vs latin visual
 # weight (smaller CJK face tuned to match latin). Fallback = JetBrainsMono Nerd
-# Font Mono for Nerd Font icons (tmux/lvim statusline). Ghostty tries families
+# Font Mono for Nerd Font icons (tmux/Neovim statusline). Ghostty tries families
 # top-down per glyph.
 font-family = Maple Mono Normal CN
 font-family = JetBrainsMono Nerd Font Mono
@@ -25,7 +25,7 @@ font-style-bold-italic = SemiBold Italic
 # ── Terminal identity ───────────────────────────────────────────────────────
 # Mirror Alacritty's [env] TERM. tmux.conf declares truecolor via the
 # `,*:Tc` terminal-override (which fires for any non-Apple_Terminal host), so
-# Ghostty's 24-bit color reaches tmux/lvim regardless of this TERM string.
+# Ghostty's 24-bit color reaches tmux/Neovim regardless of this TERM string.
 # Keeping xterm-256color also means SSH remotes without xterm-ghostty terminfo
 # keep working. Switch to `xterm-ghostty` if you install that terminfo on the
 # hosts you use and want full feature parity locally.
@@ -34,7 +34,7 @@ term = xterm-256color
 # ── Option key = Alt/Meta (the requested Option shortcuts) ──────────────────
 # Replaces the entire block of Alt+A..Z / Alt+Shift+A..Z / Alt+0..9 / Alt+.
 # bindings from alacritty.toml: Option now sends ESC-prefixed sequences, so
-# shell forward/backward-word (Option+f/b), tmux meta keys, and lvim/which-key
+# shell forward/backward-word (Option+f/b), tmux meta keys, and Neovim/which-key
 # mappings all work. Tradeoff: Option loses its macOS special-char input
 # (Option+f no longer types "ƒ"). Use `left` or `right` instead of `true` to
 # keep special chars on just one Option key.

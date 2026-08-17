@@ -1,15 +1,5 @@
-local M = {}
-
-local theme =
--- "dracula"
--- "nightfox"
-"onedark"
--- "tokyonight-day"
--- "tokyonight-moon"
--- "tokyonight-storm"
-
 local function apply_surface_highlights()
-  if vim.g.colors_name ~= theme then
+  if vim.g.colors_name ~= "onedark" then
     return
   end
 
@@ -43,7 +33,7 @@ local function apply_surface_highlights()
   hl(0, "TelescopePreviewTitle", { fg = colors.bg_d, bg = colors.green, bold = true })
   hl(0, "TelescopePromptPrefix", { fg = colors.blue, bg = colors.bg0, bold = true })
   hl(0, "TelescopeSelection", { bg = colors.bg2 })
-  hl(0, "TelescopeSelectionCaret", { fg = colors.yellow, bg = colors.bg2, bold = true })
+  hl(0, "TelescopeSelectionCaret", { fg = colors.yellow, bg = colors.bg2 })
   hl(0, "TelescopeMatching", { fg = colors.orange, bold = true })
   hl(0, "WhichKeyFloat", { fg = colors.fg, bg = colors.bg0 })
   hl(0, "WhichKeyBorder", { fg = colors.bg3, bg = colors.bg0 })
@@ -61,30 +51,8 @@ local function apply_surface_highlights()
   hl(0, "WinSeparator", { fg = colors.bg2 })
 end
 
-function M.setup()
-  vim.api.nvim_create_autocmd("ColorScheme", {
-    group = vim.api.nvim_create_augroup("UserAppearanceSurfaceHighlights", { clear = true }),
-    pattern = theme,
-    callback = apply_surface_highlights,
-  })
-
-  -- theme
-  lvim:extend({
-    colorscheme = theme,
-    transparent_window = true,
-    builtin = {
-      alpha = {
-        dashboard = {
-          section = reload("appearance.section")
-        }
-      },
-      lualine = {
-        options = {
-          theme = theme,
-        },
-      },
-    },
-  })
-end
-
-return M
+vim.api.nvim_create_autocmd("ColorScheme", {
+  group = vim.api.nvim_create_augroup("UserAppearanceSurfaceHighlights", { clear = true }),
+  pattern = "onedark",
+  callback = apply_surface_highlights,
+})
