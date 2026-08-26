@@ -1,0 +1,11 @@
+metric = "remaining"
+style = "progress_bar"
+show_title = true
+title_template = "❤️ HP {percent}%"
+icon_width = 200
+color_mode = "threshold"
+border_radius = 20
+
+[threshold_boundaries]
+lower = 30
+upper = 50

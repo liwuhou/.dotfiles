@@ -1,0 +1,10 @@
+[display]
+mode = "text"
+text_template = "Life is finite. {complete} of it has passed; {remaining} days remain. Make them count."
+show_born = false
+show_nation = false
+show_gender = false
+show_elapsed = true
+show_remaining = true
+show_complete = true
+show_timeline = true
