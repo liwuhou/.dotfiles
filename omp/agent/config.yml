@@ -1,10 +1,10 @@
 modelRoles: 
-  smol: metarouter/qwen3.6-flash:low
-  slow: metarouter/gpt-5.6-sol:xhigh
-  plan: metarouter/gpt-5.6-sol:high
-  task: metarouter/qwen3.7-plus:medium
-  advisor: metarouter/qwen3.8-max
-  default: metarouter/qwen3.7-plus
+  default: openai-codex/gpt-5.6-terra
+  advisor: metarouter/kimi-k3:high
+  task: openai-codex/gpt-5.6-terra:medium
+  smol: openai-codex/gpt-5.6-luna:low
+  slow: openai-codex/gpt-5.6-sol:xhigh
+  plan: openai-codex/gpt-5.6-sol:high
   enabledModels: 
     - metarouter/gpt-5.6-sol
     - metarouter/gpt-5.6-terra
@@ -50,7 +50,7 @@ providers:
 symbolPreset: nerd
 theme: 
   dark: dark-one
-setupVersion: 1
+setupVersion: 2
 autocompleteMaxVisible: 5
 hideThinkingBlock: true
 statusLine: 
@@ -120,3 +120,5 @@ dev:
 textVerbosity: low
 defaultThinkingLevel: auto
 personality: pragmatic
+composer: 
+  shape: box

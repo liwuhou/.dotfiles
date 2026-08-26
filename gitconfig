@@ -11,3 +11,5 @@ email = hugewilliam@foxmail.com
 	helper = !/usr/local/bin/gh auth git-credential
 [includeIf "hasconfig:remote.*.url:git@talkcheap.xiaoeknow.com:**/**"]
 	path = ~/.gitconfig-talkcheap
+[init]
+	defaultBranch = master

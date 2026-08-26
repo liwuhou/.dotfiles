@@ -1,8 +1,8 @@
 # Kimi K3 组合（旧默认）
 modelRoles:
   default: metarouter/kimi-k3
-  advisor: metarouter/kimi-k3
-  task: metarouter/gpt-5.6-terra:medium
-  smol: metarouter/gpt-5.6-luna:low
+  advisor: metarouter/qwen3.8-max
+  task: metarouter/qwen3.7-plus:medium
+  smol: metarouter/qwen3.6-flash:low
   slow: metarouter/gpt-5.6-sol:xhigh
   plan: metarouter/gpt-5.6-sol:high

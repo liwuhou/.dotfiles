@@ -7,7 +7,6 @@ export ZSH="$HOME/.oh-my-zsh"
 plugins=(
 	git
 	vi-mode
-	zsh-syntax-highlighting
 	zsh-autosuggestions
 	autojump
 )
@@ -17,9 +16,6 @@ source $ZSH/oh-my-zsh.sh
 # User configuration
 
 # Codex uses the Metarouter provider without storing its API key in config.toml.
-if command -v security >/dev/null 2>&1; then
-  export METAROUTER_API_KEY="$(security find-generic-password -a "$USER" -s 'pi/metarouter' -w 2>/dev/null)"
-fi
 # alias v=nvim
 # alias vi=nvim
 alias nvm=fnm
@@ -30,9 +26,10 @@ alias signme="git config --local user.name 'liwuhou' && git config --local user.
 alias rr="nr run"
 alias rb="nr run build"
 alias r="nr run"
-alias cc="claude --dangerously-skip-permissions"
+alias "v."="nvim ."
 # omp 模型组合预设（overlay，不改全局配置；预设文件在 ~/.dotfiles/omp/presets/）
-alias omp="omp --config ~/.dotfiles/omp/presets/qwen.yml"
+alias o="omp"
+alias ompq="omp --config ~/.dotfiles/omp/presets/qwen.yml"
 alias ompg="omp --config ~/.dotfiles/omp/presets/gpt.yml"
 alias ompk="omp --config ~/.dotfiles/omp/presets/kimi.yml"
 alias ompc="omp --config ~/.dotfiles/omp/presets/cheap.yml"
@@ -91,11 +88,11 @@ export PATH="$HOME/opencode:$PATH"
 export PATH="$HOME/Library/Application Support/fnm:$PATH"
 eval "$(fnm env --use-on-cd)"
 
-# pypnv
-export PATH="$(pyenv root)/shims:${PATH}"
+# pyenv
+export PYENV_ROOT="${PYENV_ROOT:-$HOME/.pyenv}"
+export PATH="$PYENV_ROOT/shims:$PATH"
 
-# startship
-# cargo install startship
+# starship
 eval "$(starship init zsh)"
 
 # init
@@ -116,7 +113,7 @@ fi
 
 # welcome
 # echo Life is short, play more!
-life-progress-cli -b 19941210 -g 1 -n china
+life-progress-cli
 
 # bun completions
 [ -s "$HOME/.bun/_bun" ] && source "$HOME/.bun/_bun"
@@ -142,5 +139,24 @@ source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 # Point it at the One Dark gutter grey (#5c6370, the bright-black slot) instead.
 ZSH_HIGHLIGHT_STYLES[comment]=fg=#5c6370
 
-[[ -s "$HOME/.gvm/scripts/gvm" ]] && source "$HOME/.gvm/scripts/gvm"
+if [[ -s "$HOME/.gvm/scripts/gvm" ]]; then
+  # GVM scans the current directory tree during initialization; defer that
+  # cost until Go/GVM is actually used.
+  _gvm_load() {
+    unset -f gvm go 2>/dev/null
+    source "$HOME/.gvm/scripts/gvm"
+  }
+  gvm() {
+    _gvm_load
+    gvm "$@"
+  }
+  go() {
+    _gvm_load
+    command go "$@"
+  }
+fi
 export ECLI_REGISTRY_URL="https://cli-tool-registry-1252524126.cos.ap-shanghai.myqcloud.com/ecli/registry.yaml"
+
+
+# Added by Antigravity CLI installer
+export PATH="/Users/awu/.local/bin:$PATH"
