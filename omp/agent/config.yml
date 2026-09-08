@@ -1,16 +1,22 @@
-modelRoles: 
+modelRoles:
   default: openai-codex/gpt-5.6-terra
-  advisor: metarouter/kimi-k3:high
+  advisor: metarouter-primary/glm-5.2:high
   task: openai-codex/gpt-5.6-terra:medium
   smol: openai-codex/gpt-5.6-luna:low
   slow: openai-codex/gpt-5.6-sol:xhigh
   plan: openai-codex/gpt-5.6-sol:high
-  enabledModels: 
+  enabledModels:
     - metarouter/gpt-5.6-sol
     - metarouter/gpt-5.6-terra
     - metarouter/gpt-5.6-luna
     - metarouter/glm-5.2
     - metarouter/kimi-k3
+    - metarouter-zzw/kimi-k3
+    - metarouter-zzw/glm-5.2
+    - metarouter-meiwei/kimi-k3
+    - metarouter-meiwei/glm-5.2
+    - metarouter-primary/kimi-k3
+    - metarouter-primary/glm-5.2
     - metarouter/qwen3.8-max
     - metarouter/qwen3.7-plus
     - metarouter/qwen3.6-flash
@@ -19,18 +25,21 @@ modelRoles:
     - metarouter/tencentcloud-th/deepseek-v4-flash
     - metarouter-anthropic/claude-opus-4-8
     - metarouter-anthropic/doubao-seed-2-1-pro
-modelProviderOrder: 
+modelProviderOrder:
+  - metarouter-primary
+  - metarouter-zzw
+  - metarouter-meiwei
   - metarouter
   - metarouter-anthropic
-providers: 
-  webSearchOrder: 
-    - exa
+providers:
+  webSearchOrder:
+    - codex
     - perplexity
     - gemini
     - anthropic
-    - codex
     - xai
     - zai
+    - exa
     - tinyfish
     - jina
     - kagi
@@ -48,77 +57,88 @@ providers:
     - mojeek
     - public
 symbolPreset: nerd
-theme: 
+theme:
   dark: dark-one
 setupVersion: 2
 autocompleteMaxVisible: 5
 hideThinkingBlock: true
-statusLine: 
+statusLine:
   preset: custom
   separator: powerline-thin
   transparent: true
   compactThinkingLevel: true
   showHookStatus: true
-  leftSegments: 
+  leftSegments:
     - pi
     - model
     - path
     - git
     - context_pct
-  rightSegments: 
+  rightSegments:
     - subagents
     - session_name
     - token_rate
     - time
-  segmentOptions: 
-    model: 
+  segmentOptions:
+    model:
       showThinkingLevel: true
-    path: 
+    path:
       abbreviate: true
       maxLength: 40
       stripWorkPrefix: true
-    git: 
+    git:
       showBranch: true
       showStaged: true
       showUnstaged: true
       showUntracked: true
-terminal: 
+terminal:
   showProgress: false
-tui: 
+tui:
   textSizing: false
   renderMermaid: true
-display: 
+display:
   showTokenUsage: true
   cacheMissMarker: true
-task: 
-  agentAdvisor: 
+task:
+  agentAdvisor:
     task: "off"
-skills: 
+skills:
   enableClaudeUser: false
   enableClaudeProject: true
   showResolvedModelBadge: false
-advisor: 
+advisor:
   enabled: true
-memory: 
+memory:
   backend: local
-autolearn: 
+autolearn:
   enabled: false
   autoContinue: true
 readLineNumbers: false
-bash: 
-  autoBackground: 
+bash:
+  autoBackground:
     enabled: true
-web_search: 
+web_search:
   enabled: true
-todo: 
+todo:
   reminders: false
   eager: default
-tier: 
+retry:
+  enabled: true
+  maxRetries: 3
+  modelFallback: true
+  fallbackRevertPolicy: never
+  fallbackChains:
+    advisor:
+      - metarouter-primary/glm-5.2:high
+      - metarouter-zzw/glm-5.2:high
+      - metarouter-meiwei/glm-5.2:high
+tier:
   advisor: auto
-dev: 
+  openai: none
+dev:
   autoqaConsent: granted
 textVerbosity: low
 defaultThinkingLevel: auto
 personality: pragmatic
-composer: 
+composer:
   shape: box

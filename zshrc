@@ -1,3 +1,7 @@
+# welcome
+# echo Life is short, play more!
+life-progress-cli
+
 export ZSH="$HOME/.oh-my-zsh"
 
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
@@ -29,6 +33,9 @@ alias r="nr run"
 alias "v."="nvim ."
 # omp 模型组合预设（overlay，不改全局配置；预设文件在 ~/.dotfiles/omp/presets/）
 alias o="omp"
+alias oc="omp -c"
+alias or="omp -r"
+alias ou="omp update"
 alias ompq="omp --config ~/.dotfiles/omp/presets/qwen.yml"
 alias ompg="omp --config ~/.dotfiles/omp/presets/gpt.yml"
 alias ompk="omp --config ~/.dotfiles/omp/presets/kimi.yml"
@@ -110,10 +117,6 @@ if [ "$(command -v exa)" ]; then
 	alias ls="exa -G --color auto --icons -a -s type"
 	alias ll="exa -l --color always --icons -a -s type"
 fi
-
-# welcome
-# echo Life is short, play more!
-life-progress-cli
 
 # bun completions
 [ -s "$HOME/.bun/_bun" ] && source "$HOME/.bun/_bun"

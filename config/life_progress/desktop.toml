@@ -1,5 +1,5 @@
 metric = "remaining"
-style = "progress_bar"
+style = "rainbow_threshold"
 show_title = true
 title_template = "❤️ HP {percent}%"
 icon_width = 200

@@ -4,8 +4,9 @@
 # switch with `ompkey <name>` (see zshrc). Default: pi/metarouter.
 set -u
 pointer="$HOME/.omp/metarouter-key"
-service="pi/metarouter"
-if [[ -r "$pointer" ]]; then
+service="${1:-}"
+if [[ -z "$service" && -r "$pointer" ]]; then
   read -r service < "$pointer"
 fi
+service="${service:-pi/metarouter}"
 /usr/bin/security find-generic-password -a "$USER" -s "$service" -w
