@@ -1,8 +1,8 @@
-# GPT-5.6 全家桶（最高质量）
+# OpenAI Codex + Google Antigravity 分层组合
 modelRoles:
-  default: openai-codex/gpt-5.6-sol
-  advisor: metarouter/kimi-k3:xhigh
+  default: openai-codex/gpt-5.6-terra:medium
+  advisor: google-antigravity/gemini-3-pro:high
   task: openai-codex/gpt-5.6-terra:medium
-  smol: openai-codex/gpt-5.6-luna:low
-  slow: openai-codex/gpt-5.6-sol:xhigh
-  plan: openai-codex/gpt-5.6-sol:high
+  smol: google-antigravity/gemini-3.6-flash:low
+  slow: openai-codex/gpt-6-astra:xhigh
+  plan: openai-codex/gpt-6-astra:high

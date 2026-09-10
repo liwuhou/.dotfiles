@@ -5,6 +5,7 @@ title_template = "❤️ HP {percent}%"
 icon_width = 200
 color_mode = "threshold"
 border_radius = 20
+menu_percent_digits = 8
 
 [threshold_boundaries]
 lower = 30

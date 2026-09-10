@@ -36,10 +36,10 @@ zoom = "prefix+z"
 # Option+1..9 focuses agent slots directly; tabs stay on default prefix+1..9.
 # Option works as Alt here because Ghostty sets macos-option-as-alt = true.
 focus_agent = "alt+1..9"
-# Option+o jumps to the pane targeted by the latest notification.
-open_notification_target = "alt+o"
-# Option+i jumps back to the last focused pane across tabs/workspaces.
-last_pane = "alt+i"
+# Option+i jumps to the pane targeted by the latest notification.
+open_notification_target = "alt+i"
+# Option+o jumps back to the last focused pane across tabs/workspaces.
+last_pane = "alt+o"
 # Ctrl+h/l and Ctrl+Alt+h/l both switch tabs; Ctrl+Alt+j/k switch agents.
 previous_tab = ["ctrl+h", "ctrl+alt+h"]
 next_agent = "ctrl+alt+j"
