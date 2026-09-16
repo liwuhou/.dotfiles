@@ -1,5 +1,5 @@
 modelRoles:
-  default: openai-codex/gpt-5.6-terra:auto
+  default: metarouter-primary/deepseek-v4.1-flash:max
   advisor: google-antigravity/gemini-3.8-flash:high
   task: openai-codex/gpt-5.6-terra:medium
   smol: google-antigravity/gemini-3.8-flash:low
@@ -17,6 +17,8 @@ modelRoles:
     - metarouter-meiwei/glm-5.2
     - metarouter-primary/kimi-k3
     - metarouter-primary/glm-5.2
+    - metarouter-primary/glm-5.3
+    - metarouter-primary/deepseek-v4.1-flash
     - metarouter/qwen3.8-max
     - metarouter/qwen3.7-plus
     - metarouter/qwen3.6-flash
