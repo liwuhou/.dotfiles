@@ -5,6 +5,26 @@ providers:
     apiKey: '!"$HOME"/.dotfiles/omp/scripts/metarouter-key.sh'
     authHeader: true
     models:
+      - id: glm-5.3
+        name: glm-5.3
+        api: openai-completions
+        reasoning: true
+        input: [text, image]
+        cost:
+          input: 8
+          output: 28
+          cacheRead: 2
+          cacheWrite: 0
+        contextWindow: 1000000
+        maxTokens: 128000
+        compat:
+          supportsDeveloperRole: false
+          supportsReasoningEffort: true
+          maxTokensField: max_completion_tokens
+          supportsUsageInStreaming: true
+          reasoningEffortMap:
+            high: high
+            xhigh: max
       - id: glm-5.2
         name: glm-5.2
         api: openai-completions
@@ -25,15 +45,15 @@ providers:
           reasoningEffortMap:
             high: high
             xhigh: max
-      - id: gpt-5.6-sol
-        name: gpt-5.6 Sol
+      - id: deepseek-v4.1-flash
+        name: deepseek-v4.1-flash
         reasoning: true
         input: [text, image]
         cost:
-          input: 5
-          output: 30
-          cacheRead: 0.5
-          cacheWrite: 0.5
+          input: 2
+          output: 8
+          cacheRead: 0.04
+          cacheWrite: 0.04
         contextWindow: 1000000
         maxTokens: 128000
         compat:
@@ -200,17 +220,6 @@ providers:
           supportsDeveloperRole: false
           maxTokensField: max_completion_tokens
           supportsUsageInStreaming: true
-      - id: tencentcloud-th/deepseek-v4-flash
-        name: deepseek-v4-flash
-        api: openai-completions
-        input: [text]
-        cost:
-          input: 1
-          output: 2
-          cacheRead: 0.02
-          cacheWrite: 0
-        contextWindow: 1000000
-        maxTokens: 128000
   metarouter-primary:
     <<: *metarouter_base
     apiKey: '!"$HOME"/.dotfiles/omp/scripts/metarouter-key.sh pi/metarouter'
