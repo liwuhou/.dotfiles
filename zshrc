@@ -133,14 +133,21 @@ export PATH="$HOME/.antigravity/antigravity/bin:$PATH"
 
 # opencode
 export PATH=$HOME/.opencode/bin:$PATH
-source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+if (( $+commands[brew] )); then
+  zsh_syntax_highlighting_path="$(brew --prefix zsh-syntax-highlighting 2>/dev/null)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
+  if [[ -r "$zsh_syntax_highlighting_path" ]]; then
+    source "$zsh_syntax_highlighting_path"
 
-# One Dark sets ANSI black (palette 0) == background (#282c34), so the default
-# `comment` style (fg=black,bold) renders invisible. That style is also used for
-# parameter-elision — a bare `$VAR` whose expansion is empty (e.g. `$ENV` when
-# ENV is unset) gets painted with it, so typing `$ENV` at the prompt vanishes.
-# Point it at the One Dark gutter grey (#5c6370, the bright-black slot) instead.
-ZSH_HIGHLIGHT_STYLES[comment]=fg=#5c6370
+    # One Dark sets ANSI black (palette 0) == background (#282c34), so the
+    # default `comment` style (fg=black,bold) renders invisible. That style is
+    # also used for parameter-elision — a bare `$VAR` whose expansion is empty
+    # (e.g. `$ENV` when ENV is unset) gets painted with it, so typing `$ENV` at
+    # the prompt vanishes. Point it at the One Dark gutter grey (#5c6370, the
+    # bright-black slot) instead.
+    ZSH_HIGHLIGHT_STYLES[comment]=fg=#5c6370
+  fi
+  unset zsh_syntax_highlighting_path
+fi
 
 if [[ -s "$HOME/.gvm/scripts/gvm" ]]; then
   # GVM scans the current directory tree during initialization; defer that
