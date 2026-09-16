@@ -2,8 +2,7 @@ modelRoles:
   default: metarouter-primary/deepseek-v4.1-flash:max
   advisor: google-antigravity/gemini-3.8-flash:medium
   task: openai-codex/gpt-5.6-terra:medium
-  smol: google-antigravity/gemini-3.8-flash:low
-  slow: openai-codex/gpt-6-astra:xhigh
+  smol: google-antigravity/gemini-3.8-flash:medium
   plan: openai-codex/gpt-6-astra:high
   enabledModels:
     - metarouter/gpt-5.6-sol
@@ -26,6 +25,7 @@ modelRoles:
     - metarouter/tencentcloud-th/deepseek-v4-flash
     - metarouter-anthropic/claude-opus-4-8
     - metarouter-anthropic/doubao-seed-2-1-pro
+  slow: openai-codex/gpt-6-astra:high
 modelProviderOrder:
   - metarouter-primary
   - metarouter-zzw

@@ -117,6 +117,7 @@ if [ "$(command -v exa)" ]; then
 	alias ls="exa -G --color auto --icons -a -s type"
 	alias ll="exa -l --color always --icons -a -s type"
 fi
+alias lg="ls -a |grep"
 
 # bun completions
 [ -s "$HOME/.bun/_bun" ] && source "$HOME/.bun/_bun"
