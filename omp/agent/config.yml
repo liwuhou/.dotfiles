@@ -1,5 +1,5 @@
 modelRoles:
-  default: metarouter-primary/deepseek-v4.1-flash:max
+  default: metarouter-primary/deepseek-v4.1-flash
   advisor: google-antigravity/gemini-3.8-flash:medium
   task: openai-codex/gpt-5.6-terra:medium
   smol: google-antigravity/gemini-3.8-flash:medium
@@ -10,13 +10,7 @@ modelRoles:
     - metarouter/gpt-5.6-luna
     - metarouter/glm-5.3
     - metarouter/kimi-k3
-    - metarouter-zzw/kimi-k3
-    - metarouter-zzw/glm-5.3
-    - metarouter-meiwei/kimi-k3
-    - metarouter-meiwei/glm-5.3
-    - metarouter-primary/kimi-k3
-    - metarouter-primary/glm-5.3
-    - metarouter-primary/deepseek-v4.1-flash
+    - metarouter/deepseek-v4.1-flash
     - metarouter/qwen3.8-max
     - metarouter/qwen3.7-plus
     - metarouter/qwen3.6-flash
@@ -27,10 +21,8 @@ modelRoles:
     - metarouter-anthropic/doubao-seed-2-1-pro
   slow: openai-codex/gpt-6-astra:high
 modelProviderOrder:
-  - metarouter-primary
-  - metarouter-zzw
-  - metarouter-meiwei
   - metarouter
+  - metarouter-primary
   - metarouter-anthropic
 providers:
   webSearchOrder:
@@ -131,9 +123,7 @@ retry:
   fallbackRevertPolicy: never
   fallbackChains:
     advisor:
-      - metarouter-primary/glm-5.3-flash:max
-      - metarouter-zzw/glm-5.3-flash:max
-      - metarouter-meiwei/glm-5.3-flash:max
+      - metarouter-primary/glm-5.3-flashx:max
 tier:
   advisor: auto
   openai: none

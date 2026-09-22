@@ -25,8 +25,8 @@ providers:
           reasoningEffortMap:
             high: high
             xhigh: max
-      - id: glm-5.3-flash
-        name: glm-5.3-flash
+      - id: glm-5.3-flashx
+        name: glm-5.3-flashx
         api: openai-completions
         reasoning: true
         input: [text, image]
@@ -223,12 +223,6 @@ providers:
   metarouter-primary:
     <<: *metarouter_base
     apiKey: '!"$HOME"/.dotfiles/omp/scripts/metarouter-key.sh pi/metarouter'
-  metarouter-zzw:
-    <<: *metarouter_base
-    apiKey: '!"$HOME"/.dotfiles/omp/scripts/metarouter-key.sh metarouter-zzw'
-  metarouter-meiwei:
-    <<: *metarouter_base
-    apiKey: '!"$HOME"/.dotfiles/omp/scripts/metarouter-key.sh meiweiToken'
   openai-codex:
     modelOverrides:
       gpt-5.6-luna:

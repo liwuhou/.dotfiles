@@ -47,7 +47,7 @@ export METAROUTER_API_KEY="$(~/.dotfiles/omp/scripts/metarouter-key.sh 2>/dev/nu
 # 切换 metarouter API key（指针文件 ~/.omp/metarouter-key，新 session 生效）
 ompkey() {
   local pointer=~/.omp/metarouter-key
-  local -A keys=(default pi/metarouter meiwei meiweiToken zzw metarouter-zzw)
+  local -A keys=(default pi/metarouter primary pi/metarouter shupin shupin)
   if [[ $# -eq 0 ]]; then
     echo "active: $(cat "$pointer" 2>/dev/null || echo pi/metarouter)"
     echo "available: ${(k)keys}"
