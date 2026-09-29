@@ -31,6 +31,7 @@ alias rr="nr run"
 alias rb="nr run build"
 alias r="nr run"
 alias "v."="nvim ."
+alias h="herdr"
 # omp 模型组合预设（overlay，不改全局配置；预设文件在 ~/.dotfiles/omp/presets/）
 alias o="omp"
 alias oc="omp -c"
