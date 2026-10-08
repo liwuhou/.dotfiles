@@ -55,15 +55,21 @@ ompkey() {
     return
   fi
   local service=${keys[$1]:-$1}
-  echo "$service" > "$pointer"
-  echo "metarouter key -> $service（omp 新 session 生效）"
   local key
-  if key=$(~/.dotfiles/omp/scripts/metarouter-key.sh) && [[ -n "$key" ]]; then
-    launchctl setenv METAROUTER_API_KEY "$key" && echo "codex env 已同步（重启 Codex 生效）"
-  else
-    echo "warning: keychain 读取失败: $service" >&2
+  # 先校验再写指针：写在前面的旧写法在校验失败时会把指针停在无效服务上，
+  # 之后 omp 与每个新 shell 都静默拿到空 key（表现为 omp 完全不可用）。
+  if ! key=$(~/.dotfiles/omp/scripts/metarouter-key.sh "$service" 2>/dev/null) || [[ -z "$key" ]]; then
+    echo "warning: keychain 读取失败: $service（指针文件未改动，仍是 $(cat "$pointer" 2>/dev/null || echo pi/metarouter)）" >&2
     return 1
   fi
+  echo "$service" > "$pointer"
+  echo "metarouter key -> $service（omp 新 session 生效）"
+  # 同步兜底文件（0600）：SSH 会话 / 重启后 keychain 未解锁时 omp 靠它取 key
+  local fallback=~/.omp/metarouter-key-value
+  if (umask 077; printf '%s\n%s\n' "$service" "$key" > "$fallback") && chmod 600 "$fallback"; then
+    echo "兜底文件已更新（~/.omp/metarouter-key-value，供 SSH/重启后使用）"
+  fi
+  launchctl setenv METAROUTER_API_KEY "$key" && echo "codex env 已同步（重启 Codex 生效）"
 }
 
 

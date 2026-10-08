@@ -47,6 +47,30 @@ behavior. LSP is enabled by schema defaults unless overridden in
 `<repo>/.omp/lsp.json` or another documented OMP LSP config path, not in the
 global model config.
 
+### metarouter key resolution
+
+`omp/agent/models.yml` gets the metarouter key by running
+`omp/scripts/metarouter-key.sh` (`apiKey: '!"$HOME"/…'`), which resolves in
+this order:
+
+1. macOS Keychain, service name from the pointer file `~/.omp/metarouter-key`
+   (default `pi/metarouter`); switch with `ompkey <name>`, which validates
+   before rewriting the pointer and also refreshes the fallback file.
+2. Fallback file `~/.omp/metarouter-key-value` (mode 0600, line 1 = service,
+   line 2 = key), used only when its service matches the active one.
+
+The fallback exists because the login keychain's unlock state is **per
+session**: an SSH session (or a fresh boot before unlocking) reads nothing
+from the keychain, so omp reports `no API key` and `ompkey` prints
+`keychain 读取失败` even though the key itself is valid. Recognizable
+symptom: omp works in a GUI-session terminal but not over SSH after a
+reboot, while the same key verifies fine against the API.
+
+The script must never depend on `$USER` (with `set -u`, a stripped
+environment aborts and yields an empty key — use `id -un`). Note that
+`security` resolves keychains via `$HOME`, so an overridden `HOME` silently
+breaks the keychain path too.
+
 ## Neovim（LazyVim）
 
 Neovim 配置位于 `config/nvim/`，通过 `rcup` 链接到 `~/.config/nvim`；使用 `nvim`（或 `v`）启动。自定义选项、键位和自动命令分别在 `lua/config/`，插件配置在 `lua/plugins/editor.lua`。

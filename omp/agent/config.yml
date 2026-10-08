@@ -20,35 +20,11 @@ modelRoles:
     - metarouter-anthropic/claude-opus-4-8
     - metarouter-anthropic/doubao-seed-2-1-pro
   slow: openai-codex/gpt-6-astra:high
+  web: openai-codex/gpt-5.6-luna
 modelProviderOrder:
   - metarouter
   - metarouter-primary
   - metarouter-anthropic
-providers:
-  webSearchOrder:
-    - codex
-    - perplexity
-    - gemini
-    - anthropic
-    - xai
-    - zai
-    - exa
-    - tinyfish
-    - jina
-    - kagi
-    - tavily
-    - firecrawl
-    - brave
-    - kimi
-    - parallel
-    - synthetic
-    - searxng
-    - startpage
-    - duckduckgo
-    - ecosia
-    - google
-    - mojeek
-    - public
 symbolPreset: nerd
 theme:
   dark: dark-one
@@ -101,7 +77,7 @@ skills:
   enableClaudeProject: true
   showResolvedModelBadge: false
 advisor:
-  enabled: true
+  enabled: false
 memory:
   backend: local
 autolearn:
@@ -124,6 +100,34 @@ retry:
   fallbackChains:
     advisor:
       - metarouter-primary/glm-5.3-flashx:max
+    web:
+      - web/perplexity
+      - google/gemini-2.5-flash
+      - anthropic/claude-haiku-4-5
+      - xai/grok-4.5
+      - web/zai
+      - web/exa
+      - web/tinyfish
+      - web/jina
+      - web/kagi
+      - web/tavily
+      - web/firecrawl
+      - web/brave
+      - web/kimi
+      - web/parallel
+      - web/synthetic
+      - web/searxng
+      - web/startpage
+      - web/duckduckgo
+      - web/ecosia
+      - web/google
+      - web/mojeek
+      - web/public
+      - google-antigravity/gemini-2.5-flash
+      - openai-codex/gpt-5.6
+      - openai-codex/gpt-5.5
+      - xai-oauth/grok-4.5
+      - web/ollama
 tier:
   advisor: auto
   openai: none
