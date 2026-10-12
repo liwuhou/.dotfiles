@@ -77,7 +77,7 @@ export XIAOE_REGISTRY="http://111.230.199.61:6888/"
 export PATH="$HOME/.local/bin:$PATH"
 
 # pnpm
-export PNPM_HOME="/Users/awu/Library/pnpm"
+export PNPM_HOME="$HOME/Library/pnpm"
 case ":$PATH:" in
   *":$PNPM_HOME/bin:"*) ;;
   *) export PATH="$PNPM_HOME/bin:$PATH" ;;
@@ -174,6 +174,10 @@ if [[ -s "$HOME/.gvm/scripts/gvm" ]]; then
   }
 fi
 export ECLI_REGISTRY_URL="https://cli-tool-registry-1252524126.cos.ap-shanghai.myqcloud.com/ecli/registry.yaml"
+
+
+# Added by Antigravity CLI installer
+export PATH="$HOME/.local/bin:$PATH"
 
 
 # Added by Antigravity CLI installer

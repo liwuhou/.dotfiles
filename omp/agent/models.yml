@@ -46,7 +46,7 @@ providers:
             high: high
             xhigh: max
       - id: deepseek-v4.1-flash
-        name: deepflash
+        name: dsflash
         reasoning: true
         input: [text, image]
         cost:

@@ -1,14 +1,14 @@
 modelRoles:
-  default: metarouter-primary/deepseek-v4.1-flash
-  advisor: google-antigravity/gemini-3.8-flash:medium
-  task: openai-codex/gpt-5.6-terra:medium
-  smol: google-antigravity/gemini-3.8-flash:medium
-  plan: openai-codex/gpt-6-astra:high
+  advisor: metarouter/deepseek-v4.1-flash:max
+  task: metarouter-primary/deepseek-v4.1-flash:max
+  smol: metarouter-primary/glm-5.3-flashx:medium
+  plan: metarouter-primary/deepseek-v4.1-flash:max
   enabledModels:
     - metarouter/gpt-5.6-sol
     - metarouter/gpt-5.6-terra
     - metarouter/gpt-5.6-luna
     - metarouter/glm-5.3
+    - metarouter/glm-5.3-flashx
     - metarouter/kimi-k3
     - metarouter/deepseek-v4.1-flash
     - metarouter/qwen3.8-max
@@ -19,8 +19,9 @@ modelRoles:
     - metarouter/tencentcloud-th/deepseek-v4-flash
     - metarouter-anthropic/claude-opus-4-8
     - metarouter-anthropic/doubao-seed-2-1-pro
-  slow: openai-codex/gpt-6-astra:high
+  slow: google-antigravity/gemini-3.8-flash:high
   web: openai-codex/gpt-5.6-luna
+  default: metarouter-primary/deepseek-v4.1-flash
 modelProviderOrder:
   - metarouter
   - metarouter-primary
@@ -69,9 +70,15 @@ tui:
 display:
   showTokenUsage: true
   cacheMissMarker: true
+  pinnedAgents: full
+  subagentLivePreview: true
 task:
   agentAdvisor:
     task: "off"
+  eager: preferred
+  agentCompactionThresholdOverrides:
+    task: 90000
+    scout: 80%
 skills:
   enableClaudeUser: false
   enableClaudeProject: true
@@ -90,6 +97,7 @@ bash:
 web_search:
   enabled: true
 todo:
+  enabled: false
   reminders: false
   eager: default
 retry:
