@@ -2,7 +2,7 @@ providers:
   metarouter: &metarouter_base
     baseUrl: https://metarouter-ai.xiaoe-tools.com/api/v1
     api: openai-responses
-    apiKey: '!"$HOME"/.dotfiles/omp/scripts/metarouter-key.sh'
+    apiKey: '!security find-generic-password -a "$USER" -s"metarouter-primary" -w'
     authHeader: true
     models:
       - id: glm-5.3
@@ -46,7 +46,7 @@ providers:
             high: high
             xhigh: max
       - id: deepseek-v4.1-flash
-        name: dsflash
+        name: flash
         reasoning: true
         input: [text, image]
         cost:
@@ -221,18 +221,8 @@ providers:
           maxTokensField: max_completion_tokens
           supportsUsageInStreaming: true
   metarouter-primary:
-    <<: *metarouter_base
+    !!merge <<: *metarouter_base
     apiKey: '!"$HOME"/.dotfiles/omp/scripts/metarouter-key.sh pi/metarouter'
-  openai-codex:
-    modelOverrides:
-      gpt-5.6-luna:
-        contextWindow: 1000000
-      gpt-5.6-sol:
-        contextWindow: 1000000
-      gpt-5.6-terra:
-        contextWindow: 1000000
-      gpt-6-astra:
-        contextWindow: 1000000
   metarouter-anthropic:
     baseUrl: https://metarouter-ai.xiaoe-tools.com/api/anthropic
     api: anthropic-messages

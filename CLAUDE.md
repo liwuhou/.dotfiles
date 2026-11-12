@@ -32,6 +32,23 @@ repo now tracks the live source files at `omp/agent/config.yml` and
 `omp/agent/models.yml`, linked by rcm to `~/.omp/agent/config.yml` and
 `~/.omp/agent/models.yml`.
 
+ChatGPT Pro models use OMP's built-in `openai-codex` OAuth provider, not the
+`openai` API-key provider. Use `omp login openai-codex` if the subscription
+session expires and `omp models openai-codex` to inspect the available catalog.
+The default role uses GPT-6.1 Sol with automatic reasoning; the advisor uses
+GPT-6.1 Sol at max. Task/plan/slow keep GPT-6 Astra at max, and `smol` uses
+GPT-6 Luna with automatic effort.
+`extendedContext: true` opts into larger provider-supported windows and may
+increase subscription usage. Name-only `openai-codex.modelOverrides` in
+`models.yml` set display aliases without changing provider/model IDs or routing.
+Do not pin Codex context sizes there: manual window overrides can prevent the
+extended-window policy from taking effect.
+
+`task.eager: default` avoids an extra push to delegate. The
+`omp/agent/rules/parallel-slices.md` rule keeps single-line work with the main
+agent and batches two or more genuinely independent slices in one `task` call;
+`parallel-nudge.ts` only prompts a re-check of remaining work.
+
 Use `omp config get <key>` / `omp config list` to inspect effective settings;
 `omp config set/reset` writes to the live global config file. If either
 `config.yml` or `models.yml` is newly adopted or recreated, run `rcup` and

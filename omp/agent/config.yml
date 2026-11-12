@@ -1,36 +1,22 @@
 modelRoles:
-  advisor: metarouter/deepseek-v4.1-flash:max
-  task: metarouter-primary/deepseek-v4.1-flash:max
-  smol: metarouter-primary/glm-5.3-flashx:medium
-  plan: metarouter-primary/deepseek-v4.1-flash:max
-  enabledModels:
-    - metarouter/gpt-5.6-sol
-    - metarouter/gpt-5.6-terra
-    - metarouter/gpt-5.6-luna
-    - metarouter/glm-5.3
-    - metarouter/glm-5.3-flashx
-    - metarouter/kimi-k3
-    - metarouter/deepseek-v4.1-flash
-    - metarouter/qwen3.8-max
-    - metarouter/qwen3.7-plus
-    - metarouter/qwen3.6-flash
-    - metarouter/qwen3-coder-plus
-    - metarouter/qwen3-coder-flash
-    - metarouter/tencentcloud-th/deepseek-v4-flash
-    - metarouter-anthropic/claude-opus-4-8
-    - metarouter-anthropic/doubao-seed-2-1-pro
-  slow: google-antigravity/gemini-3.8-flash:high
-  web: openai-codex/gpt-5.6-luna
-  default: metarouter-primary/deepseek-v4.1-flash
+  slow: openai-codex/gpt-6-astra:max
+  plan: openai-codex/gpt-6.1-sol:high
+  advisor: openai-codex/gpt-6-sol:high
+  task: openai-codex/gpt-6-luna:medium
+  web: metarouter-primary/deepseek-v4.1-flash
+  smol: metarouter-primary/deepseek-v4.1-flash
+  default: metarouter-primary/deepseek-v4.1-flash:max
 modelProviderOrder:
+  - openai-codex
   - metarouter
   - metarouter-primary
   - metarouter-anthropic
+  - google-antigravity
 symbolPreset: nerd
 theme:
   dark: dark-one
   light: light
-setupVersion: 2
+setupVersion: 3
 autocompleteMaxVisible: 5
 hideThinkingBlock: true
 statusLine:
@@ -49,7 +35,6 @@ statusLine:
     - subagents
     - session_name
     - token_rate
-    - time
   segmentOptions:
     model:
       showThinkingLevel: true
@@ -74,8 +59,8 @@ display:
   subagentLivePreview: true
 task:
   agentAdvisor:
-    task: "off"
-  eager: preferred
+    task: "on"
+  eager: default
   agentCompactionThresholdOverrides:
     task: 90000
     scout: 80%
@@ -84,7 +69,7 @@ skills:
   enableClaudeProject: true
   showResolvedModelBadge: false
 advisor:
-  enabled: false
+  enabled: true
 memory:
   backend: local
 autolearn:
@@ -104,10 +89,28 @@ retry:
   enabled: true
   maxRetries: 3
   modelFallback: true
-  fallbackRevertPolicy: never
+  fallbackOn: any
+  fallbackRevertPolicy: cooldown-expiry
+  usageAwareFallback: true
+  usageReservePct: 5
+  usageReservePolicy: auto
   fallbackChains:
-    advisor:
-      - metarouter-primary/glm-5.3-flashx:max
+    openai-codex/*:
+      - openai-codex/gpt-6-sol:high
+      - openai-codex/gpt-6-luna:high
+      - metarouter/deepseek-v4.1-flash:high
+    google-antigravity/claude-opus-4-6:
+      - openai-codex/gpt-6.1-sol:high
+      - openai-codex/gpt-6-sol:high
+      - metarouter/deepseek-v4.1-flash:high
+    google-antigravity/claude-sonnet-4-6:
+      - openai-codex/gpt-6-sol:high
+      - openai-codex/gpt-6-luna:high
+      - metarouter/deepseek-v4.1-flash:high
+    google-antigravity/*:
+      - openai-codex/gpt-6.1-sol:high
+      - openai-codex/gpt-6-sol:high
+      - metarouter/deepseek-v4.1-flash:high
     web:
       - web/perplexity
       - google/gemini-2.5-flash
@@ -131,20 +134,26 @@ retry:
       - web/google
       - web/mojeek
       - web/public
-      - google-antigravity/gemini-2.5-flash
-      - openai-codex/gpt-5.6
-      - openai-codex/gpt-5.5
+      - openai-codex/gpt-5.6-luna
+      - openai-codex/gpt-6-luna
       - xai-oauth/grok-4.5
       - web/ollama
 tier:
   advisor: auto
-  openai: none
+  openai: priority
 dev:
   autoqaConsent: granted
 textVerbosity: low
+extendedContext: true
 defaultThinkingLevel: auto
 personality: pragmatic
 composer:
   shape: box
 edit:
   mode: hashline
+browser:
+  relay: false
+providers:
+  openaiWebsockets: "off"
+update:
+  auto: true

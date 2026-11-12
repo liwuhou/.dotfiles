@@ -139,8 +139,6 @@ export PATH="$HOME/.codeium/windsurf/bin:$PATH"
 # Added by Antigravity
 export PATH="$HOME/.antigravity/antigravity/bin:$PATH"
 
-# opencode
-export PATH=$HOME/.opencode/bin:$PATH
 if (( $+commands[brew] )); then
   zsh_syntax_highlighting_path="$(brew --prefix zsh-syntax-highlighting 2>/dev/null)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
   if [[ -r "$zsh_syntax_highlighting_path" ]]; then
@@ -174,11 +172,3 @@ if [[ -s "$HOME/.gvm/scripts/gvm" ]]; then
   }
 fi
 export ECLI_REGISTRY_URL="https://cli-tool-registry-1252524126.cos.ap-shanghai.myqcloud.com/ecli/registry.yaml"
-
-
-# Added by Antigravity CLI installer
-export PATH="$HOME/.local/bin:$PATH"
-
-
-# Added by Antigravity CLI installer
-export PATH="/Users/awu/.local/bin:$PATH"

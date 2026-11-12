@@ -3,7 +3,7 @@ import { appendFileSync } from "node:fs";
 import type { HookAPI } from "@oh-my-pi/pi-coding-agent/extensibility/hooks";
 
 /**
- * 串行提醒：主会话一直自己干活、迟迟不委派子代理时，在工具结果之后注入一条提醒。
+ * 并行复核：长任务尚未委派时提醒检查剩余工作是否真能切成独立任务。
  *
  * 零 LLM 成本——只数工具调用的次数与名字，不做任何模型判断：
  *   - 触发：距上次 `task` 委派累计 >= 阈值 次工具调用，且其中 >= MIN_EDITS 次是编辑/写入；
@@ -42,10 +42,9 @@ function readMinEdits(): number {
 
 function nudgeText(limit: number, edits: number): string {
   return [
-    `[并行提醒] 距上次委派子代理已经过了 ${limit} 次工具调用（其中 ${edits} 次是编辑/写入）。`,
-    "停下来切一刀：把剩下要做的事写成互不依赖的切片，每个切片标清目标文件（独占写面）、验收命令与不做的事，",
-    "然后用一次 task 批量并行下发（一个 tasks[] 里放多条，子代理各自空白上下文）。",
-    "只有真正有顺序依赖的步骤才继续自己串行做。",
+    `[并行复核] 距上次委派子代理已经过了 ${limit} 次工具调用（其中 ${edits} 次是编辑/写入）。`,
+    "检查剩余工作：若还有至少两个互不依赖的切片，分别界定目标、独占写面与验收方式，",
+    "再用一次 task 的 tasks[] 批量并行下发。若只剩单线工作或依赖链，继续由主代理完成，不必为并发硬拆。",
   ].join("");
 }
 

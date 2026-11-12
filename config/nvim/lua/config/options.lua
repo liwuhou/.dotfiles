@@ -1,3 +1,7 @@
+-- Prefer the git root over the `lua/` heuristic: in dotfiles-style repos the
+-- latter resolves to the nvim config dir and hides the rest of the repo.
+vim.g.root_spec = { ".git", "lsp", "cwd" }
+
 local opt = vim.opt
 
 opt.fileencoding = "utf-8"

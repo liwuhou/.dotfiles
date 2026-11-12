@@ -1,1 +1,1 @@
-EXCLUDES="README.md CLAUDE.md package.json node_modules claude cc-switch"
+EXCLUDES="README.md CLAUDE.md package.json node_modules claude cc-switch docs raycast"
