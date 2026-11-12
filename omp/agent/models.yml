@@ -2,7 +2,7 @@ providers:
   metarouter: &metarouter_base
     baseUrl: https://metarouter-ai.xiaoe-tools.com/api/v1
     api: openai-responses
-    apiKey: '!security find-generic-password -a "$USER" -s"metarouter-primary" -w'
+    apiKey: '!security find-generic-password -s pi/metarouter -w'
     authHeader: true
     models:
       - id: glm-5.3
@@ -222,11 +222,11 @@ providers:
           supportsUsageInStreaming: true
   metarouter-primary:
     !!merge <<: *metarouter_base
-    apiKey: '!security find-generic-password -a "$USER" -s"metarouter-primary" -w'
+    apiKey: '!security find-generic-password -s pi/metarouter -w'
   metarouter-anthropic:
     baseUrl: https://metarouter-ai.xiaoe-tools.com/api/anthropic
     api: anthropic-messages
-    apiKey: '!security find-generic-password -a "$USER" -s"metarouter-primary" -w'
+    apiKey: '!security find-generic-password -s pi/metarouter -w'
     authHeader: true
     models:
       - id: claude-opus-4-8
