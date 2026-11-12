@@ -10,10 +10,13 @@
 #      an SSH session (or a fresh boot before unlocking) reads nothing from
 #      the keychain while the GUI session reads fine.
 #
-# Consumers: ~/.dotfiles/omp/agent/models.yml (apiKey `!` command) and zshrc.
+# Consumers: zshrc (METAROUTER_API_KEY for the Codex CLI) and the
+# codex-environment LaunchAgent. OMP's models.yml reads Keychain directly and
+# does not use this script.
 # Must never depend on $USER: launchd agents and other stripped environments
 # run this with USER unset, and `set -u` would then abort with an empty key,
-# which surfaces as omp "no API key" / ompkey "keychain 读取失败".
+# which surfaces as an empty METAROUTER_API_KEY (Codex "no API key") and
+# ompkey "keychain 读取失败".
 set -u
 pointer="$HOME/.omp/metarouter-key"
 fallback="$HOME/.omp/metarouter-key-value"
